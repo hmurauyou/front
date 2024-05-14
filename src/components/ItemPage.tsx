@@ -71,7 +71,7 @@ export const ItemPage = () => {
                             Prefix: `photos/${itemData?.id}/all`, 
                         }).promise();
                 
-                        const urls = objectsList.Contents?.map(obj => {
+                        const urls = objectsList.Contents?.map((obj: any) => {
                             return s3.getSignedUrl('getObject', {
                                 Bucket: 'tradeocean',
                                 Key: obj.Key || '',
