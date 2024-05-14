@@ -1,0 +1,118 @@
+.error_page {
+    display: flex;
+    background-color: linen;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.error_page h1 {
+    font-family: "Orelega One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(5rem, 20vw, 20rem);
+    position: relative;
+    margin: -8vh 0 0;
+    padding: 0;
+}
+
+.error_page h1::after {
+    content: attr(data-h1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: transparent;
+    background: -webkit-repeating-linear-gradient(
+        -45deg,
+        #71b7e6,
+        #69a6ce,
+        #b98acc,
+        #ee8176,
+        #b98acc,
+        #69a6ce,
+        #9b59b6
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+    animation: animatedTextBackground 10s ease-in-out infinite;
+}
+
+.error_page h1 + p {
+    color: #557C70;
+    font-family: "Orelega One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1rem, 20vw, 4rem);
+    line-height: 10vh;
+    max-width: 660px;
+    position: relative;
+}
+
+.error_page h1 + p::after {
+    content: attr(data-h1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: transparent;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+#particles-js {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes animatedTextBackground {
+    0% {
+        background-position: 0 0;
+    }
+
+    25% {
+        background-position: 100% 0;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    75% {
+        background-position: 10 100%;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .error_page h1 {
+        font-size: 32vw;
+    }
+
+    .error_page h1 + p {
+        font-size: 8vw;
+        line-height: 10vw;
+        max-width: 70vw;
+    }
+}

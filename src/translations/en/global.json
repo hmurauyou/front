@@ -1,0 +1,175 @@
+{
+    "header": {
+        "navbar": {
+            "home": "Home",
+            "about": "About",
+            "products": "Products",
+            "contacts": "Contacts"
+        }
+    },
+    "home": {
+        "message": "We are successful seafood brokers"
+    },
+    "about": {
+        "section_1": {
+            "header": "Who we are",
+            "message": "Our company is engaged in brokerage activities in the food market, specializing mainly in seafood trading. We are ready to consider the possibility of cooperation and discuss the terms of contracts with interested parties."
+        },
+        "section_2": {
+            "header": "Our Mission",
+            "message": "Our main objective is to ensure effective settlement of trade relations between the parties, to reach agreements on attractive and fair prices for products and to guarantee successful realization of deliveries. We strive to create long-term and mutually beneficial partnerships based on mutual trust and transparency."
+        },
+        "section_3": {
+            "header": "Our Case",
+            "message": "Our core business is the organization and implementation of long-term supply contracts with our major partners. In addition, we take care of the logistical aspects of supplying products to our customers in accordance with the agreements. Our experience and professionalism allow us to effectively coordinate all stages of the process: from contract negotiation to successful delivery of goods. We strive for a high level of service and satisfaction of our customers, maintaining stable and trusting relationships in the market."
+        },
+        "section_4": {
+            "header": "Offerings",
+            "message": "Our offer is based on the provision of high quality products, confirmed by the necessary licenses and quality certificates. We also adhere to the principles of transparency and honesty in all our business relationships with customers and partners, which is demonstrated by drawing up clear and detailed contracts. Our goal also includes working to normalize the prices of our products in the market, which contributes to the stability and confidence of our partners and customers in transactions with us. We are convinced that honesty, quality and honoring commitments are the basis for long-term and successful business relationships."
+        },
+        "section_5": {
+            "header": "Market",
+            "message": "According to expert estimates and our own forecasts, the volume of the food market in the Russian Federation is expected to exceed the mark of 21 trillion Russian rubles, equivalent to 230 billion dollars, by 2024. In parallel, it is worth noting that the volume of food trade relations between the Republic of Belarus and the Russian Federation amounts to 26.1 billion dollars or approximately 2.4 trillion Russian rubles."
+        }
+    },
+    "products": {
+        "seafood": "Seafood",
+        "mussels": "Mussels",
+        "shrimps": "Shrimps",
+        "crab": "Crab",
+        "fish": "Fish",
+        "caviar": "Caviar",
+        "cocktail": "Cocktail",
+        "liquid_oil": "Liquid Oil",
+        "sauces": "Sauces",
+        "water": "Water",
+        "searchPlaceholder": "Search",
+        "RUS": "Russia",
+        "products_names": {
+            "Mussels": "Mussels",
+            "Shrimps": "Shrimps",
+            "Crab": "Crab",
+            "Cocktail": "Cocktail",
+            "Fish": "Fish",
+            "Caviar": "Caviar"
+        },
+        "country": "Country",
+        "description": "Description",
+        "net_weight": "Net weight",
+        "shelf_life": "Shelf life",
+        "price": "Price",
+        "products_info": {
+            "0993d50f-0fe8-4285-a6ef-b7127241a14f": {
+                "name": "Mussels",
+                "product": "mussels",
+                "category": "seafood",
+                "country_id": "Russia",
+                "shelf_life": "until 13.01.2025",
+                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            },
+            "2612a220-38f8-474c-859a-3d974dfa7e8c": {
+                "name": "Fish",
+                "product": "fish",
+                "category": "seafood",
+                "country_id": "Russia",
+                "shelf_life": "until 13.01.2025",
+                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            },
+            "89fe4f43-fbc0-46eb-bc23-b099be61e412": {
+                "name": "Shrimps",
+                "product": "shrimps",
+                "category": "seafood",
+                "country_id": "Russia",
+                "shelf_life": "until 13.01.2025",
+                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            },
+            "a0322dee-06ca-479e-9f37-58e071d5bab8": {
+                "name": "Cocktail",
+                "product": "cocktail",
+                "category": "seafood",
+                "country_id": "Russia",
+                "shelf_life": "until 13.01.2025",
+                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            },
+            "d28c4cf2-40cd-4e33-b66f-67d88437cc0d": {
+                "name": "Caviar",
+                "product": "caviar",
+                "category": "seafood",
+                "country_id": "Russia",
+                "shelf_life": "until 13.01.2025",
+                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            },
+            "e535d0db-cb8a-4e0d-a18b-cbbcea60fe52": {
+                "name": "Crab Komchatka",
+                "product": "crab",
+                "category": "seafood",
+                "country_id": "Russia",
+                "shelf_life": "until 13.01.2025",
+                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            },
+            "89cbb820-17a1-40b7-b966-fb31183d1f50": {
+                "name": "Kolomata",
+                "product": "liquid_oil",
+                "category": "liquid_oil",
+                "country_id": "Russia",
+                "shelf_life": "until 13.01.2025",
+                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            },
+            "ff58af63-00c9-4942-8ef2-54c8340f7d78": {
+                "name": "Hot Sauce",
+                "product": "sauces",
+                "category": "sauces",
+                "country_id": "Russia",
+                "shelf_life": "until 13.01.2025",
+                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            },
+            "37eb6c1f-13f3-4fd7-b89f-61fc95a00bfe": {
+                "name": "By water",
+                "product": "water",
+                "category": "water",
+                "country_id": "Russia",
+                "shelf_life": "until 13.01.2025",
+                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            }
+        },
+        "pricelist": {
+            "message": "Unfortunately on this device you will not be able to visualize the products, so we offer you to download our price list",
+            "button": "Download",
+            "loading": "Loading..."
+        }
+    },
+    "contacts": {
+        "header": "Contacts",
+        "name": "Name",
+        "surname": "Surname",
+        "patronymic": "Patronymic",
+        "contact_phone": "Phone",
+        "email": "Email",
+        "send": "Send",
+        "thankYou": "Thank You!",
+        "loading": "Loading..."
+    },
+    "footer": {
+        "website": {
+            "message": "Official website of the company."
+        },
+        "information": {
+            "subject": "Information:",
+            "message": "© 2024 IE \"TradeOcean\""
+        },
+        "contacts": {
+            "subject": "Contacts:",
+            "message": "Also you can connact us via Telegram or Email:"
+        },
+        "rights": {
+            "message": "@ All rights reserved."
+        }
+    },
+    "verify": {
+        "message": "Thank you, you have been verified",
+        "error": "Something wend wrong"
+    },
+    "not_found": {
+        "message": "Page Not Found"
+    }
+}

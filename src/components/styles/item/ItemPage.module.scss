@@ -1,0 +1,58 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: linen;
+}
+
+.prev_btn {
+    display: flex;
+    width: 75%;
+    justify-content: flex-start;
+}
+
+.item_card {
+    width: 75%;
+    height: auto;
+    overflow: hidden;  
+}
+
+.card_init {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.images {
+    border-radius: 10px;
+}
+
+.price {
+    color: #557C70;
+    text-decoration: none;
+    font-family: "Orelega One", serif;
+    font-weight: 300;
+    font-size: clamp(1rem, 4vw, 1.4rem);
+}
+
+.name {
+    color: #557C70;
+    text-decoration: none;
+    font-family: "Orelega One", serif;
+    font-weight: 300;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+}
+
+@media (max-width: 991px) {
+    .item_card {
+        display: none;
+    }
+
+    .prev_btn {
+        display: none;
+    }
+}

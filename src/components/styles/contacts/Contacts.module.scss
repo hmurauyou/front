@@ -1,0 +1,277 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    height: 100vh;
+}
+
+.bg_video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.8);
+}
+
+.contact_box {
+    position: relative;
+    margin-top: 100px;
+    width: 450px;
+    backdrop-filter: blur(25px);
+    border: 2px solid #c6c3c3;
+    border-radius: 15px;
+    padding: 7.5em 2.5em 4em 2.5em;
+    color: #ffffff;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.contact_header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c6c3c3;
+    width: 160px;
+    height: 70px;
+    border-radius: 0 0 20px 20px;
+}
+
+.contact_header span {
+    font-family: "Orelega One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color: #000;
+}
+
+.contact_header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    background: transparent;
+}
+
+.contact_header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    background: transparent;
+}
+
+.input_box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.input_field {
+    width: 100%;
+    height: 55px;
+    font-size: 16px;
+    background: transparent;
+    color: #ffffff;
+    padding-inline: 20px 50px;
+    border: 2px solid #c6c3c3;
+    border-radius: 30px;
+    outline: none;
+}
+
+#name {
+    margin-bottom: 10px;
+}
+
+.label {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    transition: .2s;
+}
+
+.input_field:not(:placeholder-shown) ~ .label,
+.input_field:focus ~ .label {
+    top: -10px;
+    font-size: 14px;
+    color: #000;
+    background-color: #c6c3c3;
+    border-radius: 30px;
+    padding: 0 10px;
+}
+
+.input_field:invalid:not(:focus):not(:placeholder-shown) ~ .label {
+    top: -10px;
+    font-size: 14px;
+    color: #ff0000;
+    background-color: #ffcfcf; 
+    border-radius: 30px;
+    padding: 0 10px;
+}
+
+.input_field::placeholder {
+    color: transparent; 
+}
+
+.input_box i {
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    font-size: 20px;
+}
+
+.input_submit {
+    width: 100%;
+    height: 50px;
+    background: #ececec;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.input_submit:hover {
+    background: #ffffff;
+}
+
+.input_submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+@media (min-width: 1025px) {
+    .wrapper {
+        height: 100vh;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .wrapper {
+        height: 120vh;
+    }
+
+    .contact_box {
+        width: 500px;
+        padding: 8.5em 2.5em 5em 2.5em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .wrapper {
+        height: 110vh;
+    }
+
+    .contact_box {
+        width: 370px;
+        padding: 6.5em 2em 2em;
+    }
+}
+
+@media (min-width: 414px) and (max-width: 480px) {
+    .wrapper {
+        height: 101vh;
+    }
+
+    .contact_box {
+        width: 370px;
+        padding: 5.5em 2em 1em;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 413px) {
+    .wrapper {
+        height: 100vh;
+    }
+
+    .contact_box {
+        width: 370px;
+        padding: 7.5em 2em 4em;
+    }
+}
+
+@media (min-width: 390px) and (max-width: 400px) {
+    .wrapper {
+        height: 100vh;
+    }
+    
+    .contact_box {
+        width: 350px;
+        padding: 7.5em 2em 4em;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 374px) {
+    .wrapper {
+        height: 100vh;
+    }
+    
+    .contact_box {
+        width: 320px;
+        padding: 6em 2em 1em;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 389px) {
+    .wrapper {
+        height: 100vh;
+    }
+
+    .contact_header span {
+        font-size: 25px;
+    }
+    
+    .contact_box {
+        width: 320px;
+        padding: 4em 2em 0.5em;
+    }
+
+    .contact_header {
+        height: 45px;
+    }
+    
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+    .wrapper {
+        height: 120vh;
+    }
+    
+    .contact_box {
+        width: 330px;
+        padding: 6em 2em 1em;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 319px) {
+    .wrapper {
+        height: 110vh;
+    }
+    
+    .contact_box {
+        width: 240px;
+        padding: 6em 3em 1em;
+    }
+}

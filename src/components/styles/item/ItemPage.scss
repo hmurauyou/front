@@ -1,0 +1,33 @@
+.btn-primary {
+    background-color: #557C70; 
+    width: 100px;
+    border-color: #46675d; 
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #46675d; 
+    border-color: #46675d; 
+
+}
+
+.btn-primary:active {
+    background-color: #557C70 !important; 
+    border-color: #557C70 !important; 
+}
+
+.btn_inside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+ 
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    -webkit-user-drag: none; 
+    user-drag: none;
+    user-select: none;
+}
