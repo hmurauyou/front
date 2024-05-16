@@ -26,8 +26,18 @@ export default function ContactsPage() {
     const [isMessageValid, setMessageValid] = useState<boolean>(true);
     const [focusedField, setFocusedField] =  useState<string | null>(null);
     const [notEmpty, setNotEmpty] = useState<{ [key: string]: boolean }>({});
-    const [maxCharsExceeded, setMaxCharsExceeded] = useState(false);
-    const maxLength = 180
+    const [maxCharsExceeded, setMaxCharsExceeded] = useState<{
+        [key: string]: boolean;
+    }>({
+        name: false,
+        surname: false,
+        message: false,
+    });
+    const maxLengths = {
+        name: 16,
+        surname: 35,
+        message: 180,
+    }
 
     const handleFocus = (fieldName: string) => {
         setFocusedField(fieldName);
@@ -45,8 +55,8 @@ export default function ContactsPage() {
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
+        const maxLength = maxLengths[name as keyof typeof maxLengths];
     
-        // Обрезаем значение, если оно превышает maxLength
         const truncatedValue = value.slice(0, maxLength);
     
         setValues({ ...values, [name]: truncatedValue });
@@ -60,8 +70,11 @@ export default function ContactsPage() {
         const sanitizedValue = name === 'message' ? sanitizeInput(truncatedValue) : truncatedValue; 
         setValues({ ...values, [name]: sanitizedValue });
     
-        // Проверяем, превышено ли максимальное количество символов
-        setMaxCharsExceeded(truncatedValue.length >= maxLength);
+        setMaxCharsExceeded(prevState => ({
+            ...prevState,
+            [name]: truncatedValue.length >= maxLength,
+        }));
+    
     
         if (name === 'message') {
             setMessageValid(sanitizedValue.length >= 4 && sanitizedValue.length <= maxLength); 
@@ -134,6 +147,7 @@ export default function ContactsPage() {
                                     ${styles.input_wrap} 
                                     ${focusedField === 'name' ? styles.focus : ""} 
                                     ${(focusedField === 'name' || notEmpty['name']) ? styles.not_empty : ""}
+                                    ${maxCharsExceeded['name'] ? styles.max_chars_exceeded : ""}
                                 `}>
                                     <input
                                         className={styles.contact_input}
@@ -143,6 +157,7 @@ export default function ContactsPage() {
                                         onChange={onChange}
                                         pattern="^[A-Za-zА-Яа-яЁё]{2,16}$"
                                         title="Name should be 2-16 characters long and must not include any special character."
+                                        maxLength={maxLengths['name']}
                                         autoComplete="off"
                                         required
                                         onFocus={() => handleFocus('name')}
@@ -155,6 +170,7 @@ export default function ContactsPage() {
                                     ${styles.input_wrap} 
                                     ${focusedField === 'surname' ? styles.focus : ''}
                                     ${(focusedField === 'surname' || notEmpty['surname']) ? styles.not_empty : ""}
+                                    ${maxCharsExceeded['surname'] ? styles.max_chars_exceeded : ""}
                                 `}>
                                     <input
                                         className={styles.contact_input}
@@ -164,6 +180,7 @@ export default function ContactsPage() {
                                         onChange={onChange}
                                         pattern="^[A-Za-zА-Яа-яЁё]{2,35}$$"
                                         title="Surname should be 2-35 characters long and must not include any special character."
+                                        maxLength={maxLengths['surname']}
                                         autoComplete="off"
                                         required
                                         onFocus={() => handleFocus('surname')}
@@ -219,7 +236,7 @@ export default function ContactsPage() {
                                     ${styles.w_100} 
                                     ${focusedField === 'message' ? styles.focus : ''}
                                     ${(focusedField === 'message' || notEmpty['message']) ? styles.not_empty : ""}
-                                    ${maxCharsExceeded ? styles.max_chars_exceeded : ""}
+                                    ${maxCharsExceeded['message'] ? styles.max_chars_exceeded : ""}
                                 `}>
                                     <textarea 
                                         className={`${styles.contact_input} ${focusedField === 'message' ? styles.focus : ''}`}
@@ -228,7 +245,7 @@ export default function ContactsPage() {
                                         onChange={onChange}
                                         title="Message should be 4-180 characters long..."
                                         autoComplete="off"
-                                        maxLength={maxLength}
+                                        maxLength={maxLengths['message']}
                                         onFocus={() => handleFocus('message')}
                                         onBlur={handleBlur} 
                                     >
