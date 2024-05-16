@@ -7,10 +7,10 @@
 :root {
     /* Contacts */
     --main-hue: 208;
-    --main-color-contacts: hsl(var(--main-hue), 92%, 54%);
+    --main-color-contacts: #B3C8CF;
     --text-color-contacts: #000;
     --main-color-hover-contacts: hsl(var(--main-hue), 77%, 48%);
-    --light-main-color-contacts: hsl(var(--main-hue), 91%, 55%);
+    --light-main-color-contacts: #B3C8CF;
     --light-text-color-contacts: #9ca7b6; 
     --bg-color-contacts: #fff;
     --input-bg-contacts: hsla(var(--main-hue), 50%, 50%, 6.5%);
