@@ -5,10 +5,16 @@
 }
 
 :root {
-    --primary-color: #ffa189;
-    --accent-color: #d13254;
-    --text-color: #584244;
-    --text-color-light: #ffffff;
-    --bg-color: #ffedeb;
-    --bg-color-light: #fff;
-  }
+    /* Contacts */
+    --main-hue: 208;
+    --main-color-contacts: hsl(var(--main-hue), 92%, 54%);
+    --text-color-contacts: #000;
+    --main-color-hover-contacts: hsl(var(--main-hue), 77%, 48%);
+    --light-main-color-contacts: hsl(var(--main-hue), 91%, 55%);
+    --light-text-color-contacts: #9ca7b6; 
+    --bg-color-contacts: #fff;
+    --input-bg-contacts: hsla(var(--main-hue), 50%, 50%, 6.5%);
+    --input-bg-hover-contacts: hsla(var(--main-hue), 50%, 50%, 14%);
+    --input-text-contacts: #8c9aaf;
+}
+

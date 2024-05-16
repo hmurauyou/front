@@ -1,5 +1,4 @@
-// import styles from './styles/contacts/Contacts.module.scss';
-import styles from './styles/contacts/test.module.scss'
+import styles from './styles/contacts/Contacts.module.scss'
 import image from '../images/background/img.jpg'
 import { useTranslation } from 'react-i18next';
 import React, { useState } from 'react';
