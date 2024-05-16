@@ -330,6 +330,10 @@
         display: none;
     }
 
+    .sidebar.active .menu ul li a .text {
+        font-size: 12px;
+    }
+
     .sidebar.active .menu ul li a .text::after {
         left: -4px;
         top: 20%;

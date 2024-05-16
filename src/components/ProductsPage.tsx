@@ -243,7 +243,7 @@ export default function ProductsPage() {
                         <li>
                             <Link className={styles.link} onClick={handleDownload} to="#">
                                 <FaCloudDownloadAlt  className={styles.icon} />
-                                <span className={styles.text}>Price List</span>
+                                <span className={styles.text}>PriceList</span>
                             </Link>
                         </li>
                     </ul>
