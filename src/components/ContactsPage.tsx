@@ -26,6 +26,8 @@ export default function ContactsPage() {
     const [isMessageValid, setMessageValid] = useState<boolean>(true);
     const [focusedField, setFocusedField] =  useState<string | null>(null);
     const [notEmpty, setNotEmpty] = useState<{ [key: string]: boolean }>({});
+    const [maxCharsExceeded, setMaxCharsExceeded] = useState(false);
+    const maxLength = 180
 
     const handleFocus = (fieldName: string) => {
         setFocusedField(fieldName);
@@ -38,18 +40,31 @@ export default function ContactsPage() {
     const sanitizeInput = (input: string) => {
         return input.replace(/[<>'";]/g, '');
     };
+    
+
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        const isFieldNotEmpty = !!value.trim();
-    setNotEmpty(prevState => ({
-        ...prevState,
-        [name]: isFieldNotEmpty,
-    }));
-        const sanitizedValue = name === 'message' ? sanitizeInput(value) : value; 
+    
+        // Обрезаем значение, если оно превышает maxLength
+        const truncatedValue = value.slice(0, maxLength);
+    
+        setValues({ ...values, [name]: truncatedValue });
+    
+        const isFieldNotEmpty = !!truncatedValue.trim();
+        setNotEmpty(prevState => ({
+            ...prevState,
+            [name]: isFieldNotEmpty,
+        }));
+    
+        const sanitizedValue = name === 'message' ? sanitizeInput(truncatedValue) : truncatedValue; 
         setValues({ ...values, [name]: sanitizedValue });
+    
+        // Проверяем, превышено ли максимальное количество символов
+        setMaxCharsExceeded(truncatedValue.length >= maxLength);
+    
         if (name === 'message') {
-            setMessageValid(sanitizedValue.length >= 4 && sanitizedValue.length <= 124); 
+            setMessageValid(sanitizedValue.length >= 4 && sanitizedValue.length <= maxLength); 
         }
     };
 
@@ -204,49 +219,26 @@ export default function ContactsPage() {
                                     ${styles.w_100} 
                                     ${focusedField === 'message' ? styles.focus : ''}
                                     ${(focusedField === 'message' || notEmpty['message']) ? styles.not_empty : ""}
+                                    ${maxCharsExceeded ? styles.max_chars_exceeded : ""}
                                 `}>
                                     <textarea 
                                         className={`${styles.contact_input} ${focusedField === 'message' ? styles.focus : ''}`}
                                         name="message"
                                         value={values['message' as keyof FormValues]}
-                                        // id={styles.textarea}
                                         onChange={onChange}
-                                        title="Message should be 4-124 characters long..."
+                                        title="Message should be 4-180 characters long..."
                                         autoComplete="off"
-                                        // placeholder={t(`contacts.message`)}
+                                        maxLength={maxLength}
                                         onFocus={() => handleFocus('message')}
                                         onBlur={handleBlur} 
                                     >
                                     </textarea>
                                     <label className={styles.label}>Message</label>
                                 </div>
-                                
-                                {/* <div className={styles.inputs}>
-                                    {inputs.map((input) => (
-                                        <div key={input.id} className={styles.input_box}>
-                                            <input
-                                                type={input.type}
-                                                id={input.name}
-                                                name={input.name}
-                                                value={values[input.name as keyof FormValues]}
-                                                onChange={onChange}
-                                                className={styles.input_field}
-                                                pattern={input.pattern}
-                                                title={input.errorMessage}
-                                                autoComplete="off"
-                                                required={input.required}
-                                                placeholder={t(`contacts.${input.name}`)}
-                                            />
-                                            <label htmlFor={input.name} className={styles.label}>
-                                                {t(`contacts.${input.name}`)}
-                                            </label>
-                                            <div className={styles.input_icon}>{input.icon}</div>
-                                        </div>
-                                    ))}
-                                </div> */}
-                                {/* <div className={styles.input_box}>
+
+                                <div className={`${styles.submit_box} ${styles.w_100}`}>
                                     <input type="submit" className={styles.input_submit} value={isLoading ? t("contacts.loading") : buttonText} disabled={isLoading} />
-                                </div> */}
+                                </div>
                             </form>
                         </div>
                     </div>
