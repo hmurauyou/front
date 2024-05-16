@@ -35,7 +35,7 @@ export default function ContactsPage() {
     });
     const maxLengths = {
         name: 16,
-        surname: 35,
+        surname: 25,
         message: 180,
     }
 
@@ -179,7 +179,7 @@ export default function ContactsPage() {
                                         type="text"
                                         onChange={onChange}
                                         pattern="^[A-Za-zА-Яа-яЁё]{2,35}$$"
-                                        title="Surname should be 2-35 characters long and must not include any special character."
+                                        title="Surname should be 2-25 characters long and must not include any special character."
                                         maxLength={maxLengths['surname']}
                                         autoComplete="off"
                                         required
@@ -260,9 +260,17 @@ export default function ContactsPage() {
                         </div>
                     </div>
                     <div className={styles.right}>
-                        {/* <div className={styles.image_wrapper}>
+                        <div className={styles.image_wrapper}>
                             <img src={image} alt="" />
-                        </div> */}
+                            <div className={styles.wave_wrap}>
+                                <svg className={styles.wave} viewBox="0 0 783 1536" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path id={styles.wave} d="M236.705 1356.18C200.542 1483.72 64.5004 1528.54 1 1535V1H770.538C793.858 63.1213 797.23 196.197 624.165 231.531C407.833 275.698 274.374 331.715 450.884 568.709C627.393 805.704 510.079 815.399 347.561 939.282C185.043 1063.17 281.908 1196.74 236.705 1356.18Z" />
+                                </svg>
+                            </div>
+                            <svg className={styles.dashed_wave} viewBox="0 0 345 877" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path id={styles.dashed_wave} d="M0.5 876C25.6667 836.167 73.2 739.8 62 673C48 589.5 35.5 499.5 125.5 462C215.5 424.5 150 365 87 333.5C24 302 44 237.5 125.5 213.5C207 189.5 307 138.5 246 87C185 35.5 297 1 344.5 1" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </section>
