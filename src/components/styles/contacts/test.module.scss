@@ -261,3 +261,116 @@ textarea.contact_input ~ label {
     75% { transform: translateX(-3px); }
     100% { transform: translateX(3px); }
 }
+
+@media (max-width: 1024px) {
+    .contact_heading h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        white-space: normal;
+    }
+
+    .text {
+        font-size: 0.9rem;
+    }
+
+    .contact_form {
+        display: grid;
+        margin-top: 1.9rem;
+        column-gap: 0.8rem;
+        row-gap: 0.65rem;
+    }
+
+    .contact_input {
+        border-radius: 17px;
+        font-size: 0.87rem;
+        padding: 1.5rem 1.2rem calc(0.75rem - 2px) 1.2rem;
+    }
+
+    .input_wrap label {
+        font-size: .91rem;
+        left: calc(1.2rem + 2px);
+    }
+
+    .input_wrap .icon {
+        font-size: 0.91rem;
+        right: calc(1.2rem + 2px);
+    }
+
+    textarea.contact_input ~ label {
+        top: 1.2rem;
+    }
+
+    textarea.contact_input ~ .icon {
+        top: 1.33rem;
+    }
+
+    .input_wrap.focus .contact_input {
+        box-shadow: 0 0 0 3.5px var(--input-shadow);
+    }
+
+    .input_wrap.not_empty label {
+        font-size: 0.61rem;
+    }
+
+    .submit_box {
+        margin-top: 0.45rem;
+    }
+
+    .input_submit {
+        padding: 1rem 1.5rem;
+        font-size: 0.87rem;
+    }
+
+    .dashed_wave {
+        bottom: 55%;
+        left: -10px;
+    }
+
+    #dashed_wave {
+        stroke-width: 0.7px;
+        stroke-dasharray: 6;
+    }
+
+    .wave_wrap {
+        transform: translateX(-10%);
+    }
+
+    .wave_wrap svg {
+        height: calc(110% + 10px);
+        transform: translate(-5%, -50%);
+    }
+}
+
+@media (max-width: 650px) {
+    .left {
+        padding: 50px 1.5rem 0;
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
+    .form_wrapper {
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .right {
+        display: none;
+    }
+}
+
+@media (max-width: 440px) {
+    .input_wrap {
+        grid-column: span 2;
+    }
+
+    .submit_box {
+        row-gap: 0.5rem;
+    }
+
+    .contact_heading h1 {
+        font-size: 1.9rem;
+        line-height: 1;
+    }
+
+
+}
