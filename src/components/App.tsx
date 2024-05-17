@@ -10,7 +10,7 @@ import { Loader } from './loader/Loader';
 const LazyHomePage = lazy(() => import('./HomePage'));
 const LazyAboutPage = lazy(() => import('./AboutPage'));
 const LazyContactsPage = lazy(() => import('./ContactsPage'));
-const LazyVerifyEmailPage = lazy(() => import('./VerifyEmailPage'));
+const LazyConfirmationPage = lazy(() => import('./ConfirmationPage'));
 const LazyProductsPage = lazy(() => import('./ProductsPage'));
 
 function App() {
@@ -67,11 +67,11 @@ function App() {
                             <Suspense fallback={
                                 <Loader />
                             }>
-                                <LazyVerifyEmailPage />
+                                <LazyConfirmationPage />
                             </Suspense>
                         } 
                     />
-                    {/* <Route path="/contacts/verify_email" element={<VerifyEmailPage />} />  */}
+                    {/* <Route path="/contacts/verify_email" element={<ConfirmationPage />} />  */}
                     <Route path='*' element={<NotFoundPage />} />
                 </Routes>
             </main>

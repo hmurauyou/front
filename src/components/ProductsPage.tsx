@@ -20,9 +20,9 @@ import { IoSearch } from "react-icons/io5";
 import AWS from "aws-sdk";
 
 const s3 = new AWS.S3({
-    accessKeyId: "AKIA3H2FITPVTBIDJ54X",
-    secretAccessKey: "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",
-    region: "eu-central-1", 
+    accessKeyId: process.env.REACT_APP_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY_ID,
+    region: process.env.REACT_APP_REGION, 
 });
 
 export default function ProductsPage() {
@@ -156,7 +156,7 @@ export default function ProductsPage() {
             link.click();
             document.body.removeChild(link); 
         } catch (error) {
-            console.error('Ошибка скачивания файла:', error);
+            console.error('Download error:', error);
         }
     };
 

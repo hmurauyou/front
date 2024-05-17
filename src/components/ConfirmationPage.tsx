@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import styles from './styles/verify/VerifyEmail.module.scss';
 import { useTranslation } from 'react-i18next';
 
-const VerifyEmailPage = () => {
+const ConfirmationPage = () => {
     const [t] = useTranslation("global")
     const location = useLocation();
     const [fetchSuccess, setFetchSuccess] = useState(false);
@@ -15,7 +15,7 @@ const VerifyEmailPage = () => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://0.0.0.0:1234/contacts/verify_email?email_id=${emailId}&secret_code=${secretCode}`);
+                const response = await fetch(`http://0.0.0.0:1234/contacts/confirmation?email_id=${emailId}&secret_code=${secretCode}`);
                 if (response.ok) {
                     setFetchSuccess(true);
                 } else {
@@ -40,4 +40,4 @@ const VerifyEmailPage = () => {
     );
 };
 
-export default VerifyEmailPage;
+export default ConfirmationPage;
