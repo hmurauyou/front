@@ -20,7 +20,7 @@ export default function ContactsPage() {
         message: "",
       });
     const [t] = useTranslation("global")
-    const [buttonText, setButtonText] = useState<string>(t("contacts.send"));
+    const [buttonText, setButtonText] = useState<string>(t("products.send"));
     const [isLoading, setIsLoading] = useState(false);
     const [isMessageValid, setMessageValid] = useState<boolean>(true);
     const [focusedField, setFocusedField] =  useState<string | null>(null);
@@ -136,8 +136,8 @@ export default function ContactsPage() {
                     <div className={styles.left}>
                         <div className={styles.form_wrapper}>
                             <div className={styles.contact_heading}>
-                                <h1>Let's keep in touch<span>.</span></h1>
-                                <p className={styles.text}>Or reach us via: <span> </span>
+                                <h1>{t("contacts.header")}<span>.</span></h1>
+                                <p className={styles.text}>{t("contacts.sub_header")} <span> </span>
                                     <a href="mailto:">georgiemurauyou@gmail.com</a>
                                 </p>
                             </div>
@@ -162,7 +162,7 @@ export default function ContactsPage() {
                                         onFocus={() => handleFocus('name')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>Name</label>
+                                    <label>{t("contacts.name")}</label>
                                 </div>
                                 
                                 <div className={`
@@ -185,7 +185,7 @@ export default function ContactsPage() {
                                         onFocus={() => handleFocus('surname')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>Surname</label>
+                                    <label>{t("contacts.surname")}</label>
                                 </div>
 
                                 <div className={`
@@ -206,7 +206,7 @@ export default function ContactsPage() {
                                         onFocus={() => handleFocus('email')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>Email</label>
+                                    <label>{t("contacts.email")}</label>
                                 </div>
 
                                 <div className={`
@@ -227,7 +227,7 @@ export default function ContactsPage() {
                                         onFocus={() => handleFocus('contact_phone')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>Contact Phone</label>
+                                    <label>{t("contacts.contact_phone")}</label>
                                 </div>
 
                                 <div className={`
@@ -249,11 +249,11 @@ export default function ContactsPage() {
                                         onBlur={handleBlur} 
                                     >
                                     </textarea>
-                                    <label className={styles.label}>Message</label>
+                                    <label className={styles.label}>{t("contacts.message")}</label>
                                 </div>
 
                                 <div className={`${styles.submit_box} ${styles.w_100}`}>
-                                    <input type="submit" className={styles.input_submit} value={isLoading ? t("contacts.loading") : buttonText} disabled={isLoading} />
+                                    <input type="submit" className={styles.input_submit} value={isLoading ? t("contacts.loading") : t("contacts.send")} disabled={isLoading} />
                                 </div>
                             </form>
                         </div>

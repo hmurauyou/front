@@ -13,8 +13,8 @@ import { GiOlive } from "react-icons/gi";
 import { GiSaucepan } from "react-icons/gi";
 import { GiWaterFlask } from "react-icons/gi";
 import { FaCloudDownloadAlt } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
 
-import "./styles/products/Products.scss"
 // import { Card } from "../shared/Card";
 // import { Loader } from "./loader/Loader";
 import AWS from "aws-sdk";
@@ -171,12 +171,12 @@ export default function ProductsPage() {
                 </div>
                 <div className={styles.head_details}>
                     <h4>Aqua Grand</h4>
-                    <p className={styles.title}>Best Prices</p>
+                    <p className={styles.title}>{t("products.best")}</p>
                 </div>
             </div>
             <div className={styles.nav}>
                 <div className={styles.menu}>
-                    <p className={styles.title}>Меню</p>
+                    <p className={styles.title}>{t("products.menu")}</p>
                     <ul className={styles.list}>
                         <li>
                             <Link className={styles.link} onClick={toggleSubmenu} to="/products/seafood">
@@ -238,12 +238,12 @@ export default function ProductsPage() {
                     </ul>
                 </div>
                 <div className={styles.menu}>
-                    <p className={styles.title}>Prices</p>
+                    <p className={styles.title}>{t("products.prices")}</p>
                     <ul className={styles.list}>
                         <li>
                             <Link className={styles.link} onClick={handleDownload} to="#">
                                 <FaCloudDownloadAlt  className={styles.icon} />
-                                <span className={styles.text}>PriceList</span>
+                                <span className={styles.text}>{t("products.pricelist.name")}</span>
                             </Link>
                         </li>
                     </ul>
@@ -269,7 +269,7 @@ export default function ProductsPage() {
                                 value={searchQuery}
                                 onChange={handleSearchInputChange}
                             />
-                            <i className='bx bx-search-alt'></i>
+                            <IoSearch />
                         </div> 
                         <button type="button" className="btn-close" aria-label="Close" onClick={handleReset}></button>
                     </div>

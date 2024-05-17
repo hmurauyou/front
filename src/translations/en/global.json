@@ -33,6 +33,9 @@
         }
     },
     "products": {
+        "best": "Best Prices",
+        "menu": "Menu",
+        "prices": "Prices",
         "seafood": "Seafood",
         "mussels": "Mussels",
         "shrimps": "Shrimps",
@@ -133,21 +136,24 @@
             }
         },
         "pricelist": {
-            "message": "Unfortunately on this device you will not be able to visualize the products, so we offer you to download our price list",
-            "button": "Download",
-            "loading": "Loading..."
+            "name": "Price-list"
         }
     },
     "contacts": {
-        "header": "Contacts",
+        "header": "Let's keep in touch",
+        "sub_header": "Or reach us via:",
         "name": "Name",
         "surname": "Surname",
-        "patronymic": "Patronymic",
         "contact_phone": "Phone",
         "email": "Email",
+        "message": "Message",
         "send": "Send",
         "thankYou": "Thank You!",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "errors": {
+            "name": "Name should be 2-16 characters long and must not include any special character.",
+            "surname": ""
+        }
     },
     "footer": {
         "website": {

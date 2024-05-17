@@ -29,9 +29,6 @@ export default function Navbar() {
                                 <li className="nav-item" data-bs-dismiss="offcanvas">
                                     <Link className="nav-link mx-lg-2" to="/products">{t("header.navbar.products")}</Link>
                                 </li>
-                                {/* <li className="nav-item" data-bs-dismiss="offcanvas">
-                                    <Link className="nav-link mx-lg-2" to="/about">{t("header.navbar.about")}</Link>
-                                </li> */}
                                 <li className="nav-item" data-bs-dismiss="offcanvas">
                                     <Link className="nav-link mx-lg-2" to="./contacts">{t("header.navbar.contacts")}</Link>
                                 </li>

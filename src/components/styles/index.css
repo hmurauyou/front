@@ -5,14 +5,40 @@
 }
 
 :root {
+    /* Main */
+    --light-cyan-color: #BED7DC;
+    --dark-cyan-color: #B3C8CF;
+    --light-sand-color: #F1EEDC;
+    --dark-sand-color: #E5DDC5;
+    --white-color: #fff;
+    --dark-color: #000;
+
+    /* Products */
+    --bg-color-products: #FEFAF6;
+    --menu-title-color: #757575;
+    --font-title: "Oswald", sans-serif;
+    --font-company-title: "Great Vibes", cursive;
+    --border-color: #f6f6f6;
+
+    /* Not Found */
+    --bg-color-notfound: var(--white-color);
+    --font-notfound: "Orelega One", serif;
+    --first-color: #71b7e6;
+    --second-color: #69a6ce;
+    --third-color: #b98acc;
+    --fourth-color: #ee8176;
+    --fifth-color: #b98acc;
+    --sixth-color: #69a6ce;
+    --seventh-color: #9b59b6;
+
     /* Contacts */
     --main-hue: 208;
     --main-color-contacts: #B3C8CF;
-    --text-color-contacts: #000;
+    --text-color-contacts: var(--dark-color);
     --main-color-hover-contacts: hsl(var(--main-hue), 77%, 48%);
     --light-main-color-contacts: #B3C8CF;
     --light-text-color-contacts: #9ca7b6; 
-    --bg-color-contacts: #fff;
+    --bg-color-contacts: var(--white-color);
     --input-bg-contacts: hsla(var(--main-hue), 50%, 50%, 6.5%);
     --input-bg-hover-contacts: hsla(var(--main-hue), 50%, 50%, 14%);
     --input-text-contacts: #8c9aaf;

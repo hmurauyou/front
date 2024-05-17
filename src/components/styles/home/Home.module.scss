@@ -38,7 +38,7 @@
     font-style: normal;
     font-size: clamp(3rem, 10vw, 7rem);
     margin-bottom: 1rem;
-    color: #fff;
+    color: var(--white-color);
     user-select: none;
 }
 
@@ -47,7 +47,7 @@
     font-family: "Orelega One", serif;
     font-weight: 400;
     font-style: normal;
-    color: #fff;
+    color: var(--white-color);
     font-size: clamp(1.8rem, 4vw, 3rem);
     user-select: none;
 }

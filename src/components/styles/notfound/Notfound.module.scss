@@ -1,6 +1,6 @@
 .error_page {
     display: flex;
-    background-color: linen;
+    background-color: var(--bg-color-notfound);
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .error_page h1 {
-    font-family: "Orelega One", serif;
+    font-family: var(--font-notfound);
     font-weight: 400;
     font-style: normal;
     font-size: clamp(5rem, 20vw, 20rem);
@@ -27,13 +27,13 @@
     color: transparent;
     background: -webkit-repeating-linear-gradient(
         -45deg,
-        #71b7e6,
-        #69a6ce,
-        #b98acc,
-        #ee8176,
-        #b98acc,
-        #69a6ce,
-        #9b59b6
+        var(--first-color),
+        var(--second-color),
+        var(--third-color),
+        var(--fourth-color),
+        var(--fifth-color),
+        var(--sixth-color),
+        var(--seventh-color)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -43,8 +43,8 @@
 }
 
 .error_page h1 + p {
-    color: #557C70;
-    font-family: "Orelega One", serif;
+    color: var(--light-cyan-color);
+    font-family: var(--font-notfound);
     font-weight: 400;
     font-style: normal;
     font-size: clamp(1rem, 20vw, 4rem);
@@ -65,6 +65,7 @@
     -moz-background-clip: text;
     background-clip: text;
 }
+
 #particles-js {
     position: fixed;
     top: 0;

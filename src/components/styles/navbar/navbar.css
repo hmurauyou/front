@@ -1,15 +1,15 @@
 .navbar {
-    background-color: #fff;
+    background-color: var(--white-color);
     height: 80px;
     margin: 20px;
     border-radius: 16px;
     padding: .5rem;
-    box-shadow: 0 0px 25px #BED7DC;
+    box-shadow: 0 0px 25px var(--light-cyan-color);
 }
 
 .navbar-brand {
     font-weight: 500;
-    color: #B3C8CF;
+    color: var(--dark-cyan-color);
     font-size: 24px;
     transition: .3s color;
 }
@@ -25,18 +25,18 @@
 }
 
 .nav-link {
-    color: #B3C8CF;
+    color: var(--dark-cyan-color);
     font-weight: 500;
     position: relative;
     user-select: none;
 }
 
 .nav-link:hover, .nav-link.active {
-    color: #000;
+    color: var(--dark-color);
 }
 
 .offcanvas-title {
-    color: #B3C8CF;
+    color: var(--dark-cyan-color);
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -66,7 +66,7 @@
         transform: translateX(-50%);
         width: 0;
         height: 2px;
-        background-color: #B3C8CF;
+        background-color: var(--dark-cyan-color);
         visibility: hidden;
         transition: .3s ease-in-out;
     }
