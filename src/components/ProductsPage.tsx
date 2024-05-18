@@ -144,7 +144,7 @@ export default function ProductsPage() {
         try {
             const key = 'price_list/price_list.xlsx';
             const url = await s3.getSignedUrlPromise('getObject', {
-                Bucket: 'tradeocean',
+                Bucket: process.env.REACT_APP_BUCKET_NAME,
                 Key: key,
                 Expires: 604800, 
             });
@@ -225,7 +225,7 @@ export default function ProductsPage() {
                                 <span className={styles.text}>{t("products.liquid_oil")}</span>
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link className={styles.link} to="/products/sauces">
                                 <GiSaucepan className={styles.icon} />
                                 <span className={styles.text}>{t("products.sauces")}</span>
@@ -236,7 +236,7 @@ export default function ProductsPage() {
                                 <GiWaterFlask className={styles.icon} />
                                 <span className={styles.text}>{t("products.water")}</span>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className={styles.menu}>
