@@ -179,11 +179,13 @@ export default function ProductsPage() {
                     <p className={styles.title}>{t("products.menu")}</p>
                     <ul className={styles.list}>
                         <li>
-                            <Link className={styles.link} onClick={toggleSubmenu} to="/products/seafood">
-                                <GiFoodChain className={styles.icon} />
-                                <span className={styles.text}>{t("products.seafood")}</span>
-                                <IoIosArrowUp className={`${styles.arrow} ${isSubmenuOpen ? styles.active : ""}`} />
-                            </Link>
+                            <div className={styles.link_container}>
+                                <Link className={styles.special_link} to="/products/seafood">
+                                    <GiFoodChain className={styles.icon} />
+                                    <span className={styles.text}>{t("products.seafood")}</span>
+                                </Link>
+                                <IoIosArrowUp className={`${styles.arrow} ${isSubmenuOpen ? styles.active : ""}`} onClick={toggleSubmenu} />
+                            </div>
                             <ul className={`${styles.sub_menu} ${isSubmenuOpen ? styles.active : ''}`}>
                                 <li>
                                     <Link className={styles.link} to="/products/seafood/product/cocktail">

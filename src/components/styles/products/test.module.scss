@@ -75,6 +75,24 @@
     padding-inline-start: 0;
 }
 
+.link_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.link_container .arrow {
+    color: var(--white-color);
+}
+
+.link_container:hover,
+.link_container .arrow:hover {
+    color: var(--dark-color);
+    background-color: var(--light-cyan-color);
+    border-radius: 8px;
+}
+
 .menu ul li {
     position: relative;
     list-style: none;
@@ -92,6 +110,10 @@
     padding: 12px 8px;
     border-radius: 8px;
     transition: all 0.3s;
+}
+
+.menu ul li .special_link:hover {
+    background-color: initial;
 }
 
 .menu ul li a:hover,

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/home/Home.module.scss';
-import video from '../images/video/Green Neutral Animated Motivational Quote Video .mp4';
+import video from '../images/video/video.mp4';
 import { Reveal } from '../shared/Reveal';
 import { useTranslation } from 'react-i18next';
 
