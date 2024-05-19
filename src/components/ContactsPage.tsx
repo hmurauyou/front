@@ -199,7 +199,7 @@ export default function ContactsPage() {
                                         value={values["email" as keyof FormValues]}
                                         type="email"
                                         onChange={onChange}
-                                        pattern="\\S+@\\S+\\.\\S+"
+                                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                         title="Email address is not valid..."
                                         autoComplete="off"
                                         required
@@ -219,6 +219,7 @@ export default function ContactsPage() {
                                         name="contact_phone"
                                         value={values["contact_phone" as keyof FormValues]}
                                         type="tel"
+                                        placeholder='+7(495)000-00-00'
                                         onChange={onChange}
                                         pattern="^\\+?[0-9]{1,3}[0-9]{9,14}$"
                                         title="Contact phone is not valid..."

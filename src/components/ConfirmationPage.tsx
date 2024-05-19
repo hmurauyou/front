@@ -15,7 +15,7 @@ const ConfirmationPage = () => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://0.0.0.0:1234/contacts/confirmation?email_id=${emailId}&secret_code=${secretCode}`);
+                const response = await fetch(`http://127.0.0.1:1234/contacts/confirmation?email_id=${emailId}&secret_code=${secretCode}`);
                 if (response.ok) {
                     setFetchSuccess(true);
                 } else {

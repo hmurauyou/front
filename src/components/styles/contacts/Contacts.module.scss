@@ -106,6 +106,7 @@
     color: var(--light-text-color-contacts);
     pointer-events: none;
     transition: .25s;
+    transform: translateY(-0.75rem);
 }
 
 .input_wrap .icon {
@@ -136,8 +137,19 @@ textarea.contact_input ~ label {
     box-shadow: 0 0 0 5px hsla(var(--main-hue), 91%, 55%, 0.11);
 }
 
+.input_wrap input::placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
 .input_wrap.focus label {
     color: var(--light-main-color-contacts);
+}
+
+.input_wrap.focus input::placeholder {
+    opacity: 1;
+    color: var(--light-grey-color);
+    transition: opacity 0.3s ease;
 }
 
 .input_wrap.focus .icon {
