@@ -1,7 +1,7 @@
 import styles from './styles/contacts/Contacts.module.scss'
 import image from '../images/background/img.jpg'
 import { useTranslation } from 'react-i18next';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface FormValues {
     name: string;
@@ -19,8 +19,8 @@ export default function ContactsPage() {
         contact_phone: "",
         message: "",
       });
-    const [t] = useTranslation("global")
-    const [buttonText, setButtonText] = useState<string>(t("products.send"));
+    const {t} = useTranslation("global")
+    const [buttonText, setButtonText] = useState<string>(t("contacts.submit"));
     const [isLoading, setIsLoading] = useState(false);
     const [isMessageValid, setMessageValid] = useState<boolean>(true);
     const [focusedField, setFocusedField] =  useState<string | null>(null);
@@ -49,8 +49,6 @@ export default function ContactsPage() {
     const sanitizeInput = (input: string) => {
         return input.replace(/[<>'";]/g, '');
     };
-    
-
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -76,7 +74,7 @@ export default function ContactsPage() {
     
     
         if (name === 'message') {
-            setMessageValid(sanitizedValue.length >= 4 && sanitizedValue.length <= maxLength); 
+            setMessageValid(sanitizedValue.length >= 0 && sanitizedValue.length <= maxLength); 
         }
     };
 
@@ -91,7 +89,7 @@ export default function ContactsPage() {
         setIsLoading(true)
 
         try {
-            const response = await fetch('http://0.0.0.0:1234/contacts/send', {
+            const response = await fetch('http://127.0.0.1:1234/contacts/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -114,9 +112,13 @@ export default function ContactsPage() {
                     contact_phone: "",
                     message: "",
                 });
+                setNotEmpty({});
+                setFocusedField(null);
+
                 setButtonText(t("contacts.thankYou"));
                 setTimeout(() => {
-                    setButtonText(t("contacts.send"));
+                    setButtonText(t("contacts.submit"));
+                    setIsLoading(false);
                 }, 3000);
             } else {
                 console.error('Error sending form data:', response.statusText);
@@ -127,7 +129,6 @@ export default function ContactsPage() {
             setIsLoading(false); 
         }
     };
-
 
     return (
         <>
@@ -199,7 +200,7 @@ export default function ContactsPage() {
                                         value={values["email" as keyof FormValues]}
                                         type="email"
                                         onChange={onChange}
-                                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
                                         title="Email address is not valid..."
                                         autoComplete="off"
                                         required
@@ -220,8 +221,8 @@ export default function ContactsPage() {
                                         value={values["contact_phone" as keyof FormValues]}
                                         type="tel"
                                         placeholder='+7(495)000-00-00'
-                                        onChange={onChange}
-                                        pattern="^\\+?[0-9]{1,3}[0-9]{9,14}$"
+                                        onChange={onChange} 
+                                        pattern="^\+\d{1,4}(\d{7,12})$"
                                         title="Contact phone is not valid..."
                                         autoComplete="off"
                                         required
@@ -243,7 +244,7 @@ export default function ContactsPage() {
                                         name="message"
                                         value={values['message' as keyof FormValues]}
                                         onChange={onChange}
-                                        title="Message should be 4-180 characters long..."
+                                        title="Message should be maximum 180 characters long..."
                                         autoComplete="off"
                                         maxLength={maxLengths['message']}
                                         onFocus={() => handleFocus('message')}
@@ -254,7 +255,7 @@ export default function ContactsPage() {
                                 </div>
 
                                 <div className={`${styles.submit_box} ${styles.w_100}`}>
-                                    <input type="submit" className={styles.input_submit} value={isLoading ? t("contacts.loading") : t("contacts.send")} disabled={isLoading} />
+                                    <input type="submit" className={styles.input_submit} value={isLoading ? t("contacts.loading") : buttonText} disabled={isLoading} />
                                 </div>
                             </form>
                         </div>
