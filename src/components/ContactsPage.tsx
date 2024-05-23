@@ -1,7 +1,8 @@
 import styles from './styles/contacts/Contacts.module.scss'
-import image from '../images/background/img.jpg'
+import image from '../images/background/water.jpg'
 import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState } from 'react';
+import { redirect } from 'react-router-dom'
 
 interface FormValues {
     name: string;
@@ -20,7 +21,7 @@ export default function ContactsPage() {
         message: "",
       });
     const {t} = useTranslation("global")
-    const [buttonText, setButtonText] = useState<string>(t("contacts.submit"));
+    const [buttonText, setButtonText] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
     const [isMessageValid, setMessageValid] = useState<boolean>(true);
     const [focusedField, setFocusedField] =  useState<string | null>(null);
@@ -37,6 +38,10 @@ export default function ContactsPage() {
         surname: 25,
         message: 180,
     }
+
+    useEffect(() => {
+        setButtonText(t("contacts.send"))
+    }, [t])
 
     const handleFocus = (fieldName: string) => {
         setFocusedField(fieldName);
@@ -117,7 +122,7 @@ export default function ContactsPage() {
 
                 setButtonText(t("contacts.thankYou"));
                 setTimeout(() => {
-                    setButtonText(t("contacts.submit"));
+                    setButtonText(t("contacts.send"));
                     setIsLoading(false);
                 }, 3000);
             } else {

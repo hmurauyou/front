@@ -8,11 +8,11 @@ import logo from "../images/logo/250x250.png";
 /* Icons */
 import { IoIosArrowUp } from "react-icons/io"
 import { IoIosArrowBack } from "react-icons/io";
-import { GiFoodChain } from "react-icons/gi";
+import { GiFishingBoat } from "react-icons/gi";
 import { GiOlive } from "react-icons/gi";
-import { GiSaucepan } from "react-icons/gi";
-import { GiWaterFlask } from "react-icons/gi";
-import { FaCloudDownloadAlt } from "react-icons/fa";
+// import { GiSaucepan } from "react-icons/gi";
+// import { GiWaterFlask } from "react-icons/gi";
+import { HiDocumentDownload } from "react-icons/hi";
 import { IoSearch } from "react-icons/io5";
 
 // import { Card } from "../shared/Card";
@@ -181,7 +181,7 @@ export default function ProductsPage() {
                         <li>
                             <div className={styles.link_container}>
                                 <Link className={styles.special_link} to="/products/seafood">
-                                    <GiFoodChain className={styles.icon} />
+                                    <GiFishingBoat className={styles.icon} />
                                     <span className={styles.text}>{t("products.seafood")}</span>
                                 </Link>
                                 <IoIosArrowUp className={`${styles.arrow} ${isSubmenuOpen ? styles.active : ""}`} onClick={toggleSubmenu} />
@@ -244,7 +244,7 @@ export default function ProductsPage() {
                     <ul className={styles.list}>
                         <li>
                             <Link className={styles.link} onClick={handleDownload} to="#">
-                                <FaCloudDownloadAlt  className={styles.icon} />
+                                <HiDocumentDownload  className={styles.icon} />
                                 <span className={styles.text}>{t("products.pricelist.name")}</span>
                             </Link>
                         </li>

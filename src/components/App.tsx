@@ -63,7 +63,7 @@ function App() {
                             </Suspense>
                         } 
                     />
-                    <Route path="/contacts/verify_email" element={
+                    <Route path="/contacts/confirmation" element={
                             <Suspense fallback={
                                 <Loader />
                             }>

@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './styles/verify/Confirmation.module.scss';
 import { useTranslation } from 'react-i18next';
-import image from '../images/background/img.jpg'
+import image from '../images/background/water.jpg'
+import { redirect } from 'react-router-dom'
 
 const ConfirmationPage = () => {
     const [t] = useTranslation("global")
     const location = useLocation();
     const [fetchSuccess, setFetchSuccess] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
         const emailId = searchParams.get('email_id');
         const secretCode = searchParams.get('secret_code');
+
+        if (!emailId || !secretCode) {
+            navigate('/');
+            return;
+        }
 
         const fetchData = async () => {
             try {
@@ -20,26 +27,24 @@ const ConfirmationPage = () => {
                 if (response.ok) {
                     setFetchSuccess(true);
                 } else {
-                    throw new Error('Failed to verify email');
+                    navigate("/")
+                    throw new Error('Contact has been already verified...');
                 }
             } catch (error) {
                 console.error('Error fetching data:', error);
+                navigate("/")
             }
         };
 
         fetchData();
-    }, [location.search]);
+    }, [location.search, navigate]);
 
     return (
         <section className={styles.confirmation}>
             <div className={styles.container}>
                 <div className={styles.left}>
                         <div className={styles.confirmation_heading}>
-                            {fetchSuccess ? (
-                                <h1>{t("verify.message")}<span>.</span></h1>
-                            ) : (
-                                <h1>{t("verify.error")}<span>...</span></h1>
-                            )}
+                            <h1>{t("verify.message")}<span>.</span></h1>
                         </div>
                 </div>
                 <div className={styles.right}>
