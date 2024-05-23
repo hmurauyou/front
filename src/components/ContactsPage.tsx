@@ -2,7 +2,6 @@ import styles from './styles/contacts/Contacts.module.scss'
 import image from '../images/background/water.jpg'
 import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState } from 'react';
-import { redirect } from 'react-router-dom'
 
 interface FormValues {
     name: string;

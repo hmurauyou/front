@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './styles/verify/Confirmation.module.scss';
 import { useTranslation } from 'react-i18next';
 import image from '../images/background/water.jpg'
-import { redirect } from 'react-router-dom'
 
 const ConfirmationPage = () => {
     const [t] = useTranslation("global")
     const location = useLocation();
-    const [fetchSuccess, setFetchSuccess] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -24,9 +22,7 @@ const ConfirmationPage = () => {
         const fetchData = async () => {
             try {
                 const response = await fetch(`http://127.0.0.1:1234/contacts/confirmation?email_id=${emailId}&secret_code=${secretCode}`);
-                if (response.ok) {
-                    setFetchSuccess(true);
-                } else {
+                if (!response.ok) {
                     navigate("/")
                     throw new Error('Contact has been already verified...');
                 }

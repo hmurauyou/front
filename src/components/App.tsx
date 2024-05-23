@@ -3,19 +3,19 @@ import Navbar from './Navbar';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import ProductsPage from './ProductsPage';
 import NotFoundPage from './NotFoundPage';
-import Footer from './Footer';
+// import Footer from './Footer';
 import { ItemPage } from './ItemPage';
 import { Loader } from './loader/Loader';
 
 const LazyHomePage = lazy(() => import('./HomePage'));
-const LazyAboutPage = lazy(() => import('./AboutPage'));
+// const LazyAboutPage = lazy(() => import('./AboutPage'));
 const LazyContactsPage = lazy(() => import('./ContactsPage'));
 const LazyConfirmationPage = lazy(() => import('./ConfirmationPage'));
 const LazyProductsPage = lazy(() => import('./ProductsPage'));
 
 function App() {
     const location = useLocation();
-    const isHomePage = location.pathname === '/';
+    // const isHomePage = location.pathname === '/';
 
     useEffect(() => {
         window.scrollTo(0, 0); 
