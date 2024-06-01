@@ -8,7 +8,8 @@
         }
     },
     "home": {
-        "message": "We are successful seafood brokers"
+        "message": "We are successful seafood brokers",
+        "company": "East Cost"
     },
     "about": {
         "section_1": {
@@ -150,6 +151,8 @@
         "send": "Send",
         "thankYou": "Thank You!",
         "loading": "Loading...",
+        "policy": "By clicking on the button, you consent to the processing of personal data, in accordance with No. 99-З “On Personal Data Protection” of the Republic of Belarus, under the conditions and for the purposes defined in the",
+        "privacy": "Policy on personal data processing",
         "errors": {
             "name": "Name should be 2-16 characters long and must not include any special character.",
             "surname": ""
@@ -177,5 +180,11 @@
     },
     "not_found": {
         "message": "Page Not Found"
+    },
+    "policy_privacy": {
+        "header": "Policy on personal data processing",
+        "text": {
+            
+        }
     }
 }
