@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./styles/navbar/Navbar.module.scss";
 import './styles/navbar/navbar.css';
-import logo from '../images/logo/500x500.png'
+import logo from '../images/logo/logo_footer.png'
 import { useTranslation } from "react-i18next";
 
 export default function Navbar() {

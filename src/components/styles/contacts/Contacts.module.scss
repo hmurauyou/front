@@ -193,6 +193,15 @@ textarea.contact_input ~ label {
     opacity: 0.7;
 }
 
+.condition {
+    margin-top: 15px;
+    font-size: small;
+}
+
+.link {
+    text-decoration: none;
+}
+
 .right {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -207,9 +216,10 @@ textarea.contact_input ~ label {
 
 .image_wrapper img {
     position: absolute;
-    height: 130%;
-    left: 60%;
+    height: 100%;
+    left: 35%;
     top: 50%;
+    filter: brightness(0.85);
     transform: translate(-50%, -50%);
 }
 

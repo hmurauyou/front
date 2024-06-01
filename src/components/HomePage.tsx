@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/home/Home.module.scss';
-import video from '../images/video/video.mp4';
+import video from '../images/video/Kamchatka.mp4';
 import { Reveal } from '../shared/Reveal';
 import { useTranslation } from 'react-i18next';
 
@@ -13,7 +13,7 @@ function HomePage() {
         <video src={video} className={styles.bg_video} muted autoPlay loop />
           <Reveal>
             <div className={styles.text_container}>
-              <h1>Aqua Grand</h1>
+              <h1>{t("home.company")}</h1>
               <h2>{t("home.message")}</h2>
             </div>
           </Reveal>

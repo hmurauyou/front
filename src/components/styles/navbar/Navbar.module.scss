@@ -94,36 +94,40 @@
     user-select: none;
 
     @media (min-width: 320px) and (max-width: 480px) {
-        width: 70px;
-        height: 70px;
+        top: 1.5px;
+        width: 80px;
+        height: 50px;
     }
 
     @media (min-width: 481px) and (max-width: 576px) {
         position: absolute;
-        top: -10px;
-        width: 100px; 
-        height: 100px;
+        top: 7px;
+        width: 120px;
+        height: 70px;
     }
 
     @media (min-width: 577px) and (max-width: 768px) {
-        width: 100px; 
-        height: 100px; 
+        top: 7px;
+        width: 120px;
+        height: 70px;
     }
 
     @media (min-width: 769px) and (max-width: 992px) {
-        width: 100px; 
-        height: 100px;
+        top: 7px;
+        width: 120px;
+        height: 70px;
     }
 
     @media (min-width: 993px) and (max-width: 1200px) {
-        width: 100px; 
-        height: 100px;
+        top: 7px;
+        width: 120px;
+        height: 70px;
     }
 
     @media (min-width: 1201px) {
-        top: -35px;
-        width: 150px;
-        height: 150px;
+        top: 2px;
+        width: 120px;
+        height: 80px;
     }
 }
 

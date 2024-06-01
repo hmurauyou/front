@@ -1,0 +1,32 @@
+.main {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.main h1 {
+    color: var(--main-color-contacts);
+}
+
+.main p {
+    color: var(--dark-color);
+    line-height: 1.1;
+    font-size: 1rem;
+}
+
+.input_submit {
+    width: 100px;
+    height: 40px;
+    background: var(--dark-cyan-color);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.input_submit:hover {
+    background: var(--light-cyan-color);
+}

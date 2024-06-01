@@ -3,12 +3,12 @@
     width: 100%;
     display: flex;
     padding: 20px;
-    min-height: 100vh;
-    background-color: var(--bg-color-products);
+    min-height: 200vh;
+    background-color: var(--white-color);
 }
 
 .sidebar {
-    position: relative;
+    position: fixed; //relative
     margin-top: 120px;
     width: 256px;
     height: auto;
@@ -16,7 +16,7 @@
     flex-direction: column;
     gap: 20px;
     background-color: var(--dark-cyan-color);
-    box-shadow: 0 0px 25px var(--light-cyan-color);
+    box-shadow: 0 0px 25px var(--light-grey-color);
     padding: 24px;
     border-radius: 30px;
     transition: all 0.3s;
@@ -24,21 +24,21 @@
 
 .sidebar .head {
     display: flex;
-    gap: 20px;
-    align-items: flex-end;
+    gap: 10px;
+    align-items: center;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--white-color);
     transition: all 0.3s;
 }
 
-.head_logo {
-    border-radius: 50%;
-    overflow: hidden;
-}
+// .head_logo {
+    // border-radius: 20%;
+    // overflow: hidden;
+// }
 
 .head_logo img {
     width: 70px;
-    height: 70px;
+    height: 90px;
     object-fit: fill;
 }
 
@@ -269,7 +269,7 @@
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    box-shadow: 0 0px 25px var(--light-cyan-color);
+    box-shadow: 0 0px 25px var(--light-grey-color);
     transition: 0.7s;
 }
 
@@ -308,9 +308,8 @@
 @media (min-width: 320px) and (max-width: 780px) {
     .sidebar {
         position: fixed;
-        margin-top: 100px;
+        margin-top: 120px;
         gap: 20px;
-        box-shadow: 0 0px 20px var(--light-cyan-color);
     }
     
     .head_details .title,
@@ -379,7 +378,6 @@
     .search {
         height: 40px;
         padding: 10px 20px;
-        box-shadow: 0 0px 17px var(--light-cyan-color);
     }
 
     .search:hover input {
@@ -387,7 +385,7 @@
     }
 
     .instructions {
-        margin-top: 100px;
+        margin-top: 120px;
         margin-left: 100px;
         display: flex;
         flex-direction: row;
@@ -407,7 +405,6 @@
         margin-top: 150px;
         height: 57vh;
         gap: 20px;
-        box-shadow: 0 0px 20px var(--light-cyan-color);
     }
 
     .sidebar.active {

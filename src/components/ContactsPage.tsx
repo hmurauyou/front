@@ -1,7 +1,8 @@
 import styles from './styles/contacts/Contacts.module.scss'
-import image from '../images/background/water.jpg'
+import image from '../images/background/bears.jpg'
 import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface FormValues {
     name: string;
@@ -143,7 +144,7 @@ export default function ContactsPage() {
                             <div className={styles.contact_heading}>
                                 <h1>{t("contacts.header")}<span>.</span></h1>
                                 <p className={styles.text}>{t("contacts.sub_header")} <span> </span>
-                                    <a href="mailto:">georgiemurauyou@gmail.com</a>
+                                    <a className={styles.link} href="mailto:">kamchatka.business@yandex.ru</a>
                                 </p>
                             </div>
                             <form method="post" className={styles.contact_form} onSubmit={onSubmit}>
@@ -224,7 +225,7 @@ export default function ContactsPage() {
                                         name="contact_phone"
                                         value={values["contact_phone" as keyof FormValues]}
                                         type="tel"
-                                        placeholder='+7(495)000-00-00'
+                                        placeholder='+7 (777) 777-77-77'
                                         onChange={onChange} 
                                         pattern="^\+\d{1,4}(\d{7,12})$"
                                         title="Contact phone is not valid..."
@@ -262,6 +263,9 @@ export default function ContactsPage() {
                                     <input type="submit" className={styles.input_submit} value={isLoading ? t("contacts.loading") : buttonText} disabled={isLoading} />
                                 </div>
                             </form>
+                            <div className={`${styles.condition} ${styles.text}`}>
+                                <p>{t("contacts.policy")} <Link className={styles.link} to="/privacypolicy">{t("contacts.privacy")}</Link>.</p>
+                            </div>
                         </div>
                     </div>
                     <div className={styles.right}>

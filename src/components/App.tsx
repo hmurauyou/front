@@ -6,6 +6,7 @@ import NotFoundPage from './NotFoundPage';
 // import Footer from './Footer';
 import { ItemPage } from './ItemPage';
 import { Loader } from './loader/Loader';
+import PrivacyPolicy from './PrivacyPolicy';
 
 const LazyHomePage = lazy(() => import('./HomePage'));
 // const LazyAboutPage = lazy(() => import('./AboutPage'));
@@ -72,6 +73,7 @@ function App() {
                         } 
                     />
                     {/* <Route path="/contacts/verify_email" element={<ConfirmationPage />} />  */}
+                    <Route path="/privacypolicy" element={<PrivacyPolicy />} />
                     <Route path='*' element={<NotFoundPage />} />
                 </Routes>
             </main>

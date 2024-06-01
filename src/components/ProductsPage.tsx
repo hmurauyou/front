@@ -4,7 +4,7 @@ import styles from "./styles/products/test.module.scss"
 import { useTranslation } from "react-i18next";
 import { useCallback, useEffect, useMemo, useState } from "react";
 /* Logo */
-import logo from "../images/logo/250x250.png";
+import logo from "../images/logo/logo.png";
 /* Icons */
 import { IoIosArrowUp } from "react-icons/io"
 import { IoIosArrowBack } from "react-icons/io";
@@ -17,13 +17,13 @@ import { IoSearch } from "react-icons/io5";
 
 // import { Card } from "../shared/Card";
 // import { Loader } from "./loader/Loader";
-import AWS from "aws-sdk";
+// import AWS from "aws-sdk";
 
-const s3 = new AWS.S3({
-    accessKeyId: process.env.REACT_APP_ACCESS_KEY_ID,
-    secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY_ID,
-    region: process.env.REACT_APP_REGION, 
-});
+// const s3 = new AWS.S3({
+//     accessKeyId: process.env.REACT_APP_ACCESS_KEY_ID,
+//     secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY_ID,
+//     region: process.env.REACT_APP_REGION, 
+// });
 
 export default function ProductsPage() {
     const navigate = useNavigate()
@@ -140,25 +140,25 @@ export default function ProductsPage() {
         };
     }, []);
 
-    const handleDownload = async () => {
-        try {
-            const key = 'price_list/price_list.xlsx';
-            const url = await s3.getSignedUrlPromise('getObject', {
-                Bucket: process.env.REACT_APP_BUCKET_NAME,
-                Key: key,
-                Expires: 604800, 
-            });
+    // const handleDownload = async () => {
+    //     try {
+    //         const key = 'price_list/price_list.xlsx';
+    //         const url = await s3.getSignedUrlPromise('getObject', {
+    //             Bucket: process.env.REACT_APP_BUCKET_NAME,
+    //             Key: key,
+    //             Expires: 604800, 
+    //         });
 
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'price_list.xlsx');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link); 
-        } catch (error) {
-            console.error('Download error:', error);
-        }
-    };
+    //         const link = document.createElement('a');
+    //         link.href = url;
+    //         link.setAttribute('download', 'price_list.xlsx');
+    //         document.body.appendChild(link);
+    //         link.click();
+    //         document.body.removeChild(link); 
+    //     } catch (error) {
+    //         console.error('Download error:', error);
+    //     }
+    // };
 
     const sidebarContent = useMemo(() => (
         <aside className={isSidebarOpen ? styles.sidebar : `${styles.sidebar} ${styles.active}`}>
@@ -167,10 +167,10 @@ export default function ProductsPage() {
             </div>
             <div className={styles.head}>
                 <div className={styles.head_logo}>
-                    <img src={logo} alt="" />
+                    <img src={logo} className={styles.image_logo} alt="" />
                 </div>
                 <div className={styles.head_details}>
-                    <h4>Aqua Grand</h4>
+                    <h4>Восточный Берег</h4>
                     <p className={styles.title}>{t("products.best")}</p>
                 </div>
             </div>
@@ -187,21 +187,21 @@ export default function ProductsPage() {
                                 <IoIosArrowUp className={`${styles.arrow} ${isSubmenuOpen ? styles.active : ""}`} onClick={toggleSubmenu} />
                             </div>
                             <ul className={`${styles.sub_menu} ${isSubmenuOpen ? styles.active : ''}`}>
-                                <li>
+                                {/* <li>
                                     <Link className={styles.link} to="/products/seafood/product/cocktail">
                                         <span className={styles.text}>{t("products.cocktail")}</span>
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link className={styles.link} to="/products/seafood/product/shrimps">
                                         <span className={styles.text}>{t("products.shrimps")}</span>
                                     </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <Link className={styles.link} to="/products/seafood/product/mussels">
                                         <span className={styles.text}>{t("products.mussels")}</span>
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link className={styles.link} to="/products/seafood/product/caviar">
                                         <span className={styles.text}>{t("products.caviar")}</span>
@@ -212,11 +212,11 @@ export default function ProductsPage() {
                                         <span className={styles.text}>{t("products.crab")}</span>
                                     </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <Link className={styles.link} to="/products/seafood/product/fish">
                                         <span className={styles.text}>{t("products.fish")}</span>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </li>
                         <li>
@@ -243,7 +243,7 @@ export default function ProductsPage() {
                     <p className={styles.title}>{t("products.prices")}</p>
                     <ul className={styles.list}>
                         <li>
-                            <Link className={styles.link} onClick={handleDownload} to="#">
+                            <Link className={styles.link} /*onClick={handleDownload}*/ to="#">
                                 <HiDocumentDownload  className={styles.icon} />
                                 <span className={styles.text}>{t("products.pricelist.name")}</span>
                             </Link>
