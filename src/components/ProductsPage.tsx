@@ -10,37 +10,28 @@ import { IoIosArrowUp } from "react-icons/io"
 import { IoIosArrowBack } from "react-icons/io";
 import { GiFishingBoat } from "react-icons/gi";
 import { GiOlive } from "react-icons/gi";
-// import { GiSaucepan } from "react-icons/gi";
-// import { GiWaterFlask } from "react-icons/gi";
 import { HiDocumentDownload } from "react-icons/hi";
 import { IoSearch } from "react-icons/io5";
 
-// import { Card } from "../shared/Card";
-// import { Loader } from "./loader/Loader";
-// import AWS from "aws-sdk";
+import { Card } from "../shared/Card";
+import { Loader } from "./loader/Loader";
 
-// const s3 = new AWS.S3({
-//     accessKeyId: process.env.REACT_APP_ACCESS_KEY_ID,
-//     secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY_ID,
-//     region: process.env.REACT_APP_REGION, 
-// });
+
 
 export default function ProductsPage() {
     const navigate = useNavigate()
-    // const location = useLocation()
+    const location = useLocation()
     const [t] = useTranslation("global")
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(
         sessionStorage.getItem('isSidebarOpen') === 'true'
     );
-    // const { category, productName } = useParams();
-    // const [productData, setProductData] = useState([]);
-    // const [seafoodData, setSeafoodData] = useState([]);
-    // const [saucesData, setSaucesData] = useState([]);
-    // const [oilData, setOilData] = useState([]);
-    // const [waterData, setWaterData] = useState([]);
+    const { category, productName } = useParams();
+    const [productData, setProductData] = useState([]);
+    const [seafoodData, setSeafoodData] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
+    const [lastFetchTime, setLastFetchTime] = useState<number>(0);
     // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const toggleSidebar = useCallback(() => {
@@ -59,66 +50,52 @@ export default function ProductsPage() {
         setIsSubmenuOpen(prevState => !prevState);
     }, [isSidebarOpen]);
 
-    // useEffect(() => {
-    //     const handleResize = () => {
-    //         setWindowWidth(window.innerWidth);
-    //     };
+    const filterData = (data: any, productName: any) => {
+        let filteredData = data;
+        if (productName) {
+            filteredData = data.filter((item: any) => item.product === productName);
+        }
+        if (searchQuery) {
+            const searchQueryLowerCase = searchQuery.toLowerCase();
+            filteredData = filteredData.filter((item: any) =>
+                item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                t(`products.${item.product}`).toLowerCase().includes(searchQueryLowerCase)
+            );
+        }
+        return filteredData;
+    };
 
-    //     window.addEventListener('resize', handleResize);
+    const dataFetch = async function(endpoint: any, setData:any) {
+        try {
+            const response = await fetch(`http://127.0.0.1:1234/items/${endpoint}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            setData(data);
+            setLoading(false);
+        } catch (error) {
+            console.error(`Error fetching ${endpoint} data:`, error)
+            setLoading(false);
+        }
+    };
 
-    //     return () => {
-    //         window.removeEventListener('resize', handleResize);
-    //     };
-    // }, []);
+    useEffect(() => {
+        const currentTime = Date.now();
+        setLastFetchTime(currentTime);
 
-    // useEffect(() => {
-    //     if (windowWidth >= 992) {
-    //         fetchData(category, setProductData);
-            
-    //         if (location.pathname === '/products') {
-    //             fetchData('seafood', setSeafoodData);
-    //             fetchData('sauces', setSaucesData);
-    //             fetchData('liquid_oil', setOilData);
-    //             fetchData('water', setWaterData);
-    //         }
-    //     }
-
-    //     return () => {
-    //         setProductData([]);
-    //         setSeafoodData([]);
-    //         setSaucesData([]);
-    //         setOilData([]);
-    //         setWaterData([]);
-    //     };
-    // }, [category, location.pathname]); 
+        dataFetch(category, setProductData);
     
-    // const fetchData = async (endpoint: any, setData:any) => {
-    //     try {
-    //         const response = await fetch(`http://0.0.0.0:1234/items/${endpoint}`);
-    //         const data = await response.json();
-    //         setData(data);
-    //         setLoading(false);
-    //     } catch (error) {
-    //         console.error(`Error fetching ${endpoint} data:`, error)
-    //         setLoading(false);
-    //     }
-    // };
+        if (location.pathname === '/products') {
+            dataFetch('seafood', setSeafoodData);
+        }
 
-    // const filterData = (data: any, productName: any) => {
-    //     let filteredData = data;
-    //     if (productName) {
-    //         filteredData = data.filter((item: any) => item.product === productName);
-    //     }
-    //     if (searchQuery) {
-    //         const searchQueryLowerCase = searchQuery.toLowerCase();
-    //         filteredData = filteredData.filter((item: any) =>
-    //             item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    //             t(`products.${item.product}`).toLowerCase().includes(searchQueryLowerCase)
-    //         );
-    //     }
-    //     return filteredData;
-    // };
-
+        return () => {
+            setProductData([]);
+            setSeafoodData([]);
+        };
+    }, [category, location.pathname]); 
+    
     const handleReset = useCallback(() => {
         setSearchQuery('');
         navigate("/products")
@@ -126,18 +103,6 @@ export default function ProductsPage() {
 
     const handleSearchInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
-    }, []);
-
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth <= 780) {
-                setIsSidebarOpen(false);
-            }
-        };
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
     }, []);
 
     // const handleDownload = async () => {
@@ -187,21 +152,11 @@ export default function ProductsPage() {
                                 <IoIosArrowUp className={`${styles.arrow} ${isSubmenuOpen ? styles.active : ""}`} onClick={toggleSubmenu} />
                             </div>
                             <ul className={`${styles.sub_menu} ${isSubmenuOpen ? styles.active : ''}`}>
-                                {/* <li>
-                                    <Link className={styles.link} to="/products/seafood/product/cocktail">
-                                        <span className={styles.text}>{t("products.cocktail")}</span>
-                                    </Link>
-                                </li> */}
                                 <li>
                                     <Link className={styles.link} to="/products/seafood/product/shrimps">
                                         <span className={styles.text}>{t("products.shrimps")}</span>
                                     </Link>
                                 </li>
-                                {/* <li>
-                                    <Link className={styles.link} to="/products/seafood/product/mussels">
-                                        <span className={styles.text}>{t("products.mussels")}</span>
-                                    </Link>
-                                </li> */}
                                 <li>
                                     <Link className={styles.link} to="/products/seafood/product/caviar">
                                         <span className={styles.text}>{t("products.caviar")}</span>
@@ -212,11 +167,6 @@ export default function ProductsPage() {
                                         <span className={styles.text}>{t("products.crab")}</span>
                                     </Link>
                                 </li>
-                                {/* <li>
-                                    <Link className={styles.link} to="/products/seafood/product/fish">
-                                        <span className={styles.text}>{t("products.fish")}</span>
-                                    </Link>
-                                </li> */}
                             </ul>
                         </li>
                         <li>
@@ -225,18 +175,6 @@ export default function ProductsPage() {
                                 <span className={styles.text}>{t("products.liquid_oil")}</span>
                             </Link>
                         </li>
-                        {/* <li>
-                            <Link className={styles.link} to="/products/sauces">
-                                <GiSaucepan className={styles.icon} />
-                                <span className={styles.text}>{t("products.sauces")}</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={styles.link} to="/products/water">
-                                <GiWaterFlask className={styles.icon} />
-                                <span className={styles.text}>{t("products.water")}</span>
-                            </Link>
-                        </li> */}
                     </ul>
                 </div>
                 <div className={styles.menu}>
@@ -254,15 +192,14 @@ export default function ProductsPage() {
         </aside>
     ), [isSidebarOpen, isSubmenuOpen, t, toggleSubmenu, toggleSidebar])
 
-    // if (loading) {
-    //     return <Loader />
-    // }
+    if (loading) {
+        return <Loader />
+    }
 
     return (
         <div className={styles.container}>
             {sidebarContent}
             <div className={styles.content}>
-                <div className={styles.search_cards}>
                     <div className={styles.instructions}>
                         <div className={styles.search}>
                             <input 
@@ -275,20 +212,12 @@ export default function ProductsPage() {
                         </div> 
                         <button type="button" className="btn-close" aria-label="Close" onClick={handleReset}></button>
                     </div>
-                    {/* <div className={styles.dataDisplay}>
-                    {location.pathname === '/products' && (
+                <div className={styles.search_cards}>
+                    <div className={styles.dataDisplay}>
+                        {location.pathname === '/products' && (
                             <div className={styles.flexContainer}>
                                 {filterData(seafoodData, productName).map((item: any) => (
-                                    <Card key={item.id} productData={item} t={t} />
-                                ))}
-                                {filterData(oilData, productName).map((item: any) => (
-                                    <Card key={item.id} productData={item} t={t} />
-                                ))}
-                                {filterData(saucesData, productName).map((item: any) => (
-                                    <Card key={item.id} productData={item} t={t} />
-                                ))}
-                                {filterData(waterData, productName).map((item: any) => (
-                                    <Card key={item.id} productData={item} t={t} />
+                                    <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
                                 ))}
                             </div>
                         )}
@@ -299,7 +228,7 @@ export default function ProductsPage() {
                                 ))}
                             </div>
                         )}
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>

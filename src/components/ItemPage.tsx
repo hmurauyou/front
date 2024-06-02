@@ -33,10 +33,10 @@ export const ItemPage = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     const [t] = useTranslation("global")
-    const translatedName = t(`products.products_info.${itemData?.id}.name`);
-    const translatedDescription = t(`products.products_info.${itemData?.id}.description`);
-    const translatedCountry = t(`products.products_info.${itemData?.id}.country_id`);
-    const translatedShelfLife = t(`products.products_info.${itemData?.id}.shelf_life`);
+    // const translatedName = t(`products.products_info.${itemData?.id}.name`);
+    // const translatedDescription = t(`products.products_info.${itemData?.id}.description`);
+    // const translatedCountry = t(`products.products_info.${itemData?.id}.country_id`);
+    // const translatedShelfLife = t(`products.products_info.${itemData?.id}.shelf_life`);
  
     useEffect(() => {
         const fetchData = async () => {
@@ -146,11 +146,11 @@ export const ItemPage = () => {
                     </div>
                     <div className="col-md-8">
                     <div className="card-body">
-                        <h5 className="card-title"><span className={styles.name}>{translatedName}</span></h5>
-                        <p className="card-text"><b>{t("products.description")}:</b> {translatedDescription}</p>
-                        <p className='card-text'><b>{t("products.country")}:</b> {translatedCountry}</p>
+                        <h5 className="card-title"><span className={styles.name}>{itemData.name}</span></h5>
+                        <p className="card-text"><b>{t("products.description")}:</b> {itemData.description}</p>
+                        <p className='card-text'><b>{t("products.country")}:</b> {itemData.country_id}</p>
                         <p className='card-text'><b>{t("products.net_weight")}:</b> {itemData.net_weight}</p>
-                        <p className='card-text'><b>{t("products.shelf_life")}:</b> {translatedShelfLife}</p>
+                        <p className='card-text'><b>{t("products.shelf_life")}:</b> {itemData.shelf_life}</p>
                         <p className='card-text'><b>{t("products.price")}:</b> <span className={styles.price}>{itemData.price_byn} BYN</span></p>
                     </div>
                     </div>
