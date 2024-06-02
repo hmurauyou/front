@@ -14,19 +14,3 @@
     font-weight: 200;
     font-size: 1rem;
 }
-
-.input_submit {
-    width: 100px;
-    height: 40px;
-    background: var(--dark-cyan-color);
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.input_submit:hover {
-    background: var(--light-cyan-color);
-}

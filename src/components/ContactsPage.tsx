@@ -3,6 +3,7 @@ import image from '../images/background/bears.jpg'
 import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import "./styles/bootstrap/button.scss"
 
 interface FormValues {
     name: string;

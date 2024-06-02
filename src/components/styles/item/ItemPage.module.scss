@@ -1,21 +1,22 @@
 .wrapper {
     min-height: 100vh;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
     background-color: var(--white-color);
 }
 
 .prev_btn {
+    width: 53%;
     display: flex;
-    width: 75%;
     justify-content: flex-start;
 }
 
 .item_card {
-    width: 75%;
+    width: 80%;
+    max-width: 1000px;
     height: auto;
     overflow: hidden;  
 }
@@ -32,27 +33,49 @@
 }
 
 .price {
-    color: #557C70;
+    color: var(--dark-cyan-color);
     text-decoration: none;
-    font-family: "Orelega One", serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: clamp(1rem, 4vw, 1.4rem);
 }
 
+.data {
+    font-weight: 500;
+}
+
 .name {
-    color: #557C70;
+    color: var(--dark-cyan-color);
     text-decoration: none;
-    font-family: "Orelega One", serif;
-    font-weight: 300;
+    font-weight: 500;
     font-size: clamp(1.4rem, 4vw, 2rem);
 }
 
-@media (max-width: 991px) {
-    .item_card {
-        display: none;
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .wrapper {
+        margin-top: 100px;
     }
 
     .prev_btn {
-        display: none;
+        width: 80%;
+    }
+    
+}
+
+@media (min-width: 768px) and (max-width: 780px) {
+    .prev_btn {
+        width: 80%;
+    }
+}
+
+@media (min-width: 781px) and (max-width: 1023px) {
+    .prev_btn {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1262px) {
+    .prev_btn {
+        width: 80%;
     }
 }

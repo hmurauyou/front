@@ -1,0 +1,25 @@
+.btn-primary {
+    background-color: var(--dark-cyan-color); 
+    width: 100px;
+    border-color: var(--light-cyan-color); 
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--light-cyan-color); 
+    border-color: var(--light-cyan-color); 
+
+}
+
+.btn-primary:active {
+    background-color: var(--dark-cyan-color) !important; 
+    border-color: var(--dark-cyan-color) !important; 
+}
+
+.btn_inside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}

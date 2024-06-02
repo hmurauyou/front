@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./styles/privacy/PrivacyPolicy.module.scss"
 import { useTranslation } from "react-i18next";
+import "./styles/bootstrap/button.scss"
 
 export default function PrivacyPolicy() {
     const navigate = useNavigate();
@@ -125,8 +126,9 @@ export default function PrivacyPolicy() {
                 <br/>14.3. Актуальная версия Политики в свободном доступе расположена в сети Интернет по адресу https://e-coast.ru/privacypolicy.
             </p>
 
-            <button onClick={() => navigate(-1)} className={styles.input_submit}>
-                Назад
+            <button className="btn btn-primary btn_inside" type="button" onClick={() => navigate(-1)}>
+                <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
+                Back
             </button>
         </div>
     )
