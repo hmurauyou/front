@@ -34,7 +34,6 @@ export default function ProductsPage() {
     const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(true);
     const [lastFetchTime, setLastFetchTime] = useState<number>(0);
-    // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const toggleSidebar = useCallback(() => {
         const newIsSidebarOpen = !isSidebarOpen;
@@ -70,7 +69,6 @@ export default function ProductsPage() {
                 if (Object.hasOwnProperty.call(data, key)) {
                     const dataArray = data[key];
                     if (productName) {
-                        console.log(dataArray) // не отображается
                         const filteredByProduct = dataArray.filter((item: any) => item.product === productName);
                         filteredData = [...filteredData, ...filteredByProduct];
                     } else {
