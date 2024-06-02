@@ -4,7 +4,7 @@
     border-radius: 20px;
     width: 100%;
     max-width: 250px; 
-    height: auto; 
+    height: 380px; 
     transition: box-shadow 0.3s ease-in-out;
     box-sizing: border-box;
 }
@@ -32,7 +32,7 @@
     padding: 15px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
 }
 
 .card-title {

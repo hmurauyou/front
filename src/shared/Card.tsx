@@ -2,7 +2,6 @@ import './styles/Card.scss'
 import AWS from 'aws-sdk';
 import { Link } from 'react-router-dom'
 import { memo, useEffect, useState } from 'react';
-import styles from './styles/Card.module.scss';
 
 
 // const s3 = new AWS.S3({
@@ -29,8 +28,6 @@ export const Card = memo(({productData, t, lastFetchTime}: any) => {
     
 
     // const [elapsedTime, setElapsedTime] = useState<number>(0);
-
-    console.log(lastFetchTime);
 
     // useEffect(() => {
     //     // Calculate the time difference when the component mounts
@@ -101,23 +98,25 @@ export const Card = memo(({productData, t, lastFetchTime}: any) => {
                 )}
              </Link>
               <div className="card-body">
-                    <Link className="link_card" to={`/products/${category}/${id}`}>
-                        <h4 className="card-title">{productData.name}</h4>
-                    </Link>
+                    <div>
+                        <Link className="link_card" to={`/products/${category}/${id}`}>
+                            <h4 className="card-title">{productData.name}</h4>
+                        </Link>
+                    </div>
                     <div>
                         <p className="card-text">{t("products.net_weight")}: {productData.net_weight}</p>
+                        <p className="card-text">
+                            <small className="text-body-secondary">
+                            Last updated {
+                                minutesAgo < 60 ? (
+                                    `${minutesAgo} ${minutesAgo === 1 ? 'minute' : 'minutes'} ago`
+                                ) : (
+                                    `${Math.floor(minutesAgo / 60)} ${Math.floor(minutesAgo / 60) === 1 ? 'hour' : 'hours'} ago`
+                                )
+                            }
+                            </small>
+                        </p>
                     </div>
-                    <p className="card-text">
-                        <small className="text-body-secondary">
-                        Last updated {
-                            minutesAgo < 60 ? (
-                                `${minutesAgo} ${minutesAgo === 1 ? 'minute' : 'minutes'} ago`
-                            ) : (
-                                `${Math.floor(minutesAgo / 60)} ${Math.floor(minutesAgo / 60) === 1 ? 'hour' : 'hours'} ago`
-                            )
-                        }
-                        </small>
-                    </p>
               </div>
             </div>
     )

@@ -15,6 +15,7 @@ import { IoSearch } from "react-icons/io5";
 
 import { Card } from "../shared/Card";
 import { Loader } from "./loader/Loader";
+import { Empty } from "../shared/Empty";
 
 
 
@@ -27,8 +28,9 @@ export default function ProductsPage() {
         sessionStorage.getItem('isSidebarOpen') === 'true'
     );
     const { category, productName } = useParams();
-    const [productData, setProductData] = useState([]);
+    const [productData, setProductData] = useState({});
     const [seafoodData, setSeafoodData] = useState([]);
+    const [liquidOilData, setLiquidOilData] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(true);
     const [lastFetchTime, setLastFetchTime] = useState<number>(0);
@@ -51,19 +53,44 @@ export default function ProductsPage() {
     }, [isSidebarOpen]);
 
     const filterData = (data: any, productName: any) => {
-        let filteredData = data;
-        if (productName) {
-            filteredData = data.filter((item: any) => item.product === productName);
+        let filteredData: any[] = [];
+    
+        if (Object.keys(data).length === 0) {
+            return filteredData;
         }
+
+        if (Array.isArray(data)) {
+            filteredData = data.filter(item => item.product === productName);
+        }
+
+        if (Array.isArray(data)) {
+            filteredData = data;
+        } else {
+            for (const key in data) {
+                if (Object.hasOwnProperty.call(data, key)) {
+                    const dataArray = data[key];
+                    if (productName) {
+                        console.log(dataArray) // не отображается
+                        const filteredByProduct = dataArray.filter((item: any) => item.product === productName);
+                        filteredData = [...filteredData, ...filteredByProduct];
+                    } else {
+                        filteredData = [...filteredData, ...dataArray];
+                    }
+                }
+            }
+        }
+    
         if (searchQuery) {
             const searchQueryLowerCase = searchQuery.toLowerCase();
-            filteredData = filteredData.filter((item: any) =>
-                item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            filteredData = filteredData.filter(item =>
+                item.name.toLowerCase().includes(searchQueryLowerCase) ||
                 t(`products.${item.product}`).toLowerCase().includes(searchQueryLowerCase)
             );
         }
+
         return filteredData;
     };
+    
 
     const dataFetch = async function(endpoint: any, setData:any) {
         try {
@@ -84,17 +111,27 @@ export default function ProductsPage() {
         const currentTime = Date.now();
         setLastFetchTime(currentTime);
 
-        dataFetch(category, setProductData);
-    
         if (location.pathname === '/products') {
+            dataFetch('all', setProductData);
+        } else if (location.pathname === '/products/seafood') {
             dataFetch('seafood', setSeafoodData);
+        } else if (location.pathname.startsWith('/products/seafood/product/')) {
+            const productName = location.pathname.split('/').pop()?.toLowerCase();
+
+            dataFetch('seafood', (seafood:any) => {
+                const filteredSeafood = seafood.filter((item:any) => item.product === productName);
+                setSeafoodData(filteredSeafood);
+            });
+        } else if (location.pathname === '/products/liquid_oil') {
+            dataFetch('liquid_oil', setLiquidOilData)
         }
 
         return () => {
             setProductData([]);
             setSeafoodData([]);
+            setLiquidOilData([]);
         };
-    }, [category, location.pathname]); 
+    }, [category, location.pathname, productName]); 
     
     const handleReset = useCallback(() => {
         setSearchQuery('');
@@ -216,16 +253,46 @@ export default function ProductsPage() {
                     <div className={styles.dataDisplay}>
                         {location.pathname === '/products' && (
                             <div className={styles.flexContainer}>
-                                {filterData(seafoodData, productName).map((item: any) => (
-                                    <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
-                                ))}
+                                {filterData(productData, productName).length > 0 ? (
+                                    filterData(productData, productName).map((item: any) => (
+                                        <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
+                                    ))
+                                ) : (
+                                    <Empty />
+                                )}
                             </div>
                         )}
-                        {location.pathname.startsWith('/products') && (
+                        {location.pathname === '/products/seafood' && (
                             <div className={styles.flexContainer}>
-                                {filterData(productData, productName).map((item: any) => (
-                                    <Card key={item.id} productData={item} t={t} />
-                                ))}
+                                {filterData(seafoodData, productName).length > 0 ? (
+                                    filterData(seafoodData, productName).map((item: any) => (
+                                        <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
+                                    ))
+                                ) : (
+                                    <Empty />
+                                )}
+                            </div>
+                        )}
+                        {location.pathname.startsWith('/products/seafood/product/') && (
+                            <div className={styles.flexContainer}>
+                                {filterData(seafoodData, productName).length > 0 ? (
+                                    filterData(seafoodData, productName).map((item: any) => (
+                                        <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
+                                    ))
+                                ) : (
+                                    <Empty />
+                                )}
+                            </div>
+                        )}
+                        {location.pathname === '/products/liquid_oil' && (
+                            <div className={styles.flexContainer}>
+                                {filterData(liquidOilData, productName).length > 0 ? (
+                                    filterData(liquidOilData, productName).map((item: any) => (
+                                        <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
+                                    ))
+                                ) : (
+                                    <Empty />
+                                )}
                             </div>
                         )}
                     </div>
