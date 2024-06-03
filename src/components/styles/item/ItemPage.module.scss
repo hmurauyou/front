@@ -8,12 +8,6 @@
     background-color: var(--white-color);
 }
 
-.prev_btn {
-    width: 53%;
-    display: flex;
-    justify-content: flex-start;
-}
-
 .item_card {
     width: 80%;
     max-width: 1000px;
@@ -54,28 +48,5 @@
 @media (min-width: 320px) and (max-width: 767px) {
     .wrapper {
         margin-top: 100px;
-    }
-
-    .prev_btn {
-        width: 80%;
-    }
-    
-}
-
-@media (min-width: 768px) and (max-width: 780px) {
-    .prev_btn {
-        width: 80%;
-    }
-}
-
-@media (min-width: 781px) and (max-width: 1023px) {
-    .prev_btn {
-        width: 80%;
-    }
-}
-
-@media (min-width: 1024px) and (max-width: 1262px) {
-    .prev_btn {
-        width: 80%;
-    }
+    }   
 }

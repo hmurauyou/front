@@ -1,4 +1,4 @@
-import './styles/Card.scss'
+import './styles/Card/Card.scss'
 import AWS from 'aws-sdk';
 import { Link } from 'react-router-dom'
 import { memo, useEffect, useState } from 'react';

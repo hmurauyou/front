@@ -39,6 +39,16 @@
     color: var(--dark-cyan-color);
 }
 
+.custom-offcanvas {
+    width: 600px !important; 
+}
+
+@media (max-width: 768px) {
+    .custom-offcanvas {
+        width: 100%;
+    }
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
     .navbar {
         height: 50px;

@@ -45,17 +45,27 @@ function App() {
                             </Suspense>
                         } 
                     />
-                    <Route path="/products/:category" element={<ProductsPage />} />
-                    <Route path="/products/:category/product/:productName" element={<ProductsPage />} /> 
-                    <Route path="/products/:category/:id" element={<ItemPage />} /> 
-                    {/* <Route path="/about" element={
-                            <Suspense fallback={
+                    <Route path="/products/:category" element={
+                        <Suspense fallback={
                                 <Loader />
                             }>
-                                <LazyAboutPage />
+                                <ProductsPage />
                             </Suspense>
-                        } 
-                    /> */}
+                    } />
+                    <Route path="/products/:category/product/:productName" element={
+                        <Suspense fallback={
+                            <Loader />
+                        }>
+                            <ProductsPage />
+                        </Suspense>
+                    } /> 
+                    <Route path="/products/:category/:id" element={
+                        <Suspense fallback={
+                            <Loader />
+                        }>
+                            <ItemPage />
+                        </Suspense>
+                    } />
                     <Route path="/contacts" element={
                             <Suspense fallback={
                                 <Loader />
@@ -72,9 +82,20 @@ function App() {
                             </Suspense>
                         } 
                     />
-                    {/* <Route path="/contacts/verify_email" element={<ConfirmationPage />} />  */}
-                    <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-                    <Route path='*' element={<NotFoundPage />} />
+                    <Route path="/privacypolicy" element={
+                        <Suspense fallback={
+                            <Loader />
+                        }>
+                            <PrivacyPolicy />
+                        </Suspense>
+                    } />
+                    <Route path='*' element={
+                        <Suspense fallback={
+                            <Loader />
+                        }>
+                            <NotFoundPage />
+                        </Suspense>
+                    } />
                 </Routes>
             </main>
             {/* {!isHomePage && (

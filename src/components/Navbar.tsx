@@ -3,6 +3,8 @@ import styles from "./styles/navbar/Navbar.module.scss";
 import './styles/navbar/navbar.css';
 import logo from '../images/logo/logo_footer.png'
 import { useTranslation } from "react-i18next";
+import { CiShoppingCart } from "react-icons/ci";
+import Cart from "../shared/Cart";
 
 export default function Navbar() {
     const [t, i18next] = useTranslation("global")
@@ -35,20 +37,27 @@ export default function Navbar() {
                             </ul>
                         </div>
                     </div>
-                    <span className={styles.switch}>
-                        <input 
-                            type="checkbox" 
-                            id="switcher" 
-                            onChange={() => handleChangeLanguage(i18next.language === "en" ? "rus" : "en")}
-                            checked={i18next.language === "rus"}
-                        />
-                        <label htmlFor="switcher"></label>
-                    </span>
+                    <div className={styles.addition}>
+                        <span className={styles.switch}>
+                            <input 
+                                type="checkbox" 
+                                id="switcher" 
+                                onChange={() => handleChangeLanguage(i18next.language === "en" ? "rus" : "en")}
+                                checked={i18next.language === "rus"}
+                            />
+                            <label htmlFor="switcher"></label>
+                        </span>
+                        <div className={styles.cart} data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                            <CiShoppingCart />
+                            <div className={styles.total}><span>0</span></div>
+                        </div>
+                    </div>
                     <button className="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                 </div>
             </nav>
+            <Cart/>
         </>
     );
 }
