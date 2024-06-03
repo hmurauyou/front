@@ -1,7 +1,9 @@
 import './styles/Card/Card.scss'
-import AWS from 'aws-sdk';
+import styles from './styles/Card/Card.module.scss'
+// import AWS from 'aws-sdk';
 import { Link } from 'react-router-dom'
 import { memo, useEffect, useState } from 'react';
+import { LuFilePlus2 } from "react-icons/lu";
 
 
 // const s3 = new AWS.S3({
@@ -86,17 +88,22 @@ export const Card = memo(({productData, t, lastFetchTime}: any) => {
 
     return (
              <div className="card">
-             <Link to={`/products/${category}/${id}`}>
-                {isLoading ? (
-                    <div className="d-flex justify-content-center align-items-center loader-container" style={{ height: "200px" }}>
-                        <div className="spinner-border text-secondary" role="status">
-                            <span className="visually-hidden">Loading...</span>
+                {/* <div className={styles.add_button}>
+                </div> */}
+                <button className={`${styles.add_button} btn btn-primary btn_inside`} type="button">
+                    <span><LuFilePlus2 /></span>
+                </button>
+                <Link to={`/products/${category}/${id}`}>
+                    {isLoading ? (
+                        <div className="d-flex justify-content-center align-items-center loader-container" style={{ height: "200px" }}>
+                            <div className="spinner-border text-secondary" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
                         </div>
-                    </div>
-                ) : (
-                    <img src={imageUrls[0] || 'placeholder_image_url'} className="card-img-top" alt="Product" />
-                )}
-             </Link>
+                    ) : (
+                        <img src={imageUrls[0] || 'placeholder_image_url'} className="card-img-top" alt="Product" />
+                    )}
+                </Link>
               <div className="card-body">
                     <div>
                         <Link className="link_card" to={`/products/${category}/${id}`}>
@@ -107,13 +114,13 @@ export const Card = memo(({productData, t, lastFetchTime}: any) => {
                         <p className="card-text">{t("products.net_weight")}: {productData.net_weight}</p>
                         <p className="card-text">
                             <small className="text-body-secondary">
-                            Last updated {
-                                minutesAgo < 60 ? (
-                                    `${minutesAgo} ${minutesAgo === 1 ? 'minute' : 'minutes'} ago`
-                                ) : (
-                                    `${Math.floor(minutesAgo / 60)} ${Math.floor(minutesAgo / 60) === 1 ? 'hour' : 'hours'} ago`
-                                )
-                            }
+                                Last updated {
+                                    minutesAgo < 60 ? (
+                                        `${minutesAgo} ${minutesAgo === 1 ? 'minute' : 'minutes'} ago`
+                                    ) : (
+                                        `${Math.floor(minutesAgo / 60)} ${Math.floor(minutesAgo / 60) === 1 ? 'hour' : 'hours'} ago`
+                                    )
+                                }
                             </small>
                         </p>
                     </div>

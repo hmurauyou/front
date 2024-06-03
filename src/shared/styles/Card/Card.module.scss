@@ -1,0 +1,47 @@
+.card {
+    position: relative;
+    border-radius: 20px 0 0 0;
+    overflow: hidden;
+}
+
+.add_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 5px 19px 5px 19px; 
+    cursor: pointer;
+    outline: none;
+    z-index: 1;
+    transition: .3 background-color ease;
+}
+
+.add_button::after {
+    content: "Add to Cart";
+    position: absolute;
+    bottom: -30px;
+    right: -40px;
+    background-color: var(--light-cyan-color);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.3s ease;
+}
+
+.add_button:hover::after {
+    opacity: 1;
+}
+
+.add_button span {
+    position: absolute;
+    top: 45%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    font-size: 24px;
+    color: white;
+    z-index: 2;
+}
