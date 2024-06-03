@@ -13,9 +13,9 @@ import { GiOlive } from "react-icons/gi";
 import { HiDocumentDownload } from "react-icons/hi";
 import { IoSearch } from "react-icons/io5";
 
-import { Card } from "../shared/Card";
+import { Card } from "./shared/Card";
 import { Loader } from "./loader/Loader";
-import { Empty } from "../shared/Empty";
+import { Empty } from "./shared/Empty";
 
 
 

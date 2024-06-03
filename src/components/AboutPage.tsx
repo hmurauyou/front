@@ -1,4 +1,4 @@
-import { Reveal } from '../shared/Reveal'
+import { Reveal } from './shared/Reveal'
 import styles from './styles/about/About.module.scss'
 import flowers from '../images/flowers/3flowers.png'
 import flowers1 from '../images/flowers/3colorfull.png'

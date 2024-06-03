@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles/home/Home.module.scss';
 import video from '../images/video/Kamchatka.mp4';
-import { Reveal } from '../shared/Reveal';
+import { Reveal } from './shared/Reveal';
 import { useTranslation } from 'react-i18next';
 
 function HomePage() {

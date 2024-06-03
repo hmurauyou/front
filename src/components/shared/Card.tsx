@@ -4,6 +4,7 @@ import styles from './styles/Card/Card.module.scss'
 import { Link } from 'react-router-dom'
 import { memo, useEffect, useState } from 'react';
 import { LuFilePlus2 } from "react-icons/lu";
+import { useCart } from '../providers/CartProvider';
 
 
 // const s3 = new AWS.S3({
@@ -13,11 +14,26 @@ import { LuFilePlus2 } from "react-icons/lu";
 // });
   
 
-export const Card = memo(({productData, t, lastFetchTime}: any) => {
+interface ProductData {
+    id: number;
+    name: string;
+    category: string;
+    product: string;
+    net_weight: string;
+}
+
+interface CardProps {
+    productData: ProductData;
+    t: (key: string) => string;
+    lastFetchTime: number;
+}
+
+export const Card = memo(({productData, t, lastFetchTime}: CardProps) => {
     const { id, category } = productData;
     const [isLoading, setIsLoading] = useState(true);
     const [imageUrls, setImageUrls] = useState<string[]>([]);
     const [minutesAgo, setMinutesAgo] = useState<number>(0);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -27,6 +43,10 @@ export const Card = memo(({productData, t, lastFetchTime}: any) => {
     
         return () => clearInterval(interval);
     }, [lastFetchTime]);
+
+    const handleAddToCart = () => {
+        addToCart(productData);  // Добавьте товар в корзину при нажатии на кнопку
+    };
     
 
     // const [elapsedTime, setElapsedTime] = useState<number>(0);
@@ -88,9 +108,11 @@ export const Card = memo(({productData, t, lastFetchTime}: any) => {
 
     return (
              <div className="card">
-                {/* <div className={styles.add_button}>
-                </div> */}
-                <button className={`${styles.add_button} btn btn-primary btn_inside`} type="button">
+                <button 
+                    className={`${styles.add_button} btn btn-primary btn_inside`} 
+                    type="button"
+                    onClick={handleAddToCart}
+                >
                     <span><LuFilePlus2 /></span>
                 </button>
                 <Link to={`/products/${category}/${id}`}>

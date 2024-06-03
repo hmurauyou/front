@@ -9,6 +9,7 @@ import global_en from './translations/en/global.json'
 import global_rus from './translations/rus/global.json'
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
+import { CartProvider } from './components/providers/CartProvider';
 
 i18next.init({
   interpolation: { escapeValue: false },
@@ -30,7 +31,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <I18nextProvider i18n={i18next}>
-      <App />
+        <CartProvider>
+          <App />
+        </CartProvider>
     </I18nextProvider>
     </BrowserRouter>
   </React.StrictMode>
