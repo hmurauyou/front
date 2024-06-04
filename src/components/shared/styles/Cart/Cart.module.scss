@@ -27,11 +27,7 @@
 .close_section {
     display: flex;
     flex-direction: row;
-}
-
-.close_section button {
-    display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .card_body {

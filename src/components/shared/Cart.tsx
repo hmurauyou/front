@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCart } from '../providers/CartProvider';
 import styles from './styles/Cart/Cart.module.scss';
-import './styles/Cart/Cart.scss'
 
 
 interface CartItem {
