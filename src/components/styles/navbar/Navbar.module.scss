@@ -111,10 +111,10 @@
     top: -5px;
     right: 10px;
     background-color: var(--light-cyan-color);
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
-    color: #fff;
+    color: var(--white-color);
     font-weight: 200;
     display: flex;
     justify-content: center;
@@ -123,7 +123,7 @@
 }
 
 .total span {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .cart:hover {

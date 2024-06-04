@@ -15,10 +15,12 @@ import { useCart } from '../providers/CartProvider';
   
 
 interface ProductData {
-    id: number;
+    id: string;
     name: string;
     category: string;
     product: string;
+    quantity: number;
+    price_byn: number;
     net_weight: string;
 }
 
@@ -45,7 +47,7 @@ export const Card = memo(({productData, t, lastFetchTime}: CardProps) => {
     }, [lastFetchTime]);
 
     const handleAddToCart = () => {
-        addToCart(productData);  // Добавьте товар в корзину при нажатии на кнопку
+        addToCart(productData); 
     };
     
 

@@ -5,9 +5,12 @@ import logo from '../images/logo/logo_footer.png'
 import { useTranslation } from "react-i18next";
 import { CiShoppingCart } from "react-icons/ci";
 import Cart from "./shared/Cart";
+import { useCart } from "./providers/CartProvider";
+
 
 export default function Navbar() {
     const [t, i18next] = useTranslation("global")
+    const { totalUniqueItems } = useCart();
 
     const handleChangeLanguage = (lang: string) => {
         i18next.changeLanguage(lang)
@@ -49,7 +52,7 @@ export default function Navbar() {
                         </span>
                         <div className={styles.cart} data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                             <CiShoppingCart />
-                            <div className={styles.total}><span>0</span></div>
+                            <div className={styles.total}><span>{totalUniqueItems > 9 ? '9+' : totalUniqueItems}</span></div> 
                         </div>
                     </div>
                     <button className="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">

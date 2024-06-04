@@ -1,8 +1,7 @@
 .btn-primary {
     background-color: var(--dark-cyan-color); 
-    width: 100px;
     border-color: var(--light-cyan-color); 
-    color: #fff;
+    color: var(--white-color);
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 

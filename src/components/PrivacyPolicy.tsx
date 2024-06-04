@@ -126,7 +126,7 @@ export default function PrivacyPolicy() {
                 <br/>14.3. Актуальная версия Политики в свободном доступе расположена в сети Интернет по адресу https://e-coast.ru/privacypolicy.
             </p>
 
-            <button className="btn btn-primary btn_inside" type="button" onClick={() => navigate(-1)}>
+            <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => navigate(-1)}>
                 <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
                 Back
             </button>
