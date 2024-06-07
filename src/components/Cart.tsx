@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCart } from './providers/CartProvider';
 import SharedModal from './shared/Modal';
@@ -69,9 +69,11 @@ export default function Cart() {
         localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     };
 
+    const offcanvasCartRef = useRef<HTMLDivElement>(null);
+
     return (
         <>
-            <div className="offcanvas offcanvas-end custom-offcanvas" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+            <div className="offcanvas offcanvas-end custom-offcanvas" id="offcanvasCart" aria-labelledby="offcanvasCartLabel" ref={offcanvasCartRef}>
                 <div className="offcanvas-header">
                     <h2 className="offcanvas-title" id="offcanvasCartLabel">Cart</h2>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -138,6 +140,7 @@ export default function Cart() {
                 cartItems={cartItems}
                 quantities={quantities}
                 t={t}
+                offcanvasCartRef={offcanvasCartRef}
             />
         </>
     )

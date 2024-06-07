@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import { Link, Navigate, redirect } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './styles/Modal/Modal.module.scss'
 import './styles/Modal/Modal.scss'
+import { useCart } from '../providers/CartProvider';
+import Modal from 'bootstrap/js/dist/modal'; 
 
 interface CartItem {
     id: string;
@@ -19,6 +21,7 @@ interface ModalProps {
     cartItems: CartItem[];
     quantities: number[];
     t: (key: string) => string;
+    offcanvasCartRef: any;
 }
 
 interface FormValues {
@@ -28,7 +31,7 @@ interface FormValues {
     contact_phone: string;
 }
 
-const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t }) => {
+const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t, offcanvasCartRef }) => {
     const [values, setValues] = useState<FormValues>({
         name: "",
         surname: "",
@@ -49,6 +52,8 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
         name: 16,
         surname: 25,
     }
+    const { clearCart } = useCart();
+    const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         setButtonText(t("contacts.send"))
@@ -94,13 +99,28 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
 
         setIsLoading(true)
 
+        const orderData = {
+            name: values.name,
+            surname: values.surname,
+            email: values.email,
+            contact_phone: values.contact_phone,
+            items: cartItems.map((item, index) => ({
+                category: item.category,
+                product: item.product,
+                name: item.name,
+                net_weight: item.net_weight,
+                quantity: quantities[index],
+                price_byn: item.price_byn,
+            })),
+        };
+
         try {
-            const response = await fetch('http://127.0.0.1:1234/contacts/send', {
+            const response = await fetch('http://127.0.0.1:1234/orders/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(values),
+                body: JSON.stringify(orderData),
             });
 
             if (response.ok) {
@@ -124,7 +144,25 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                 setTimeout(() => {
                     setButtonText(t("contacts.send"));
                     setIsLoading(false);
-                }, 3000);
+
+                    const modalElement = modalRef.current;
+                    if (modalElement) {
+                        modalElement.classList.remove('show');
+                        modalElement.style.display = 'none';
+                        const modalBackdrop = document.querySelector('.modal-backdrop');
+                        if (modalBackdrop) {
+                            modalBackdrop.remove();
+                        }
+                    }
+
+                    clearCart();
+                    offcanvasCartRef.current?.classList.remove('show'); // Убираем класс 'show'
+                    const offcanvasBackdrop = document.querySelector('.offcanvas-backdrop');
+                    if (offcanvasBackdrop) {
+                        offcanvasBackdrop.classList.remove('show');
+                        document.body.style.overflow = 'auto';
+                    }
+                }, 1000);
             } else {
                 console.error('Error sending form data:', response.statusText);
             }
@@ -137,7 +175,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
 
     
     return (
-        <div className="modal fade" id={id} data-bs-keyboard="false" tabIndex={-1} aria-labelledby={`${id}Label`} aria-hidden="true">
+        <div className="modal fade" id={id} data-bs-keyboard="false" tabIndex={-1} aria-labelledby={`${id}Label`} aria-hidden="true" ref={modalRef}>
             <div className={`modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl`}>
                 <div className="modal-content">
                     <div className="modal-header">
