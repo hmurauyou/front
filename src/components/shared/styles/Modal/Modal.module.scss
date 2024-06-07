@@ -100,6 +100,15 @@
     }
 }
 
+.text a {
+    color: var(--main-color-contacts);
+    transition: 0.3s;
+}
+
+.text a:hover {
+    color: var(--main-color-hover-contacts);
+}
+
 .order_heading h3 {
     font-weight: 400;
     color: var(--dark-cyan-color);
@@ -203,17 +212,6 @@
     color: var(--input-text-contacts);
     font-size: 1.25rem;
     transition: .3s;
-}
-
-textarea.contact_input {
-    resize: none;
-    width: 100%;
-    min-height: 150px;
-}
-
-textarea.contact_input ~ label {
-    top: 1.2rem;
-    transform: none;
 }
 
 .input_wrap.focus .contact_input {

@@ -110,7 +110,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                 name: item.name,
                 net_weight: item.net_weight,
                 quantity: quantities[index],
-                price_byn: item.price_byn,
+                price_byn: item.price_byn, //delete
             })),
         };
 
