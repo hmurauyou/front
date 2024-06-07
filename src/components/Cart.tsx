@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useCart } from '../providers/CartProvider';
-import SharedModal from './Modal';
+import { useCart } from './providers/CartProvider';
+import SharedModal from './shared/Modal';
 import styles from './styles/Cart/Cart.module.scss';
 
 interface CartItem {

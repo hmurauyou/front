@@ -4,7 +4,7 @@ import './styles/navbar/navbar.css';
 import logo from '../images/logo/logo_footer.png'
 import { useTranslation } from "react-i18next";
 import { CiShoppingCart } from "react-icons/ci";
-import Cart from "./shared/Cart";
+import Cart from "./Cart";
 import { useCart } from "./providers/CartProvider";
 
 
