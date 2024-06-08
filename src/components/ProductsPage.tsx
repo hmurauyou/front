@@ -12,10 +12,10 @@ import { GiFishingBoat } from "react-icons/gi";
 import { GiOlive } from "react-icons/gi";
 import { HiDocumentDownload } from "react-icons/hi";
 import { IoSearch } from "react-icons/io5";
-
 import { Card } from "./shared/Card";
 import { Loader } from "./loader/Loader";
 import { Empty } from "./shared/Empty";
+import { Reveal } from "./shared/Reveal";
 
 
 
@@ -140,6 +140,22 @@ export default function ProductsPage() {
         setSearchQuery(event.target.value);
     }, []);
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 1024) {
+                setIsSidebarOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [])
+
     // const handleDownload = async () => {
     //     try {
     //         const key = 'price_list/price_list.xlsx';
@@ -235,21 +251,22 @@ export default function ProductsPage() {
         <div className={styles.container}>
             {sidebarContent}
             <div className={styles.content}>
-                    <div className={styles.instructions}>
-                        <div className={styles.search}>
-                            <input 
-                                type="text" 
-                                placeholder={t("products.searchPlaceholder")}
-                                value={searchQuery}
-                                onChange={handleSearchInputChange}
-                            />
-                            <IoSearch />
-                        </div> 
-                        <button type="button" className="btn-close" aria-label="Close" onClick={handleReset}></button>
-                    </div>
                 <div className={styles.search_cards}>
                     <div className={styles.dataDisplay}>
+                        <div className={styles.instructions}>
+                            <div className={styles.search}>
+                                <input 
+                                    type="text" 
+                                    placeholder={t("products.searchPlaceholder")}
+                                    value={searchQuery}
+                                    onChange={handleSearchInputChange}
+                                />
+                                <IoSearch />
+                            </div> 
+                            <button type="button" className="btn-close" aria-label="Close" onClick={handleReset}></button>
+                        </div>
                         {location.pathname === '/products' && (
+                            <Reveal>
                             <div className={styles.flexContainer}>
                                 {filterData(productData, productName).length > 0 ? (
                                     filterData(productData, productName).map((item: any) => (
@@ -259,6 +276,7 @@ export default function ProductsPage() {
                                     <Empty />
                                 )}
                             </div>
+                            </Reveal>
                         )}
                         {location.pathname === '/products/seafood' && (
                             <div className={styles.flexContainer}>

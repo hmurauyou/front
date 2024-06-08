@@ -126,3 +126,21 @@
 .btn_width {
     width: 150px;
 }
+
+.empty_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty_msg {
+    font-size: 1.2rem;
+}
+
+.empty_img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+}

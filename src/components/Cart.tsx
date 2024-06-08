@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useCart } from './providers/CartProvider';
 import SharedModal from './shared/Modal';
 import styles from './styles/Cart/Cart.module.scss';
+import empty from '../images/background/empty_cart.png'
 
 interface CartItem {
     id: string;
@@ -80,7 +81,10 @@ export default function Cart() {
                 </div>
                 <div className="offcanvas-body">
                     {cartItems.length === 0 ? (
-                        <p>Your cart is empty.</p>
+                        <div className={styles.empty_section}>
+                            <p className={styles.empty_msg}>Your cart is empty.</p>
+                            <img src={empty} alt='empty' className={styles.empty_img} />
+                        </div>
                     ) : (
                         <div className={styles.card_container}>
                             {cartItems.map((item, index) => (

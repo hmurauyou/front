@@ -14,7 +14,7 @@ export default function AboutPage() {
     return (
         <section className={styles.section_about}>
             <div className={styles.about}>
-                <Reveal>
+                {/* <Reveal> */}
                     <div className={styles.con_first}>
                         <h1 className={styles.header1}>{t("about.section_1.header")}<span>?</span></h1>
                         <div className={styles.nested}>
@@ -22,8 +22,8 @@ export default function AboutPage() {
                             <img className={styles.image} src={rose} alt='.' />
                         </div>
                     </div>
-                </Reveal>
-                <Reveal>
+                {/* </Reveal>
+                <Reveal> */}
                     <div className={styles.con_second}>
                         <h1 className={styles.header2}>{t("about.section_2.header")}<span>.</span></h1>
                         <div className={styles.nested}>
@@ -31,8 +31,8 @@ export default function AboutPage() {
                             <img className={styles.image} src={orangeflower} alt='.' />
                         </div>
                     </div>
-                </Reveal>
-                <Reveal>
+                {/* </Reveal>
+                <Reveal> */}
                     <div className={styles.con_second}>
                         <h1 className={styles.header3}>{t("about.section_3.header")}<span>.</span></h1>
                         <div className={styles.nested}>
@@ -40,8 +40,8 @@ export default function AboutPage() {
                             <img className={styles.image} src={flowers3} alt='.' />
                         </div>
                     </div>
-                </Reveal>
-                <Reveal>
+                {/* </Reveal>
+                <Reveal> */}
                     <div className={styles.con_second}>
                         <h1 className={styles.header4}>{t("about.section_4.header")}<span>.</span></h1>
                         <div className={styles.nested}>
@@ -49,8 +49,8 @@ export default function AboutPage() {
                             <img className={styles.image} src={flowers1} alt='.' />
                         </div>
                     </div>
-                </Reveal>
-                <Reveal>
+                {/* </Reveal>
+                <Reveal> */}
                     <div className={styles.con_third}>
                         <h1 className={styles.header5}>{t("about.section_5.header")}<span>.</span></h1>
                         <div className={styles.nested}>
@@ -58,7 +58,7 @@ export default function AboutPage() {
                             <img className={styles.image2} src={flowers} alt='.' />
                         </div>
                     </div>
-                </Reveal>
+                {/* </Reveal> */}
             </div>    
         </section>
     )

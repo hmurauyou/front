@@ -109,7 +109,7 @@ export const Card = memo(({productData, t, lastFetchTime}: CardProps) => {
     // }, [id, windowWidth]);
 
     return (
-             <div className="card">
+            <div className="card">
                 <button 
                     className={`${styles.add_button} btn btn-primary btn_inside`} 
                     type="button"
@@ -128,7 +128,7 @@ export const Card = memo(({productData, t, lastFetchTime}: CardProps) => {
                         <img src={imageUrls[0] || 'placeholder_image_url'} className="card-img-top" alt="Product" />
                     )}
                 </Link>
-              <div className="card-body">
+                <div className="card-body">
                     <div>
                         <Link className="link_card" to={`/products/${category}/${id}`}>
                             <h4 className="card-title">{productData.name}</h4>
@@ -148,7 +148,7 @@ export const Card = memo(({productData, t, lastFetchTime}: CardProps) => {
                             </small>
                         </p>
                     </div>
-              </div>
+                </div>
             </div>
     )
 });

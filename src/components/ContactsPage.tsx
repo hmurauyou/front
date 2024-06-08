@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./styles/bootstrap/button.scss"
+import { Reveal } from './shared/Reveal';
 
 interface FormValues {
     name: string;
