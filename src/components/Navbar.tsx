@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./styles/navbar/Navbar.module.scss";
 import './styles/navbar/navbar.css';
-import logo from '../images/logo/logo_footer.png'
+import logo from '../images/logo/full_logo.png'
 import { useTranslation } from "react-i18next";
 import { CiShoppingCart } from "react-icons/ci";
 import Cart from "./Cart";

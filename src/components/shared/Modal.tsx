@@ -1,9 +1,8 @@
-import { Link, Navigate, redirect } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './styles/Modal/Modal.module.scss'
 import './styles/Modal/Modal.scss'
 import { useCart } from '../providers/CartProvider';
-import Modal from 'bootstrap/js/dist/modal'; 
 
 interface CartItem {
     id: string;
@@ -38,6 +37,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
         email: "",
         contact_phone: "",
       });
+    const navigate = useNavigate();
     const [buttonText, setButtonText] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
     const [focusedField, setFocusedField] =  useState<string | null>(null);
@@ -105,12 +105,13 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
             email: values.email,
             contact_phone: values.contact_phone,
             items: cartItems.map((item, index) => ({
+                id: item.id,
                 category: item.category,
                 product: item.product,
-                name: item.name,
-                net_weight: item.net_weight,
+                // name: item.name,
+                // net_weight: item.net_weight,
                 quantity: quantities[index],
-                price_byn: item.price_byn, //delete
+                // price_byn: item.price_byn, //delete
             })),
         };
 
@@ -124,13 +125,11 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
             });
 
             if (response.ok) {
-                const responseData = await response.json()
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
 
-                const emailId = responseData.email_id;
-                const secretCode = responseData.secret_code;
-    
-                const verificationLink = `http://localhost:3000/contacts/verify_email?email_id=${emailId}&secret_code=${secretCode}`;
-                console.log('Verification Link:', verificationLink);
                 setValues({
                     name: "",
                     surname: "",
@@ -154,14 +153,25 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                             modalBackdrop.remove();
                         }
                     }
-
+    
                     clearCart();
-                    offcanvasCartRef.current?.classList.remove('show'); // Убираем класс 'show'
+                    offcanvasCartRef.current?.classList.remove('show');
                     const offcanvasBackdrop = document.querySelector('.offcanvas-backdrop');
                     if (offcanvasBackdrop) {
                         offcanvasBackdrop.classList.remove('show');
-                        document.body.style.overflow = 'auto';
                     }
+                
+                    link.setAttribute('download', 'order.pdf');
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(url);
+
+                    document.body.removeAttribute('data-bs-overflow');
+                    document.body.removeAttribute('data-bs-padding-right');
+                    document.body.classList.remove('modal-open');
+                    document.body.style.overflow = '';
+                    document.body.style.paddingRight = '';
                 }, 1000);
             } else {
                 console.error('Error sending form data:', response.statusText);
@@ -172,6 +182,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
             setIsLoading(false); 
         }
     };
+    
 
     
     return (
