@@ -7,7 +7,7 @@
     @media (max-width: 1200px) {
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
     }
 
     @media (max-width: 768px) {
@@ -32,7 +32,7 @@
 .section_two {
     width: 83%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 991px) {
         height: auto;
         width: 100%;
     }
@@ -45,23 +45,6 @@
 .content_table {
     width: 100%;
     border-collapse: collapse;
-
-    th,
-    td {
-        padding: 10px;
-        text-align: center;
-    }
-
-    td {
-        border: 1px solid var(--light-grey-color);
-    }
-
-    @media (max-width: 768px) {
-        th,
-        td {
-            padding: 5px;
-        }
-    }
 }
 
 .list_items {
@@ -83,11 +66,6 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 }
 
 .text {
@@ -112,7 +90,7 @@
 .order_heading h3 {
     font-weight: 400;
     color: var(--dark-cyan-color);
-    font-size: clamp(1rem, 20vw, 2.5rem);
+    font-size: clamp(2rem, 2vw, 2.5rem);
     line-height: 0.9;
     white-space: nowrap;
 

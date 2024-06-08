@@ -9,11 +9,12 @@
 }
 
 .empty_text {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
+
 .empty_img {
-    max-width: 50%;
+    max-width: 30%;
     height: auto;
     display: block;
     margin: 0 auto;

@@ -1,5 +1,5 @@
 import { memo } from "react";
-import empty from '../../images/background/empty_street.png'
+import empty from '../../images/background/no_data.png'
 import styles from './styles/Empty/Empty.module.scss'
 
 export const Empty = memo(() => {
