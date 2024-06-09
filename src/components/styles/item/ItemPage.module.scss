@@ -44,6 +44,44 @@
     font-size: clamp(1.4rem, 4vw, 2rem);
 }
 
+.prev_btn {
+    position: absolute;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 5px 10px 20px 10px; 
+    cursor: pointer;
+    outline: none;
+    z-index: 1;
+}
+
+.prev_btn::after {
+    content: "Go Back";
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    background-color: var(--light-cyan-color);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.3s ease;
+}
+
+.prev_btn:hover::after {
+    opacity: 1;
+}
+
+.prev_btn span {
+    position: absolute;
+    top: 45%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    font-size: 24px;
+    color: white;
+    z-index: 2;
+}
 
 @media (min-width: 320px) and (max-width: 767px) {
     .wrapper {

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import './styles/item/ItemPage.scss';
 import "./styles/bootstrap/button.scss"
 import { useTranslation } from 'react-i18next';
+import { IoArrowUndo } from "react-icons/io5";
 
 interface ItemData {
     id: string;
@@ -112,6 +113,15 @@ export const ItemPage = () => {
     return (
         <div className={styles.wrapper}>
             <div className={`card mb-3 ${styles.item_card}`}>
+                <button 
+                    className={`${styles.prev_btn} btn btn-primary btn_inside`} 
+                    type="button"
+                    onClick={() => navigate(-1)}
+                >
+                    <span>
+                        <IoArrowUndo />
+                    </span>
+                </button>
                 <div className={`row g-0 ${styles.card_init}`}>
                     <div className="col-md-4">
                         {isLoading ? (
@@ -164,12 +174,11 @@ export const ItemPage = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.prev_btn}>
+            {/* <div className={styles.prev_btn}>
                 <button className="btn btn-primary btn_inside" type="button" onClick={() => navigate(-1)}>
-                    <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
                     Back
                 </button>
-            </div>
+            </div> */}
         </div>
     );
 }

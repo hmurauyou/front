@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { memo, useEffect, useState } from 'react';
 import { LuFilePlus2 } from "react-icons/lu";
 import { useCart } from '../providers/CartProvider';
+import { useTranslation } from 'react-i18next';
 
 
 // const s3 = new AWS.S3({
@@ -26,11 +27,14 @@ interface ProductData {
 
 interface CardProps {
     productData: ProductData;
-    t: (key: string) => string;
     lastFetchTime: number;
 }
 
-export const Card = memo(({productData, t, lastFetchTime}: CardProps) => {
+export const Card = memo(({productData, lastFetchTime}: CardProps) => {
+    const [t] = useTranslation("global")
+    const translatedName = t(`products.products_info.${productData?.id}.name`);
+    const translatedNetWeight = t(`products.products_info.${productData?.id}.net_weight`);
+
     const { id, category } = productData;
     const [isLoading, setIsLoading] = useState(true);
     const [imageUrls, setImageUrls] = useState<string[]>([]);
@@ -121,7 +125,7 @@ export const Card = memo(({productData, t, lastFetchTime}: CardProps) => {
                     {isLoading ? (
                         <div className="d-flex justify-content-center align-items-center loader-container" style={{ height: "200px" }}>
                             <div className="spinner-border text-secondary" role="status">
-                                <span className="visually-hidden">Loading...</span>
+                                <span className="visually-hidden">{t("card_item.loading")}</span>
                             </div>
                         </div>
                     ) : (
@@ -131,16 +135,16 @@ export const Card = memo(({productData, t, lastFetchTime}: CardProps) => {
                 <div className="card-body">
                     <div>
                         <Link className="link_card" to={`/products/${category}/${id}`}>
-                            <h4 className="card-title">{productData.name}</h4>
+                            <h4 className="card-title">{translatedName}</h4>
                         </Link>
                     </div>
                     <div>
-                        <p className="card-text">{t("products.net_weight")}: {productData.net_weight}</p>
+                        <p className="card-text">{t("products.net_weight")}: {translatedNetWeight}</p>
                         <p className="card-text">
                             <small className="text-body-secondary">
-                                Last updated {
+                                {t("card_item.updated")} {
                                     minutesAgo < 60 ? (
-                                        `${minutesAgo} ${minutesAgo === 1 ? 'minute' : 'minutes'} ago`
+                                        `${minutesAgo} ${minutesAgo === 1 ? t("card_item.minute") : t("card_item.minutes")}`
                                     ) : (
                                         `${Math.floor(minutesAgo / 60)} ${Math.floor(minutesAgo / 60) === 1 ? 'hour' : 'hours'} ago`
                                     )

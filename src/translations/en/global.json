@@ -34,6 +34,7 @@
         }
     },
     "products": {
+        "company": "East Cost",
         "best": "Best Prices",
         "menu": "Menu",
         "prices": "Prices",
@@ -63,82 +64,30 @@
         "shelf_life": "Shelf life",
         "price": "Price",
         "products_info": {
-            "0993d50f-0fe8-4285-a6ef-b7127241a14f": {
-                "name": "Mussels",
-                "product": "mussels",
+            "208c2f93-587b-4ed3-b31f-c4734dfa6fc4": {
                 "category": "seafood",
-                "country_id": "Russia",
-                "shelf_life": "until 13.01.2025",
-                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
-            },
-            "2612a220-38f8-474c-859a-3d974dfa7e8c": {
-                "name": "Fish",
-                "product": "fish",
-                "category": "seafood",
-                "country_id": "Russia",
-                "shelf_life": "until 13.01.2025",
-                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
-            },
-            "89fe4f43-fbc0-46eb-bc23-b099be61e412": {
-                "name": "Shrimps",
-                "product": "shrimps",
-                "category": "seafood",
-                "country_id": "Russia",
-                "shelf_life": "until 13.01.2025",
-                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
-            },
-            "a0322dee-06ca-479e-9f37-58e071d5bab8": {
-                "name": "Cocktail",
-                "product": "cocktail",
-                "category": "seafood",
-                "country_id": "Russia",
-                "shelf_life": "until 13.01.2025",
-                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
-            },
-            "d28c4cf2-40cd-4e33-b66f-67d88437cc0d": {
-                "name": "Caviar",
                 "product": "caviar",
-                "category": "seafood",
+                "name": "Sockeye salmon fresh-frozen, supplements free",
                 "country_id": "Russia",
-                "shelf_life": "until 13.01.2025",
-                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
-            },
-            "e535d0db-cb8a-4e0d-a18b-cbbcea60fe52": {
-                "name": "Crab Komchatka",
-                "product": "crab",
-                "category": "seafood",
-                "country_id": "Russia",
-                "shelf_life": "until 13.01.2025",
-                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
-            },
-            "89cbb820-17a1-40b7-b966-fb31183d1f50": {
-                "name": "Kolomata",
-                "product": "liquid_oil",
-                "category": "liquid_oil",
-                "country_id": "Russia",
-                "shelf_life": "until 13.01.2025",
-                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
-            },
-            "ff58af63-00c9-4942-8ef2-54c8340f7d78": {
-                "name": "Hot Sauce",
-                "product": "sauces",
-                "category": "sauces",
-                "country_id": "Russia",
-                "shelf_life": "until 13.01.2025",
-                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
-            },
-            "37eb6c1f-13f3-4fd7-b89f-61fc95a00bfe": {
-                "name": "By water",
-                "product": "water",
-                "category": "water",
-                "country_id": "Russia",
-                "shelf_life": "until 13.01.2025",
-                "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+                "net_weight": "125g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "vitamins": "B1 - 0.2 mg, B2 - 0.11 mg, PP - 1.2 mg.",
+                "energy_value": "263 kcal/1099 kJ",
+                "description": "A real delicacy, which is highly valued among other species, the size is second only to chinook salmon caviar, listed in the Red Book.Not for nothing chum salmon caviar is called royal, for its amber luster, large grains and delicate creamy flavor.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short time (not more than 36 hours) at temperatures from 0 to 6°C in a home refrigerator.",
+                "expiration_date": "until 2025"
             }
         },
         "pricelist": {
             "name": "Price-list"
         }
+    },
+    "card_item": {
+        "loading": "Loading...",
+        "updated": "Last updated",
+        "minute": "minute ago",
+        "minutes": "minutes ago"
     },
     "contacts": {
         "header": "Let's keep in touch",

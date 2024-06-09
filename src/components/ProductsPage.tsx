@@ -186,7 +186,7 @@ export default function ProductsPage() {
                     <img src={logo} className={styles.image_logo} alt="" />
                 </div>
                 <div className={styles.head_details}>
-                    <h4>Восточный Берег</h4>
+                    <h4>{t("products.company")}</h4>
                     <p className={styles.title}>{t("products.best")}</p>
                 </div>
             </div>
@@ -270,7 +270,7 @@ export default function ProductsPage() {
                             <div className={styles.flexContainer}>
                                 {filterData(productData, productName).length > 0 ? (
                                     filterData(productData, productName).map((item: any) => (
-                                        <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
+                                        <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
                                     ))
                                 ) : (
                                     <Empty />
@@ -282,7 +282,7 @@ export default function ProductsPage() {
                             <div className={styles.flexContainer}>
                                 {filterData(seafoodData, productName).length > 0 ? (
                                     filterData(seafoodData, productName).map((item: any) => (
-                                        <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
+                                        <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
                                     ))
                                 ) : (
                                     <Empty />
@@ -293,7 +293,7 @@ export default function ProductsPage() {
                             <div className={styles.flexContainer}>
                                 {filterData(seafoodData, productName).length > 0 ? (
                                     filterData(seafoodData, productName).map((item: any) => (
-                                        <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
+                                        <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
                                     ))
                                 ) : (
                                     <Empty />
@@ -304,7 +304,7 @@ export default function ProductsPage() {
                             <div className={styles.flexContainer}>
                                 {filterData(liquidOilData, productName).length > 0 ? (
                                     filterData(liquidOilData, productName).map((item: any) => (
-                                        <Card key={item.id} productData={item} t={t} lastFetchTime={lastFetchTime} />
+                                        <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
                                     ))
                                 ) : (
                                     <Empty />

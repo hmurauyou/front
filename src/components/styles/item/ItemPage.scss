@@ -5,6 +5,10 @@
     line-height: 1; 
 }
 
+.card-body > *:nth-child(-n+1) {
+    margin-bottom: 20px;
+}
+
 .price-container {
     display: flex;
     justify-content: flex-end;
