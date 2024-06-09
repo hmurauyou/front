@@ -76,13 +76,13 @@ export default function Cart() {
         <>
             <div className="offcanvas offcanvas-end custom-offcanvas" id="offcanvasCart" aria-labelledby="offcanvasCartLabel" ref={offcanvasCartRef}>
                 <div className="offcanvas-header">
-                    <h2 className="offcanvas-title" id="offcanvasCartLabel">Cart</h2>
+                    <h2 className="offcanvas-title" id="offcanvasCartLabel">{t("cart.cart")}</h2>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body">
                     {cartItems.length === 0 ? (
                         <div className={styles.empty_section}>
-                            <p className={styles.empty_msg}>Your cart is empty.</p>
+                            <p className={styles.empty_msg}>{t("cart.empty")}</p>
                             <img src={empty} alt='empty' className={styles.empty_img} />
                         </div>
                     ) : (

@@ -34,6 +34,7 @@ export const Card = memo(({productData, lastFetchTime}: CardProps) => {
     const [t] = useTranslation("global")
     const translatedName = t(`products.products_info.${productData?.id}.name`);
     const translatedNetWeight = t(`products.products_info.${productData?.id}.net_weight`);
+    const addToCartText = t("cart.add");
 
     const { id, category } = productData;
     const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +52,7 @@ export const Card = memo(({productData, lastFetchTime}: CardProps) => {
     }, [lastFetchTime]);
 
     const handleAddToCart = () => {
-        addToCart(productData); 
+        addToCart(productData);
     };
     
 
@@ -118,6 +119,7 @@ export const Card = memo(({productData, lastFetchTime}: CardProps) => {
                     className={`${styles.add_button} btn btn-primary btn_inside`} 
                     type="button"
                     onClick={handleAddToCart}
+                    data-content={addToCartText}
                 >
                     <span><LuFilePlus2 /></span>
                 </button>

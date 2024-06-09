@@ -9,7 +9,7 @@ import logo from "../images/logo/logo.png";
 import { IoIosArrowUp } from "react-icons/io"
 import { IoIosArrowBack } from "react-icons/io";
 import { GiFishingBoat } from "react-icons/gi";
-import { GiOlive } from "react-icons/gi";
+// import { GiOlive } from "react-icons/gi";
 import { HiDocumentDownload } from "react-icons/hi";
 import { IoSearch } from "react-icons/io5";
 import { Card } from "./shared/Card";
@@ -30,7 +30,7 @@ export default function ProductsPage() {
     const { category, productName } = useParams();
     const [productData, setProductData] = useState({});
     const [seafoodData, setSeafoodData] = useState([]);
-    const [liquidOilData, setLiquidOilData] = useState([]);
+    // const [liquidOilData, setLiquidOilData] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(true);
     const [lastFetchTime, setLastFetchTime] = useState<number>(0);
@@ -122,14 +122,14 @@ export default function ProductsPage() {
                 const filteredSeafood = seafood.filter((item:any) => item.product === productName);
                 setSeafoodData(filteredSeafood);
             });
-        } else if (location.pathname === '/products/liquid_oil') {
+        } /*else if (location.pathname === '/products/liquid_oil') {
             dataFetch('liquid_oil', setLiquidOilData)
-        }
+        }*/
 
         return () => {
-            setProductData([]);
+            setProductData({});
             setSeafoodData([]);
-            setLiquidOilData([]);
+            // setLiquidOilData([]);
         };
     }, [category, location.pathname, productName]); 
     
@@ -222,12 +222,12 @@ export default function ProductsPage() {
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link className={styles.link} to="/products/liquid_oil">
                                 <GiOlive className={styles.icon} />
                                 <span className={styles.text}>{t("products.liquid_oil")}</span>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className={styles.menu}>
@@ -302,7 +302,7 @@ export default function ProductsPage() {
                                 )}
                             </div>
                         )}
-                        {location.pathname === '/products/liquid_oil' && (
+                        {/* {location.pathname === '/products/liquid_oil' && (
                             <div className={styles.flexContainer}>
                                 {filterData(liquidOilData, productName).length > 0 ? (
                                     filterData(liquidOilData, productName).map((item: any) => (
@@ -312,7 +312,7 @@ export default function ProductsPage() {
                                     <Empty />
                                 )}
                             </div>
-                        )}
+                        )} */}
                     </div>
                 </div>
             </div>

@@ -55,7 +55,6 @@
 }
 
 .prev_btn::after {
-    content: "Go Back";
     position: absolute;
     bottom: -30px;
     right: -30px;
@@ -67,6 +66,7 @@
     opacity: 0;
     pointer-events: none; 
     transition: opacity 0.3s ease;
+    content: attr(data-content);
 }
 
 .prev_btn:hover::after {

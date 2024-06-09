@@ -53,6 +53,7 @@ export const ItemPage = () => {
     const translatedShelfLife = t(`products.products_info.${itemData?.id}.shelf_life`);
     const translatedExpirationDate = t(`products.products_info.${itemData?.id}.expiration_date`);
     const translatedNetWeight = t(`products.products_info.${itemData?.id}.net_weight`);
+    const goBack = t("item_page.back")
     // const translatedName = t(`products.products_info.${itemData?.id}.name`);
     // const translatedDescription = t(`products.products_info.${itemData?.id}.description`);
     // const translatedCountry = t(`products.products_info.${itemData?.id}.country_id`);
@@ -130,6 +131,7 @@ export const ItemPage = () => {
                     className={`${styles.prev_btn} btn btn-primary btn_inside`} 
                     type="button"
                     onClick={() => navigate(-1)}
+                    data-content={goBack}
                 >
                     <span>
                         <IoArrowUndo />

@@ -18,7 +18,6 @@
 }
 
 .add_button::after {
-    content: "Add to Cart";
     position: absolute;
     bottom: -30px;
     right: -40px;
@@ -28,8 +27,9 @@
     border-radius: 5px;
     font-size: 12px;
     opacity: 0;
-    pointer-events: none; 
+    pointer-events: none;
     transition: opacity 0.3s ease;
+    content: attr(data-content);
 }
 
 .add_button:hover::after {

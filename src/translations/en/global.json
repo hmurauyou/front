@@ -34,6 +34,7 @@
         }
     },
     "products": {
+        "empty": "No products available.",
         "company": "East Cost",
         "best": "Best Prices",
         "menu": "Menu",
@@ -234,6 +235,7 @@
         "minutes": "minutes ago"
     },
     "item_page": {
+        "back": "Go back",
         "description": "Description",
         "composition": "Composition",
         "food_value": "Food value",
@@ -248,6 +250,9 @@
         "price": "Price"
     },
     "cart": {
+        "cart": "Cart",
+        "add": "Add to cart",
+        "empty": "Your cart is empty.",
         "title": "My order",
         "category": "Category",
         "product": "Product",
