@@ -247,6 +247,21 @@
         "net_weight": "Net weight",
         "price": "Price"
     },
+    "cart": {
+        "title": "My order",
+        "category": "Category",
+        "product": "Product",
+        "name": "Name",
+        "quantity": "Quantity",
+        "net_weight": "Net weight",
+        "price": "Price",
+        "clear": "Clear",
+        "checkout": "Checkout",
+        "form": "Form",
+        "total": "Total",
+        "print": "Print",
+        "warning": "Warning: Not paid orders will be automatically deleted in 2 weeks."
+    },
     "contacts": {
         "header": "Let's keep in touch",
         "sub_header": "Or reach us via:",

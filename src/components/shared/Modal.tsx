@@ -37,7 +37,6 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
         email: "",
         contact_phone: "",
       });
-    const navigate = useNavigate();
     const [buttonText, setButtonText] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
     const [focusedField, setFocusedField] =  useState<string | null>(null);
@@ -108,10 +107,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                 id: item.id,
                 category: item.category,
                 product: item.product,
-                // name: item.name,
-                // net_weight: item.net_weight,
                 quantity: quantities[index],
-                // price_byn: item.price_byn, //delete
             })),
         };
 
@@ -196,22 +192,22 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                 <div className={`modal-body ${styles.modal_body}`}>
                     <div className={styles.section_one}>
                         <div className={styles.order_heading}>
-                            <h3>In Total<span>.</span></h3>
+                            <h3>{t("cart.print")}<span>.</span></h3>
                         </div>
                         <div className={styles.list_items}>
                             <table className={styles.content_table}>
                                 <thead>
-                                    <th>Category</th>
-                                    <th>Product</th>
-                                    <th>Name</th>
-                                    <th>Quantity</th>
+                                    <th>{t("cart.category")}</th>
+                                    <th>{t("cart.product")}</th>
+                                    <th>{t("cart.name")}</th>
+                                    <th>{t("cart.quantity")}</th>
                                 </thead>
                                 <tbody>
                                 {cartItems.map((item, index) => (
                                     <tr key={index}>
-                                        <td>{item.category}</td>
-                                        <td>{item.product}</td>
-                                        <td>{item.name}</td>
+                                        <td>{t(`products.products_info.${item.id}.category`)}</td>
+                                        <td>{t(`products.products_info.${item.id}.product`)}</td>
+                                        <td>{t(`products.products_info.${item.id}.name`)}</td>
                                         <td>{quantities[index]}</td>
                                     </tr>
                                 ))}
@@ -219,17 +215,17 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                             </table>
                         </div>
                         <div className={styles.total_cost}>
-                            <p><strong>Total:</strong></p>
+                            <p><strong>{t("cart.total")}:</strong></p>
                             <p>{cartItems.reduce((total, item, index) => total + (item.price_byn * quantities[index]), 0).toFixed(2)} BYN</p>
                         </div>
                         <div className={`${styles.condition} ${styles.text}`}>
-                            <p>Warning: Not paid orders will be automatically deleted in 2 weeks.</p>
+                            <p>{t("cart.warning")}</p>
                         </div>
                     </div> 
                     <div className={styles.separator}></div>
                     <div className={styles.section_two}>
                         <div className={styles.order_heading}>
-                            <h3>Анкета<span>.</span></h3>
+                            <h3>{t("cart.form")}<span>.</span></h3>
                         </div>
                         <div className={styles.form_wrapper}>
                             <form method="post" className={styles.contact_form} onSubmit={onSubmit}>

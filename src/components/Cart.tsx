@@ -16,7 +16,7 @@ interface CartItem {
 }
 
 export default function Cart() {
-    const {t} = useTranslation("global")
+    const [t] = useTranslation("global")
     const { cartItems, removeFromCart, clearCart } = useCart();
     const [quantities, setQuantities] = useState(() => {
         const storedQuantities = JSON.parse(localStorage.getItem('cartItems') || '[]');
@@ -91,18 +91,18 @@ export default function Cart() {
                                 <div className={styles.cart_card} key={index}>
                                     <div className="row g-0">
                                         <div className="col-md-4">
-                                            <img  className="img-fluid rounded-start" alt={item.name} />
+                                            <img  className="img-fluid rounded-start" alt="img" />
                                         </div>
                                         <div className="col-md-8">
                                             <div className={`card-body ${styles.card_body}`}>
                                                 <div className={styles.close_section}>
-                                                    <h6 className="card-title">{item.name}</h6>
+                                                    <h6 className="card-title">{t(`products.products_info.${item.id}.name`)}</h6>
                                                     <button type="button" className="btn-close" aria-label="Close" onClick={() => removeFromCart(item.id)}></button>
                                                 </div>
                                                 <div className={styles.product_info}>
-                                                    <p className="card-text">Category: {item.category}</p>
-                                                    <p className="card-text">Product: {item.product}</p>
-                                                    <p className="card-text">New Weight: {item.net_weight}</p>
+                                                    <p className="card-text">{t("cart.category")}: {t(`products.products_info.${item.id}.category`)}</p>
+                                                    <p className="card-text">{t("cart.product")}: {t(`products.products_info.${item.id}.product`)}</p>
+                                                    <p className="card-text">{t("cart.net_weight")}: {t(`products.products_info.${item.id}.net_weight`)}</p>
                                                 </div>
                                                 <div className={styles.wrapper}>
                                                     <span className={styles.plus} onClick={() => handleIncrement(index)}>+</span>
@@ -116,7 +116,7 @@ export default function Cart() {
                                                 </div>
                                                 <p className={`card-text ${styles.price}`}>
                                                     <small className="text-body-secondary">
-                                                        Price: {(item.price_byn * quantities[index]).toFixed(2)} BYN
+                                                        {t("cart.price")}: {(item.price_byn * quantities[index]).toFixed(2)} BYN
                                                     </small>
                                                 </p>
                                             </div>
@@ -127,11 +127,11 @@ export default function Cart() {
                             <div className={styles.buttons}>
                                 <button type="button" className={`btn btn-primary btn_inside ${styles.btn_width}`} onClick={clearCart}>
                                     <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
-                                    Clear
+                                    {t("cart.clear")}
                                 </button>
                                 <button type="button" className={`btn btn-primary ${styles.btn_width}`} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
-                                    Check out
+                                    {t("cart.checkout")}
                                 </button>
                             </div>
                         </div>
@@ -140,7 +140,7 @@ export default function Cart() {
             </div>
             <SharedModal 
                 id="staticBackdrop"
-                title="Your Order"
+                title={t("cart.title")}
                 cartItems={cartItems}
                 quantities={quantities}
                 t={t}
