@@ -64,19 +64,157 @@
         "shelf_life": "Shelf life",
         "price": "Price",
         "products_info": {
-            "208c2f93-587b-4ed3-b31f-c4734dfa6fc4": {
-                "category": "seafood",
-                "product": "caviar",
-                "name": "Sockeye salmon fresh-frozen, supplements free",
+            "4c31cac1-a7c2-4ef9-9b80-e3a0470fc9da": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Pink salmon fresh-frozen, supplements free",
                 "country_id": "Russia",
                 "net_weight": "125g",
                 "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
-                "vitamins": "B1 - 0.2 mg, B2 - 0.11 mg, PP - 1.2 mg.",
-                "energy_value": "263 kcal/1099 kJ",
-                "description": "A real delicacy, which is highly valued among other species, the size is second only to chinook salmon caviar, listed in the Red Book.Not for nothing chum salmon caviar is called royal, for its amber luster, large grains and delicate creamy flavor.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Pink salmon - is the most common member of the salmon family, which is why its caviar is the most popular and familiar to most people. It has a truly classic flavor, with a slight tinge of bitterness.",
                 "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
-                "shelf_life": "After opening the package it is possible to store the product for a short time (not more than 36 hours) at temperatures from 0 to 6°C in a home refrigerator.",
-                "expiration_date": "until 2025"
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
+            },
+            "9d470803-5593-4da5-8c95-1723ba5cbb76": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Pink salmon fresh-frozen, supplements free",
+                "country_id": "Russia",
+                "net_weight": "240g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Pink salmon - is the most common member of the salmon family, which is why its caviar is the most popular and familiar to most people. It has a truly classic flavor, with a slight tinge of bitterness.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
+            },
+            "68011fde-e703-4c9f-8214-30cc333f99ea": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Pink salmon cоленая",
+                "country_id": "Russia",
+                "net_weight": "125g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "supplements": "Глицерин пищевой Е422; консерванты: E211, Е200.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Pink salmon - is the most common member of the salmon family, which is why its caviar is the most popular and familiar to most people. It has a truly classic flavor, with a slight tinge of bitterness.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
+            },
+            "ef6f8e5c-e291-4c38-9218-a33ca7145415": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Pink salmon cоленая",
+                "country_id": "Russia",
+                "net_weight": "240g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "supplements": "Глицерин пищевой Е422; консерванты: E211, Е200.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Pink salmon - is the most common member of the salmon family, which is why its caviar is the most popular and familiar to most people. It has a truly classic flavor, with a slight tinge of bitterness.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
+            },
+
+
+
+            "d2cca71a-8d36-4249-a5ff-15bed79e7bd8": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Кета fresh-frozen, supplements free",
+                "country_id": "Russia",
+                "net_weight": "125g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Настоящий деликатес, который высоко ценится среди других видов, по размеру уступает только икре чавычи, занесенной в Красную книгу. Не даром икру кеты называют царской, за ее янтарный блеск, крупные зерна и нежный сливочный вкус.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
+            },
+            "7e7ba182-ea59-4bf4-a52a-8a12dfef139b": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Кета fresh-frozen, supplements free",
+                "country_id": "Russia",
+                "net_weight": "240g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Настоящий деликатес, который высоко ценится среди других видов, по размеру уступает только икре чавычи, занесенной в Красную книгу. Не даром икру кеты называют царской, за ее янтарный блеск, крупные зерна и нежный сливочный вкус.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
+            },
+            "dfe3c8df-c72a-4895-9d04-d7424d200328": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Кета cоленая",
+                "country_id": "Russia",
+                "net_weight": "125g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "supplements": "Глицерин пищевой Е422; консерванты: E211, Е200.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Настоящий деликатес, который высоко ценится среди других видов, по размеру уступает только икре чавычи, занесенной в Красную книгу. Не даром икру кеты называют царской, за ее янтарный блеск, крупные зерна и нежный сливочный вкус.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
+            },
+            "523dade0-a8ce-4ece-90af-a11188ec6102": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Кета cоленая",
+                "country_id": "Russia",
+                "net_weight": "240g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "supplements": "Глицерин пищевой Е422; консерванты: E211, Е200.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Настоящий деликатес, который высоко ценится среди других видов, по размеру уступает только икре чавычи, занесенной в Красную книгу. Не даром икру кеты называют царской, за ее янтарный блеск, крупные зерна и нежный сливочный вкус.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
+            },
+            
+
+
+
+            "216e5ad3-a6a9-41df-9017-febf50b68f8a": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Нерка fresh-frozen, supplements free",
+                "country_id": "Russia",
+                "net_weight": "125g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Икра нерки является самой дефицитной из всех видов, обладает насыщенными вкусовыми красками, с выраженным оттенком горечи, тем не менее она так нежна, что в буквальном смысле слова, тает во рту.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
+            },
+            "7f25610e-c1cd-4c59-9577-3f60012497f6": {
+                "category": "Seafood",
+                "product": "Caviar",
+                "name": "Нерка cоленая",
+                "country_id": "Russia",
+                "net_weight": "240g",
+                "composition": "Caviar (grain) of Far Eastern salmon fish, table salt, food glycerin, refined sunflower oil.",
+                "supplements": "Глицерин пищевой Е422; консерванты: E211, Е200.",
+                "vitamins": "B1 - 0.2mg, B2 - 0.11mg, PP - 1.2mg",
+                "energy_value": "263 kcal/1099kJ",
+                "description": "Икра нерки является самой дефицитной из всех видов, обладает насыщенными вкусовыми красками, с выраженным оттенком горечи, тем не менее она так нежна, что в буквальном смысле слова, тает во рту.",
+                "recommendation": "It is recommended to defrost the caviar at 4°C to 15°C before consumption.",
+                "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
+                "expiration_date": "12 months from the date of manufacture."
             }
         },
         "pricelist": {

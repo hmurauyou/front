@@ -68,11 +68,13 @@ export default function ProductsPage() {
             for (const key in data) {
                 if (Object.hasOwnProperty.call(data, key)) {
                     const dataArray = data[key];
-                    if (productName) {
-                        const filteredByProduct = dataArray.filter((item: any) => item.product === productName);
-                        filteredData = [...filteredData, ...filteredByProduct];
-                    } else {
-                        filteredData = [...filteredData, ...dataArray];
+                    if (dataArray) {
+                        if (productName) {
+                            const filteredByProduct = dataArray.filter((item: any) => item.product === productName);
+                            filteredData = [...filteredData, ...filteredByProduct];
+                        } else {
+                            filteredData = [...filteredData, ...dataArray];
+                        }
                     }
                 }
             }
