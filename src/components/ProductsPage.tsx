@@ -268,7 +268,6 @@ export default function ProductsPage() {
                             <button type="button" className="btn-close" aria-label="Close" onClick={handleReset}></button>
                         </div>
                         {location.pathname === '/products' && (
-                            <Reveal>
                             <div className={styles.flexContainer}>
                                 {filterData(productData, productName).length > 0 ? (
                                     filterData(productData, productName).map((item: any) => (
@@ -278,7 +277,6 @@ export default function ProductsPage() {
                                     <Empty />
                                 )}
                             </div>
-                            </Reveal>
                         )}
                         {location.pathname === '/products/seafood' && (
                             <div className={styles.flexContainer}>

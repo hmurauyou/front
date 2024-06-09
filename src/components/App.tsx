@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import ProductsPage from './ProductsPage';
 import NotFoundPage from './NotFoundPage';
-// import Footer from './Footer';
+import Footer from './Footer';
 import { ItemPage } from './ItemPage';
 import { Loader } from './loader/Loader';
 import PrivacyPolicy from './PrivacyPolicy';
@@ -16,7 +16,8 @@ const LazyProductsPage = lazy(() => import('./ProductsPage'));
 
 function App() {
     const location = useLocation();
-    // const isHomePage = location.pathname === '/';
+    const isHomePage = location.pathname === '/';
+    const isContactsPage = location.pathname === '/contacts';
 
     useEffect(() => {
         window.scrollTo(0, 0); 
@@ -98,11 +99,11 @@ function App() {
                     } />
                 </Routes>
             </main>
-            {/* {!isHomePage && (
+            {!isHomePage && !isContactsPage && (
                 <footer>
                     <Footer />
                 </footer>
-            )} */}
+            )}
         </>
     );
 }

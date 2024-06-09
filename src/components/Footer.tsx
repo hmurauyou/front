@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import styles from './styles/footer/Footer.module.scss';
-import logo from '../images/logo/500x500.png';
+// import logo from '../images/logo/500x500.png';
 import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
@@ -8,37 +9,64 @@ export default function Footer() {
     return (
         <>
             <div className={styles.footer_container}>
-                <div className={styles.part1}>
-                    <div className={styles.company}>
-                        <img src={logo} alt="." />
-                        <p>{t("footer.website.message")}</p>
+                <div className={styles.rights}>
+                    <div className={styles.links_container}>
+                        <p>
+                            <Link to="/privacypolicy" className={styles.link}>
+                                {t("footer.rules.one")}
+                            </Link>
+                        </p>
+                        <p>
+                            <Link to="/" className={styles.link}>
+                                {t("footer.rules.two")}
+                            </Link>
+                        </p>
+                        <p>
+                            <Link to="/" className={styles.link}>
+                                {t("footer.rules.three")}
+                            </Link>
+                        </p>
                     </div>
-                    <div className={styles.info}>
-                        <h4>{t("footer.information.subject")}</h4>
-                        <p>{t("footer.information.message")}</p>
+                    <p>
+                        {t("footer.rules.four")}
+                    </p>
+                </div>
+                <div className={styles.contacts}>
+                    <div className={styles.adress}>
+                        <p>
+                            <strong>
+                                {t("footer.address")}:
+                            </strong>
+                        </p>
+                        <p>
+                            688 713 Камчатский край, Карагинский р-н, с. Ивашка,
+                            ул.Береговая, 2
+                        </p>
                     </div>
-                    <div className={styles.company_info}>
-                        <h4>{t("footer.contacts.subject")}</h4>
-                        <div>
-                            <p>+375(77)-777-77-77 (BY)</p>
-                            <p>+7(993)-777-77-77 (RUS)</p>
-                        </div>
-                        <div className={styles.contact_section}>
-                            <p>{t("footer.contacts.message")}</p>
-                            <div className={styles.contacts}>
-                                <div className={styles.contacts_box}>
-                                    <i className='bx bxl-telegram bx-tada-hover'></i>
-                                    <p>@hmurauyou</p>
-                                </div>
-                                <div className={styles.contacts_box}>
-                                    <i className='bx bxs-envelope bx-tada-hover' ></i>
-                                    <p>tradeocean.org@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div className={styles.email}>
+                        <p>
+                            <strong>
+                                {t("footer.email")}:
+                            </strong>
+                        </p>
+                        <p>
+                            <a className={styles.link} href="mailto:">kamchatka.business@yandex.ru</a>
+                        </p>
+                    </div>
+                    <div className={styles.phone}>
+                        <p>
+                            <strong>
+                                {t("footer.phone")}:
+                            </strong>
+                        </p>
+                        <p>
+                            8 (025) 777−87-37
+                        </p>
+                        <p>
+                            8 (993) 992−17-78
+                        </p>
                     </div>
                 </div>
-                <div className={styles.rights}>{t("footer.rights.message")}</div>
             </div>
         </>
     )

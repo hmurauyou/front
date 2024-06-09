@@ -128,7 +128,7 @@ export default function PrivacyPolicy() {
 
             <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => navigate(-1)}>
                 <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
-                Back
+                {t("policy_privacy.back")}
             </button>
         </div>
     )

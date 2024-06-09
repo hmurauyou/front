@@ -286,20 +286,15 @@
         }
     },
     "footer": {
-        "website": {
-            "message": "Official website of the company."
+        "rules": {
+            "one": "Policy on personal data processing",
+            "two": "Terms of use of the Site",
+            "three": "Cookie policy",
+            "four": "Consent has been obtained from personal data subjects to process personal data authorized for dissemination. Restriction on copying of personal photos and other personal data has been established"
         },
-        "information": {
-            "subject": "Information:",
-            "message": "© 2024 IE \"TradeOcean\""
-        },
-        "contacts": {
-            "subject": "Contacts:",
-            "message": "Also you can connact us via Telegram or Email:"
-        },
-        "rights": {
-            "message": "@ All rights reserved."
-        }
+        "address": "Address",
+        "email": "Email",
+        "phone": "Phone"
     },
     "verify": {
         "message": "Thank you, you have been verified",
@@ -309,6 +304,7 @@
         "message": "Page Not Found"
     },
     "policy_privacy": {
+        "back": "Back",
         "header": "Policy on personal data processing",
         "text": {
             
