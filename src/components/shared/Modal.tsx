@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from './styles/Modal/Modal.module.scss'
 import './styles/Modal/Modal.scss'
 import { useCart } from '../providers/CartProvider';
+import swal from 'sweetalert';
 
 interface CartItem {
     id: string;
@@ -169,6 +170,15 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                     document.body.style.overflow = '';
                     document.body.style.paddingRight = '';
                 }, 1000);
+                setTimeout(() => {
+                    swal({
+                        title: t("contacts.success"),
+                        text: t("contacts.success_msg"),
+                        icon: "success",
+                        buttons: [""],
+                        timer: 4000
+                    });
+                }, 1000)
             } else {
                 console.error('Error sending form data:', response.statusText);
             }

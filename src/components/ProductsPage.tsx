@@ -9,14 +9,13 @@ import logo from "../images/logo/logo.png";
 import { IoIosArrowUp } from "react-icons/io"
 import { IoIosArrowBack } from "react-icons/io";
 import { GiFishingBoat } from "react-icons/gi";
-// import { GiOlive } from "react-icons/gi";
 import { HiDocumentDownload } from "react-icons/hi";
 import { IoSearch } from "react-icons/io5";
 import { Card } from "./shared/Card";
 import { Loader } from "./loader/Loader";
 import { Empty } from "./shared/Empty";
+import { Problem } from "./shared/Problem";
 import { Reveal } from "./shared/Reveal";
-
 
 
 export default function ProductsPage() {
@@ -30,9 +29,9 @@ export default function ProductsPage() {
     const { category, productName } = useParams();
     const [productData, setProductData] = useState({});
     const [seafoodData, setSeafoodData] = useState([]);
-    // const [liquidOilData, setLiquidOilData] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const [lastFetchTime, setLastFetchTime] = useState<number>(0);
 
     const toggleSidebar = useCallback(() => {
@@ -103,6 +102,7 @@ export default function ProductsPage() {
             setLoading(false);
         } catch (error) {
             console.error(`Error fetching ${endpoint} data:`, error)
+            setError(true)
             setLoading(false);
         }
     };
@@ -122,14 +122,11 @@ export default function ProductsPage() {
                 const filteredSeafood = seafood.filter((item:any) => item.product === productName);
                 setSeafoodData(filteredSeafood);
             });
-        } /*else if (location.pathname === '/products/liquid_oil') {
-            dataFetch('liquid_oil', setLiquidOilData)
-        }*/
+        }
 
         return () => {
             setProductData({});
             setSeafoodData([]);
-            // setLiquidOilData([]);
         };
     }, [category, location.pathname, productName]); 
     
@@ -157,6 +154,20 @@ export default function ProductsPage() {
             window.removeEventListener('resize', handleResize);
         };
     }, [])
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                setIsSidebarOpen(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     // const handleDownload = async () => {
     //     try {
@@ -222,12 +233,6 @@ export default function ProductsPage() {
                                 </li>
                             </ul>
                         </li>
-                        {/* <li>
-                            <Link className={styles.link} to="/products/liquid_oil">
-                                <GiOlive className={styles.icon} />
-                                <span className={styles.text}>{t("products.liquid_oil")}</span>
-                            </Link>
-                        </li> */}
                     </ul>
                 </div>
                 <div className={styles.menu}>
@@ -267,50 +272,40 @@ export default function ProductsPage() {
                             </div> 
                             <button type="button" className="btn-close" aria-label="Close" onClick={handleReset}></button>
                         </div>
-                        {location.pathname === '/products' && (
+                        {error ? (
+                            <Problem />
+                        ) : (
                             <div className={styles.flexContainer}>
-                                {filterData(productData, productName).length > 0 ? (
-                                    filterData(productData, productName).map((item: any) => (
-                                        <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
-                                    ))
-                                ) : (
-                                    <Empty />
+                                
+                                {location.pathname === '/products' && (
+                                    filterData(productData, productName).length > 0 ? (
+                                        filterData(productData, productName).map((item: any) => (
+                                            <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
+                                        ))
+                                    ) : (
+                                        <Empty />
+                                    )
+                                )}
+                                {location.pathname === '/products/seafood' && (
+                                    filterData(seafoodData, productName).length > 0 ? (
+                                        filterData(seafoodData, productName).map((item: any) => (
+                                            <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
+                                        ))
+                                    ) : (
+                                        <Empty />
+                                    )
+                                )}
+                                {location.pathname.startsWith('/products/seafood/product/') && (
+                                    filterData(seafoodData, productName).length > 0 ? (
+                                        filterData(seafoodData, productName).map((item: any) => (
+                                            <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
+                                        ))
+                                    ) : (
+                                        <Empty />
+                                    )
                                 )}
                             </div>
                         )}
-                        {location.pathname === '/products/seafood' && (
-                            <div className={styles.flexContainer}>
-                                {filterData(seafoodData, productName).length > 0 ? (
-                                    filterData(seafoodData, productName).map((item: any) => (
-                                        <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
-                                    ))
-                                ) : (
-                                    <Empty />
-                                )}
-                            </div>
-                        )}
-                        {location.pathname.startsWith('/products/seafood/product/') && (
-                            <div className={styles.flexContainer}>
-                                {filterData(seafoodData, productName).length > 0 ? (
-                                    filterData(seafoodData, productName).map((item: any) => (
-                                        <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
-                                    ))
-                                ) : (
-                                    <Empty />
-                                )}
-                            </div>
-                        )}
-                        {/* {location.pathname === '/products/liquid_oil' && (
-                            <div className={styles.flexContainer}>
-                                {filterData(liquidOilData, productName).length > 0 ? (
-                                    filterData(liquidOilData, productName).map((item: any) => (
-                                        <Card key={item.id} productData={item} lastFetchTime={lastFetchTime} />
-                                    ))
-                                ) : (
-                                    <Empty />
-                                )}
-                            </div>
-                        )} */}
                     </div>
                 </div>
             </div>

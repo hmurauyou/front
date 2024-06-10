@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./styles/bootstrap/button.scss"
 import { Reveal } from './shared/Reveal';
+import swal from 'sweetalert';
+
 
 interface FormValues {
     name: string;
@@ -105,13 +107,14 @@ export default function ContactsPage() {
             });
 
             if (response.ok) {
-                const responseData = await response.json()
+                swal({
+                    title: t("contacts.success"),
+                    text: t("contacts.success_msg"),
+                    icon: "success",
+                    buttons: [""],
+                    timer: 4000
+                });
 
-                const emailId = responseData.email_id;
-                const secretCode = responseData.secret_code;
-    
-                const verificationLink = `http://localhost:3000/contacts/verify_email?email_id=${emailId}&secret_code=${secretCode}`;
-                console.log('Verification Link:', verificationLink);
                 setValues({
                     name: "",
                     surname: "",
@@ -127,8 +130,18 @@ export default function ContactsPage() {
                     setButtonText(t("contacts.send"));
                     setIsLoading(false);
                 }, 3000);
+            } else if (response.status === 400) {
+                swal({
+                    title: t("contacts.error"),
+                    text: t("contacts.error_text.text_one"),
+                    icon: "error",
+                    buttons: [""],
+                    timer: 3000
+                });
+                setIsLoading(false);
             } else {
                 console.error('Error sending form data:', response.statusText);
+                setIsLoading(false);
             }
         } catch (error) {
             console.error('Error sending form data:', error);
