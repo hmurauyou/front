@@ -333,7 +333,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                                 </div>
                             </form>
                             <div className={`${styles.condition} ${styles.text}`}>
-                                <p>{t("contacts.policy")} <a className={styles.link} href="/privacypolicy" target="_blank">{t("contacts.privacy")}</a>.</p>
+                                <p>{t("contacts.policy")} <a className={styles.link} href="/privacy_policy" target="_blank">{t("contacts.privacy")}</a>.</p>
                             </div>
                         </div>
                     </div>

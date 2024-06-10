@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './styles/verify/Confirmation.module.scss';
 import { useTranslation } from 'react-i18next';
-import image from '../images/background/water.jpg'
+import image from '../images/background/bears.jpg'
 
 const ConfirmationPage = () => {
     const [t] = useTranslation("global")
@@ -15,7 +15,7 @@ const ConfirmationPage = () => {
         const secretCode = searchParams.get('secret_code');
 
         if (!emailId || !secretCode) {
-            navigate('/');
+            navigate('/not_found');
             return;
         }
 
@@ -23,12 +23,12 @@ const ConfirmationPage = () => {
             try {
                 const response = await fetch(`http://127.0.0.1:1234/contacts/confirmation?email_id=${emailId}&secret_code=${secretCode}`);
                 if (!response.ok) {
-                    navigate("/")
+                    navigate("/not_found")
                     throw new Error('Contact has been already verified...');
                 }
             } catch (error) {
                 console.error('Error fetching data:', error);
-                navigate("/")
+                navigate("/not_found")
             }
         };
 
@@ -39,9 +39,9 @@ const ConfirmationPage = () => {
         <section className={styles.confirmation}>
             <div className={styles.container}>
                 <div className={styles.left}>
-                        <div className={styles.confirmation_heading}>
-                            <h1>{t("verify.message")}<span>.</span></h1>
-                        </div>
+                    <div className={styles.confirmation_heading}>
+                        <h1>{t("verify.message")}<span>.</span></h1>
+                    </div>
                 </div>
                 <div className={styles.right}>
                     <div className={styles.image_wrapper}>

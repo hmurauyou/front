@@ -7,6 +7,8 @@ import Footer from './Footer';
 import { ItemPage } from './ItemPage';
 import { Loader } from './loader/Loader';
 import PrivacyPolicy from './PrivacyPolicy';
+import CookiePolicy from './CookiePolicy';
+import WebsiteRules from './WebsiteRules';
 
 const LazyHomePage = lazy(() => import('./HomePage'));
 // const LazyAboutPage = lazy(() => import('./AboutPage'));
@@ -18,6 +20,7 @@ function App() {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
     const isContactsPage = location.pathname === '/contacts';
+    const isConfirmationPage = location.pathname === '/contacts/confirmation';
 
     useEffect(() => {
         window.scrollTo(0, 0); 
@@ -83,11 +86,25 @@ function App() {
                             </Suspense>
                         } 
                     />
-                    <Route path="/privacypolicy" element={
+                    <Route path="/privacy_policy" element={
                         <Suspense fallback={
                             <Loader />
                         }>
                             <PrivacyPolicy />
+                        </Suspense>
+                    } />
+                    <Route path='/cookie_policy' element={
+                        <Suspense fallback={
+                            <Loader />
+                        }>
+                            <CookiePolicy />
+                        </Suspense>
+                    } />
+                    <Route path='website_policy' element={
+                        <Suspense fallback={
+                            <Loader />
+                        }>
+                            <WebsiteRules />
                         </Suspense>
                     } />
                     <Route path='*' element={
@@ -99,7 +116,7 @@ function App() {
                     } />
                 </Routes>
             </main>
-            {!isHomePage && !isContactsPage && (
+            {!isHomePage && !isContactsPage && !isConfirmationPage && (
                 <footer>
                     <Footer />
                 </footer>

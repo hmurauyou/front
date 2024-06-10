@@ -39,13 +39,12 @@
 }
 
 .confirmation_heading h1 {
-    font-family: "Orelega One", serif;
-    font-weight: 400;
+    font-weight: 600;
     white-space: wrap;
     font-style: normal;
     line-height: 0.9;
     color: var(--light-cyan-color);
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 
 .confirmation_heading h1 span {
@@ -66,8 +65,8 @@
 
 .image_wrapper img {
     position: absolute;
-    height: 130%;
-    left: 60%;
+    height: 100%;
+    left: 30%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
