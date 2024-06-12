@@ -29,11 +29,9 @@ function HomePage() {
       <div className={styles.images_container}>
         <div className={`${styles.image_block} ${styles.first_image_block}`}>
           <img src={caviar} alt='caviar' className={styles.image} />
-          <h4>Горбуша</h4>
+          <h4>{t("home.caviar.caviar_1.name")}</h4>
           <p className={styles.image_text}>
-            Горбуша - наиболее распространенный представитель семейства лососевых, 
-            именно поэтому икра этой рыбы является самой популярной для большинства. 
-            Обладает по истине классическим вкусом, c легким оттенком горечи.
+            {t("home.caviar.caviar_1.description")}
           </p>
           <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => handleButtonClick("/products/seafood/a90dd4fe-0deb-421a-b9bf-09447488f298")}>
             <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
@@ -42,12 +40,9 @@ function HomePage() {
         </div>
         <div className={styles.image_block}>
           <img src={caviar_1} alt='caviar' className={styles.image} />
-          <h4>Кета</h4>
+          <h4>{t("home.caviar.caviar_2.name")}</h4>
           <p className={styles.image_text}>
-            Настоящий деликатес, который высоко ценится среди других видов, 
-            по размеру уступает только икре чавычи, занесенной в Красную книгу. 
-            Не даром икру кеты называют царской, за ее янтарный блеск, 
-            крупные зерна и нежный сливочный вкус.
+            {t("home.caviar.caviar_2.description")}
           </p>
           <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => handleButtonClick("/products/seafood/78361fc8-9e24-44c7-ba6a-21414f15422b")}>
             <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
@@ -56,11 +51,9 @@ function HomePage() {
         </div>
         <div className={styles.image_block}>
           <img src={caviar_2} alt='caviar' className={styles.image} />
-          <h4>Нерка</h4>
+          <h4>{t("home.caviar.caviar_3.name")}</h4>
           <p className={styles.image_text}>
-            Икра нерки является самой дефицитной из всех видов, 
-            обладает насыщенными вкусовыми красками, с выраженным оттенком горечи, 
-            тем не менее она так нежна, что в буквальном смысле слова, тает во рту.
+            {t("home.caviar.caviar_3.description")}
           </p>
           <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => handleButtonClick("/products/seafood/22d070c5-fc24-4843-9a28-6a2770530714")}>
             <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
