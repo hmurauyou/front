@@ -93,7 +93,7 @@ export default function ProductsPage() {
 
     const dataFetch = async function(endpoint: any, setData:any) {
         try {
-            const response = await fetch(`http://127.0.0.1:1234/items/${endpoint}`);
+            const response = await fetch(`http://172.20.10.6:30001/items/${endpoint}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }

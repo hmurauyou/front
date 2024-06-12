@@ -6,7 +6,7 @@
     width: 80%;
     max-height: 100vh;
     margin: 0 auto;
-    margin-top: 200px;
+    margin-top: 120px;
     margin-bottom: 20px;
 
     @media (max-width: 768px) {
@@ -86,7 +86,7 @@
 .adress, .email, .phone {
     display: flex;
     flex-direction: column;
-    line-height: 1; /* Adjust line-height to control spacing */
+    line-height: 1;
     margin-top: 5px;
 
     @media (max-width: 768px) {
@@ -95,7 +95,7 @@
 }
 
 .adress p, .email p, .phone p {
-    margin-bottom: 5px; /* Adjust bottom margin to control spacing between paragraphs */
+    margin-bottom: 5px;
 }
 
 .email p a {

@@ -113,7 +113,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
         };
 
         try {
-            const response = await fetch('http://127.0.0.1:1234/orders/create', {
+            const response = await fetch('http://172.20.10.6:30001/orders/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

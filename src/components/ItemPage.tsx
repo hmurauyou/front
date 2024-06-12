@@ -66,7 +66,8 @@ export const ItemPage = () => {
             const id = pathParts[3];
 
             try {
-                const response = await fetch(`http://localhost:1234/items/${category}/${id}`);
+                const response = await fetch(`http://172.20.10.6:30001/items/${category}/${id}`);
+                console.log(id)
                 const data = await response.json();
                 console.log(data)
                 setItemData(data);

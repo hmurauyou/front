@@ -98,7 +98,7 @@ export default function ContactsPage() {
         setIsLoading(true)
 
         try {
-            const response = await fetch('http://127.0.0.1:1234/contacts/send', {
+            const response = await fetch('http://172.20.10.6:30001/contacts/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -279,7 +279,7 @@ export default function ContactsPage() {
                                 </div>
                             </form>
                             <div className={`${styles.condition} ${styles.text}`}>
-                                <p>{t("contacts.policy")} <Link className={styles.link} to="/privacypolicy">{t("contacts.privacy")}</Link>.</p>
+                                <p>{t("contacts.policy")} <Link className={styles.link} to="/privacy_policy">{t("contacts.privacy")}</Link>.</p>
                             </div>
                         </div>
                     </div>

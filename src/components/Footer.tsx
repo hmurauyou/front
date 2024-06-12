@@ -12,17 +12,17 @@ export default function Footer() {
                 <div className={styles.rights}>
                     <div className={styles.links_container}>
                         <p>
-                            <Link to="/privacypolicy" className={styles.link}>
+                            <Link to="/privacy_policy" className={styles.link}>
                                 {t("footer.rules.one")}
                             </Link>
                         </p>
                         <p>
-                            <Link to="/" className={styles.link}>
+                            <Link to="/website_policy" className={styles.link}>
                                 {t("footer.rules.two")}
                             </Link>
                         </p>
                         <p>
-                            <Link to="/" className={styles.link}>
+                            <Link to="/cookie_policy" className={styles.link}>
                                 {t("footer.rules.three")}
                             </Link>
                         </p>

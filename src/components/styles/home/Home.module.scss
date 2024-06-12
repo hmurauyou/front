@@ -51,4 +51,60 @@
     font-size: clamp(1.8rem, 4vw, 3rem);
     user-select: none;
 }
+
+.images_container {
+    margin-top: 100px;
+    gap: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+}
   
+.image_block {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 10px;
+}
+ 
+.image_block h4 {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    color: var(--dark-color);
+}
+
+.images_container .image_block h4:nth-child(1) {
+    margin-top: 15px;
+}
+
+.image_block button {
+    margin-top: 10px;
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+}
+  
+.image_text {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--dark-color);
+    font-weight: 300;
+}
+
+.first_image_block h4 {
+    margin-top: 15px;
+}
