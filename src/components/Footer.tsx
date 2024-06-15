@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
-import styles from './styles/footer/Footer.module.scss';
-// import logo from '../images/logo/500x500.png';
 import { useTranslation } from 'react-i18next';
+
+import { Link } from 'react-router-dom';
+import styles from './styles/Footer/Footer.module.scss';
+
 
 export default function Footer() {
     const [t] = useTranslation("global")

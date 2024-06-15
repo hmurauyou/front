@@ -1,12 +1,15 @@
-import React from 'react';
-import styles from './styles/home/Home.module.scss';
-import video from '../images/video/Kamchatka.mp4';
-import { Reveal } from './shared/Reveal';
 import { useTranslation } from 'react-i18next';
+
+import Footer from './Footer';
+import { Reveal } from './shared/Reveal';
+
+import video from '../images/video/Kamchatka.mp4';
 import caviar from '../images/caviar/photo.png';
 import caviar_1 from '../images/caviar/photo_1.png';
 import caviar_2 from '../images/caviar/photo_2.png';
-import Footer from './Footer';
+import styles from './styles/Home/Home.module.scss';
+
+
 
 function HomePage() {
   const [t] = useTranslation("global");
@@ -15,6 +18,7 @@ function HomePage() {
     window.location.href = url;
   };
 
+  
   return (
     <section className={styles.home_page}>
       <div className={styles.content}>

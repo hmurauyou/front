@@ -1,5 +1,8 @@
 import { useTranslation } from "react-i18next";
-import styles from "./styles/notfound/Notfound.module.scss";
+
+import styles from "./styles/NotFound/Notfound.module.scss";
+
+
 
 export default function NotFoundPage() {
     const [t] = useTranslation("global")

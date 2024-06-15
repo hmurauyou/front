@@ -1,21 +1,20 @@
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-// import styles from "./styles/products/Products.module.scss";
-import styles from "./styles/products/test.module.scss"
-import { useTranslation } from "react-i18next";
 import { useCallback, useEffect, useMemo, useState } from "react";
-/* Logo */
-import logo from "../images/logo/logo.png";
-/* Icons */
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+import { Card } from "./shared/Card";
+import { Loader } from "./loader/Loader";
+import { Empty } from "./Empty";
+import { Problem } from "./Problem";
+
+import { IoSearch } from "react-icons/io5";
 import { IoIosArrowUp } from "react-icons/io"
 import { IoIosArrowBack } from "react-icons/io";
 import { GiFishingBoat } from "react-icons/gi";
 import { HiDocumentDownload } from "react-icons/hi";
-import { IoSearch } from "react-icons/io5";
-import { Card } from "./shared/Card";
-import { Loader } from "./loader/Loader";
-import { Empty } from "./shared/Empty";
-import { Problem } from "./shared/Problem";
-import { Reveal } from "./shared/Reveal";
+import logo from "../images/logo/logo.png";
+import styles from "./styles/products/Products.module.scss";
+
 
 
 export default function ProductsPage() {

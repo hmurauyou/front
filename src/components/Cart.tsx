@@ -1,9 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useCart } from './providers/CartProvider';
+
 import SharedModal from './shared/Modal';
-import styles from './styles/Cart/Cart.module.scss';
+import { useCart } from './providers/CartProvider';
+
 import empty from '../images/background/empty_cart.png'
+import styles from './styles/Cart/Cart.module.scss';
+
 
 interface CartItem {
     id: string;
@@ -14,6 +17,8 @@ interface CartItem {
     price_byn: number;
     net_weight: string;
 }
+
+
 
 export default function Cart() {
     const [t] = useTranslation("global")
@@ -72,6 +77,7 @@ export default function Cart() {
 
     const offcanvasCartRef = useRef<HTMLDivElement>(null);
 
+    
     return (
         <>
             <div className="offcanvas offcanvas-end custom-offcanvas" id="offcanvasCart" aria-labelledby="offcanvasCartLabel" ref={offcanvasCartRef}>

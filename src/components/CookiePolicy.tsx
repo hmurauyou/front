@@ -1,6 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import styles from './styles/cookie/CookiePolicy.module.scss'
 import { useTranslation } from 'react-i18next';
+
+import styles from './styles/Cookie/CookiePolicy.module.scss'
+
+
 
 export default function CookiePolicy() {
     const navigate = useNavigate();

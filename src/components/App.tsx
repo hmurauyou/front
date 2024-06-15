@@ -1,20 +1,25 @@
-import React, { Suspense, lazy, useEffect } from 'react';
-import Navbar from './Navbar';
+import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+
+import Navbar from './Navbar';
 import ProductsPage from './ProductsPage';
 import NotFoundPage from './NotFoundPage';
 import Footer from './Footer';
-import { ItemPage } from './ItemPage';
-import { Loader } from './loader/Loader';
+import ItemPage from './ItemPage';
 import PrivacyPolicy from './PrivacyPolicy';
 import CookiePolicy from './CookiePolicy';
 import WebsiteRules from './WebsiteRules';
+import { Loader } from './loader/Loader';
+
+import "./styles/Bootstrap/button.scss";
+
 
 const LazyHomePage = lazy(() => import('./HomePage'));
-// const LazyAboutPage = lazy(() => import('./AboutPage'));
 const LazyContactsPage = lazy(() => import('./ContactsPage'));
 const LazyConfirmationPage = lazy(() => import('./ConfirmationPage'));
 const LazyProductsPage = lazy(() => import('./ProductsPage'));
+
+
 
 function App() {
     const location = useLocation();
@@ -26,6 +31,7 @@ function App() {
         window.scrollTo(0, 0); 
     }, [location.pathname]);
 
+    
     return (
         <>
             <header>

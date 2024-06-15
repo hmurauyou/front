@@ -1,11 +1,11 @@
-import styles from './styles/contacts/Contacts.module.scss'
-import image from '../images/background/bears.jpg'
-import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import "./styles/bootstrap/button.scss"
-import { Reveal } from './shared/Reveal';
+import { useTranslation } from 'react-i18next';
+
 import swal from 'sweetalert';
+import image from '../images/background/bears.jpg'
+import styles from './styles/Contacts/Contacts.module.scss'
+import "./styles/bootstrap/button.scss"
 
 
 interface FormValues {
@@ -15,6 +15,8 @@ interface FormValues {
     contact_phone: string;
     message: string;
 }
+
+
 
 export default function ContactsPage() {
     const [values, setValues] = useState<FormValues>({
@@ -150,6 +152,7 @@ export default function ContactsPage() {
         }
     };
 
+    
     return (
         <>
             <section className={styles.contact}>

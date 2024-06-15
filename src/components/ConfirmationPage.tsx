@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import styles from './styles/verify/Confirmation.module.scss';
 import { useTranslation } from 'react-i18next';
+
 import image from '../images/background/bears.jpg'
+import styles from './styles/Confirmation/Confirmation.module.scss';
+
+
 
 const ConfirmationPage = () => {
     const [t] = useTranslation("global")
@@ -35,6 +38,7 @@ const ConfirmationPage = () => {
         fetchData();
     }, [location.search, navigate]);
 
+    
     return (
         <section className={styles.confirmation}>
             <div className={styles.container}>

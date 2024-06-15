@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
-import styles from "./styles/navbar/Navbar.module.scss";
-import './styles/navbar/navbar.css';
-import logo from '../images/logo/full_logo.png'
 import { useTranslation } from "react-i18next";
-import { CiShoppingCart } from "react-icons/ci";
+
 import Cart from "./Cart";
+import { CiShoppingCart } from "react-icons/ci";
 import { useCart } from "./providers/CartProvider";
+
+import logo from '../images/logo/full_logo.png'
+import './styles/navbar/navbar.css';
+import styles from "./styles/Navbar/Navbar.module.scss";
+
 
 
 export default function Navbar() {

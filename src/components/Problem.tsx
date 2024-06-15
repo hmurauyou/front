@@ -1,7 +1,10 @@
 import { memo } from "react";
-import styles from './styles/Problem/Problem.module.scss'
 import { useTranslation } from "react-i18next";
+
 import down from "../../images/background/server_down.png"
+import styles from './styles/Problem/Problem.module.scss'
+
+
 
 export const Problem = memo(() => {
     const [t] = useTranslation("global")

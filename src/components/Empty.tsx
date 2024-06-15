@@ -1,7 +1,10 @@
 import { memo } from "react";
+import { useTranslation } from "react-i18next";
+
 import empty from '../../images/background/no_data.png'
 import styles from './styles/Empty/Empty.module.scss'
-import { useTranslation } from "react-i18next";
+
+
 
 export const Empty = memo(() => {
     const [t] = useTranslation("global")

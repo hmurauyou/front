@@ -1,6 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import styles from './styles/websitepolicy/WebsiteRules.module.scss'
 import { useTranslation } from 'react-i18next';
+
+import styles from './styles/WebsitePolicy/WebsiteRules.module.scss'
+
+
 
 export default function WebsiteRules() {
     const navigate = useNavigate();

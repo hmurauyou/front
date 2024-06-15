@@ -1,11 +1,13 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import styles from './styles/item/ItemPage.module.scss';
 import { useEffect, useState } from 'react';
-// import AWS from 'aws-sdk';
-import './styles/item/ItemPage.scss';
-import "./styles/bootstrap/button.scss"
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+// import AWS from 'aws-sdk';
+
 import { IoArrowUndo } from "react-icons/io5";
+
+import styles from './styles/Item/ItemPage.module.scss';
+import './styles/Item/ItemPage.scss';
+
 
 interface ItemData {
     id: string;
@@ -31,9 +33,10 @@ interface ItemData {
 //     secretAccessKey: 'qDrGP2A0AMZOMhr749aJqc4nF4/iUJMnNNja2GG3',
 //     region: 'eu-central-1', 
 // });
-  
 
-export const ItemPage = () => {
+
+
+export default function ItemPage() {
     const location = useLocation(); 
     const navigate = useNavigate();
     const [itemData, setItemData] = useState<ItemData | null>(null);

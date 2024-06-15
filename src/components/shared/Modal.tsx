@@ -1,4 +1,3 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './styles/Modal/Modal.module.scss'
 import './styles/Modal/Modal.scss'
