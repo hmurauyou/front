@@ -11,7 +11,7 @@ export default function WebsiteRules() {
     
     return (
         <div className={styles.main}>
-            <h1>{t("website_policy.header")}</h1>
+            <h1>{t("pages.website_policy_page.header")}</h1>
             <p>
                 <br/><strong>1. Общие положения</strong>
                     <br/>1.1. Настоящие правила пользования сайтом (далее - Правила) разработаны Администрацией Сайта, являются соглашением между Администрацией Сайта и Пользователем, определяют условия использования сайта, а также права и обязанности Пользователей и Администрации Сайта.
@@ -105,8 +105,8 @@ export default function WebsiteRules() {
                 <br/>ОГРН 1024101419253
             </p>
             <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => navigate(-1)}>
-                <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
-                {t("policy_privacy.back")}
+                
+                {t("buttons.back")}
             </button>
         </div>
     )

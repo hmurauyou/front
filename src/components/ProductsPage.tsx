@@ -82,7 +82,7 @@ export default function ProductsPage() {
             const searchQueryLowerCase = searchQuery.toLowerCase();
             filteredData = filteredData.filter(item =>
                 item.name.toLowerCase().includes(searchQueryLowerCase) ||
-                t(`products.${item.product}`).toLowerCase().includes(searchQueryLowerCase)
+                t(`pages.products_page.${item.product}`).toLowerCase().includes(searchQueryLowerCase)
             );
         }
 
@@ -198,36 +198,36 @@ export default function ProductsPage() {
                     <img src={logo} className={styles.image_logo} alt="" />
                 </div>
                 <div className={styles.head_details}>
-                    <h4>{t("products.company")}</h4>
-                    <p className={styles.title}>{t("products.best")}</p>
+                    <h4>{t("pages.products_page.company")}</h4>
+                    <p className={styles.title}>{t("pages.products_page.best_prices")}</p>
                 </div>
             </div>
             <div className={styles.nav}>
                 <div className={styles.menu}>
-                    <p className={styles.title}>{t("products.menu")}</p>
+                    <p className={styles.title}>{t("pages.products_page.menu")}</p>
                     <ul className={styles.list}>
                         <li>
                             <div className={styles.link_container}>
                                 <Link className={styles.special_link} to="/products/seafood">
                                     <GiFishingBoat className={styles.icon} />
-                                    <span className={styles.text}>{t("products.seafood")}</span>
+                                    <span className={styles.text}>{t("pages.products_page.products_categories.seafood")}</span>
                                 </Link>
                                 <IoIosArrowUp className={`${styles.arrow} ${isSubmenuOpen ? styles.active : ""}`} onClick={toggleSubmenu} />
                             </div>
                             <ul className={`${styles.sub_menu} ${isSubmenuOpen ? styles.active : ''}`}>
                                 <li>
                                     <Link className={styles.link} to="/products/seafood/product/shrimps">
-                                        <span className={styles.text}>{t("products.shrimps")}</span>
+                                        <span className={styles.text}>{t("pages.products_page.products_names.shrimps")}</span>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link className={styles.link} to="/products/seafood/product/caviar">
-                                        <span className={styles.text}>{t("products.caviar")}</span>
+                                        <span className={styles.text}>{t("pages.products_page.products_names.caviar")}</span>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link className={styles.link} to="/products/seafood/product/crab">
-                                        <span className={styles.text}>{t("products.crab")}</span>
+                                        <span className={styles.text}>{t("pages.products_page.products_names.crab")}</span>
                                     </Link>
                                 </li>
                             </ul>
@@ -235,12 +235,12 @@ export default function ProductsPage() {
                     </ul>
                 </div>
                 <div className={styles.menu}>
-                    <p className={styles.title}>{t("products.prices")}</p>
+                    <p className={styles.title}>{t("pages.products_page.prices")}</p>
                     <ul className={styles.list}>
                         <li>
                             <Link className={styles.link} /*onClick={handleDownload}*/ to="#">
                                 <HiDocumentDownload  className={styles.icon} />
-                                <span className={styles.text}>{t("products.pricelist.name")}</span>
+                                <span className={styles.text}>{t("pages.products_page.pricelist")}</span>
                             </Link>
                         </li>
                     </ul>
@@ -263,7 +263,7 @@ export default function ProductsPage() {
                             <div className={styles.search}>
                                 <input 
                                     type="text" 
-                                    placeholder={t("products.searchPlaceholder")}
+                                    placeholder={t("pages.products_page.instruments.search")}
                                     value={searchQuery}
                                     onChange={handleSearchInputChange}
                                 />

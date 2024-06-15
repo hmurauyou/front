@@ -11,7 +11,7 @@ export default function NotFoundPage() {
         <>
             <div className={styles.error_page}>
                 <h1 data-h1="404">404</h1>
-                <p data-p="Page Not Found">{t("not_found.message")}<span>.</span></p>
+                <p data-p="Page Not Found">{t("pages.not_found_page.message")}<span>.</span></p>
             </div>
         </>
     )

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import swal from 'sweetalert';
 import image from '../images/background/bears.jpg'
 import styles from './styles/Contacts/Contacts.module.scss'
-import "./styles/bootstrap/button.scss"
+import "./styles/Bootstrap/button.scss"
 
 
 interface FormValues {
@@ -46,7 +46,7 @@ export default function ContactsPage() {
     }
 
     useEffect(() => {
-        setButtonText(t("contacts.send"))
+        setButtonText(t("buttons.send"))
     }, [t])
 
     const handleFocus = (fieldName: string) => {
@@ -110,8 +110,8 @@ export default function ContactsPage() {
 
             if (response.ok) {
                 swal({
-                    title: t("contacts.success"),
-                    text: t("contacts.success_msg"),
+                    title: t("messages.success"),
+                    text: t("messages.success_msg"),
                     icon: "success",
                     buttons: [""],
                     timer: 4000
@@ -127,7 +127,7 @@ export default function ContactsPage() {
                 setNotEmpty({});
                 setFocusedField(null);
 
-                setButtonText(t("contacts.thankYou"));
+                setButtonText(t("messages.thank_you"));
                 setTimeout(() => {
                     setButtonText(t("contacts.send"));
                     setIsLoading(false);
@@ -160,8 +160,8 @@ export default function ContactsPage() {
                     <div className={styles.left}>
                         <div className={styles.form_wrapper}>
                             <div className={styles.contact_heading}>
-                                <h1>{t("contacts.header")}<span>.</span></h1>
-                                <p className={styles.text}>{t("contacts.sub_header")} <span> </span>
+                                <h1>{t("pages.contacts_page.header")}<span>.</span></h1>
+                                <p className={styles.text}>{t("pages.contacts_page.sub_header")} <span> </span>
                                     <a className={styles.link} href="mailto:">kamchatka.business@yandex.ru</a>
                                 </p>
                             </div>
@@ -186,7 +186,7 @@ export default function ContactsPage() {
                                         onFocus={() => handleFocus('name')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>{t("contacts.name")}</label>
+                                    <label>{t("pages.contacts_page.name")}</label>
                                 </div>
                                 
                                 <div className={`
@@ -209,7 +209,7 @@ export default function ContactsPage() {
                                         onFocus={() => handleFocus('surname')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>{t("contacts.surname")}</label>
+                                    <label>{t("pages.contacts_page.surname")}</label>
                                 </div>
 
                                 <div className={`
@@ -230,7 +230,7 @@ export default function ContactsPage() {
                                         onFocus={() => handleFocus('email')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>{t("contacts.email")}</label>
+                                    <label>{t("pages.contacts_page.email")}</label>
                                 </div>
 
                                 <div className={`
@@ -252,7 +252,7 @@ export default function ContactsPage() {
                                         onFocus={() => handleFocus('contact_phone')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>{t("contacts.contact_phone")}</label>
+                                    <label>{t("pages.contacts_page.contact_phone")}</label>
                                 </div>
 
                                 <div className={`
@@ -274,15 +274,15 @@ export default function ContactsPage() {
                                         onBlur={handleBlur} 
                                     >
                                     </textarea>
-                                    <label className={styles.label}>{t("contacts.message")}</label>
+                                    <label className={styles.label}>{t("pages.contacts_page.message")}</label>
                                 </div>
 
                                 <div className={`${styles.submit_box} ${styles.w_100}`}>
-                                    <input type="submit" className={styles.input_submit} value={isLoading ? t("contacts.loading") : buttonText} disabled={isLoading} />
+                                    <input type="submit" className={styles.input_submit} value={isLoading ? t("messages.loading") : buttonText} disabled={isLoading} />
                                 </div>
                             </form>
                             <div className={`${styles.condition} ${styles.text}`}>
-                                <p>{t("contacts.policy")} <Link className={styles.link} to="/privacy_policy">{t("contacts.privacy")}</Link>.</p>
+                                <p>{t("pages.contacts_page.privacy")} <Link className={styles.link} to="/privacy_policy">{t("pages.contacts_page.policy")}</Link>.</p>
                             </div>
                         </div>
                     </div>

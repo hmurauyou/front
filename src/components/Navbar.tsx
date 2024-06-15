@@ -6,7 +6,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { useCart } from "./providers/CartProvider";
 
 import logo from '../images/logo/full_logo.png'
-import './styles/navbar/navbar.css';
+import './styles/Navbar/navbar.css';
 import styles from "./styles/Navbar/Navbar.module.scss";
 
 

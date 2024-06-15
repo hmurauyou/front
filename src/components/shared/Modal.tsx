@@ -55,7 +55,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
     const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        setButtonText(t("contacts.send"))
+        setButtonText(t("buttons.send"))
     }, [t])
 
     const handleFocus = (fieldName: string) => {
@@ -135,9 +135,9 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                 setNotEmpty({});
                 setFocusedField(null);
 
-                setButtonText(t("contacts.thankYou"));
+                setButtonText(t("messages.thank_you"));
                 setTimeout(() => {
-                    setButtonText(t("contacts.send"));
+                    setButtonText(t("buttons.send"));
                     setIsLoading(false);
 
                     const modalElement = modalRef.current;
@@ -171,8 +171,8 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                 }, 1000);
                 setTimeout(() => {
                     swal({
-                        title: t("contacts.success"),
-                        text: t("contacts.success_msg"),
+                        title: t("messages.success"),
+                        text: t("messages.success_msg"),
                         icon: "success",
                         buttons: [""],
                         timer: 4000
@@ -201,22 +201,22 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                 <div className={`modal-body ${styles.modal_body}`}>
                     <div className={styles.section_one}>
                         <div className={styles.order_heading}>
-                            <h3>{t("cart.print")}<span>.</span></h3>
+                            <h3>{t("components.cart.print")}<span>.</span></h3>
                         </div>
                         <div className={styles.list_items}>
                             <table className={styles.content_table}>
                                 <thead>
-                                    <th>{t("cart.category")}</th>
-                                    <th>{t("cart.product")}</th>
-                                    <th>{t("cart.name")}</th>
-                                    <th>{t("cart.quantity")}</th>
+                                    <th>{t("components.cart.category")}</th>
+                                    <th>{t("components.cart.product")}</th>
+                                    <th>{t("components.cart.name")}</th>
+                                    <th>{t("components.cart.quantity")}</th>
                                 </thead>
                                 <tbody>
                                 {cartItems.map((item, index) => (
                                     <tr key={index}>
-                                        <td>{t(`products.products_info.${item.id}.category`)}</td>
-                                        <td>{t(`products.products_info.${item.id}.product`)}</td>
-                                        <td>{t(`products.products_info.${item.id}.name`)}</td>
+                                        <td>{t(`pages.products_page.products_info.${item.id}.category`)}</td>
+                                        <td>{t(`pages.products_page.products_info.${item.id}.product`)}</td>
+                                        <td>{t(`pages.products_page.products_info.${item.id}.name`)}</td>
                                         <td>{quantities[index]}</td>
                                     </tr>
                                 ))}
@@ -224,17 +224,17 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                             </table>
                         </div>
                         <div className={styles.total_cost}>
-                            <p><strong>{t("cart.total")}:</strong></p>
+                            <p><strong>{t("components.cart.total")}:</strong></p>
                             <p>{cartItems.reduce((total, item, index) => total + (item.price_byn * quantities[index]), 0).toFixed(2)} BYN</p>
                         </div>
                         <div className={`${styles.condition} ${styles.text}`}>
-                            <p>{t("cart.warning")}</p>
+                            <p>{t("components.cart.warning")}</p>
                         </div>
                     </div> 
                     <div className={styles.separator}></div>
                     <div className={styles.section_two}>
                         <div className={styles.order_heading}>
-                            <h3>{t("cart.form")}<span>.</span></h3>
+                            <h3>{t("components.cart.form")}<span>.</span></h3>
                         </div>
                         <div className={styles.form_wrapper}>
                             <form method="post" className={styles.contact_form} onSubmit={onSubmit}>
@@ -258,7 +258,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                                         onFocus={() => handleFocus('name')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>{t("contacts.name")}</label>
+                                    <label>{t("pages.contacts_page.name")}</label>
                                 </div>
                                 
                                 <div className={`
@@ -281,7 +281,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                                         onFocus={() => handleFocus('surname')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>{t("contacts.surname")}</label>
+                                    <label>{t("pages.contacts_page.surname")}</label>
                                 </div>
 
                                 <div className={`
@@ -302,7 +302,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                                         onFocus={() => handleFocus('email')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>{t("contacts.email")}</label>
+                                    <label>{t("pages.contacts_page.email")}</label>
                                 </div>
 
                                 <div className={`
@@ -324,15 +324,15 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                                         onFocus={() => handleFocus('contact_phone')}
                                         onBlur={handleBlur} 
                                     />
-                                    <label>{t("contacts.contact_phone")}</label>
+                                    <label>{t("pages.contacts_page.contact_phone")}</label>
                                 </div>
 
                                 <div className={`${styles.submit_box} ${styles.w_100}`}>
-                                    <input type="submit" className={styles.input_submit} value={isLoading ? t("contacts.loading") : buttonText} disabled={isLoading} />
+                                    <input type="submit" className={styles.input_submit} value={isLoading ? t("messages.loading") : buttonText} disabled={isLoading} />
                                 </div>
                             </form>
                             <div className={`${styles.condition} ${styles.text}`}>
-                                <p>{t("contacts.policy")} <a className={styles.link} href="/privacy_policy" target="_blank">{t("contacts.privacy")}</a>.</p>
+                                <p>{t("pages.contacts_page.privacy")} <a className={styles.link} href="/privacy_policy" target="_blank">{t("pages.contacts_page.policy")}</a>.</p>
                             </div>
                         </div>
                     </div>

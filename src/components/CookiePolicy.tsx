@@ -11,15 +11,14 @@ export default function CookiePolicy() {
     
     return (
         <div className={styles.main}>
-            <h1>{t("cookie_policy.header")}</h1>
+            <h1>{t("pages.cookie_policy_page.header")}</h1>
             <p>
-                {t("cookie_policy.text_1")}
+                {t("pages.cookie_policy_page.text_1")}
                 <br/>
-                {t("cookie_policy.text_2")}
+                {t("pages.cookie_policy_page.text_2")}
             </p>
             <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => navigate(-1)}>
-                <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
-                {t("policy_privacy.back")}
+                {t("buttons.back")}
             </button>
         </div>
     )

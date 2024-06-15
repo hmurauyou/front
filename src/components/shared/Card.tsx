@@ -32,9 +32,9 @@ interface CardProps {
 
 export const Card = memo(({productData, lastFetchTime}: CardProps) => {
     const [t] = useTranslation("global")
-    const translatedName = t(`products.products_info.${productData?.id}.name`);
-    const translatedNetWeight = t(`products.products_info.${productData?.id}.net_weight`);
-    const addToCartText = t("cart.add");
+    const translatedName = t(`pages.products_page.products_info.${productData?.id}.name`);
+    const translatedNetWeight = t(`pages.products_page.products_info.${productData?.id}.net_weight`);
+    const addToCartText = t("buttons.add");
 
     const { id, category } = productData;
     const [isLoading, setIsLoading] = useState(true);
@@ -68,8 +68,8 @@ export const Card = memo(({productData, lastFetchTime}: CardProps) => {
     // }, [lastFetchTime]);
     // const [windowWidth, setWindowWidth] = useState(window.innerWidth); 
     
-    // const translatedName = t(`products.products_info.${productData.id}.name`);
-    // const translatedCountryRUS = t(`products.products_info.${productData.id}.country_id`);
+    // const translatedName = t(`pages.products_page.products_info.${productData.id}.name`);
+    // const translatedCountryRUS = t(`pages.products_page.products_info.${productData.id}.country_id`);
 
     // useEffect(() => {
     //     const fetchImageUrls = async () => {
@@ -127,7 +127,7 @@ export const Card = memo(({productData, lastFetchTime}: CardProps) => {
                     {isLoading ? (
                         <div className="d-flex justify-content-center align-items-center loader-container" style={{ height: "200px" }}>
                             <div className="spinner-border text-secondary" role="status">
-                                <span className="visually-hidden">{t("card_item.loading")}</span>
+                                <span className="visually-hidden">{t("components.card_item.loading")}</span>
                             </div>
                         </div>
                     ) : (
@@ -141,12 +141,12 @@ export const Card = memo(({productData, lastFetchTime}: CardProps) => {
                         </Link>
                     </div>
                     <div>
-                        <p className="card-text">{t("products.net_weight")}: {translatedNetWeight}</p>
+                        <p className="card-text">{t("pages.products_page.net_weight")}: {translatedNetWeight}</p>
                         <p className="card-text">
                             <small className="text-body-secondary">
-                                {t("card_item.updated")} {
+                                {t("components.card_item.updated")} {
                                     minutesAgo < 60 ? (
-                                        `${minutesAgo} ${minutesAgo === 1 ? t("card_item.minute") : t("card_item.minutes")}`
+                                        `${minutesAgo} ${minutesAgo === 1 ? t("components.card_item.minute") : t("components.card_item.minutes")}`
                                     ) : (
                                         `${Math.floor(minutesAgo / 60)} ${Math.floor(minutesAgo / 60) === 1 ? 'hour' : 'hours'} ago`
                                     )

@@ -82,13 +82,13 @@ export default function Cart() {
         <>
             <div className="offcanvas offcanvas-end custom-offcanvas" id="offcanvasCart" aria-labelledby="offcanvasCartLabel" ref={offcanvasCartRef}>
                 <div className="offcanvas-header">
-                    <h2 className="offcanvas-title" id="offcanvasCartLabel">{t("cart.cart")}</h2>
+                    <h2 className="offcanvas-title" id="offcanvasCartLabel">{t("components.cart.cart")}</h2>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body">
                     {cartItems.length === 0 ? (
                         <div className={styles.empty_section}>
-                            <p className={styles.empty_msg}>{t("cart.empty")}</p>
+                            <p className={styles.empty_msg}>{t("components.cart.empty")}</p>
                             <img src={empty} alt='empty' className={styles.empty_img} />
                         </div>
                     ) : (
@@ -102,13 +102,13 @@ export default function Cart() {
                                         <div className="col-md-8">
                                             <div className={`card-body ${styles.card_body}`}>
                                                 <div className={styles.close_section}>
-                                                    <h6 className="card-title">{t(`products.products_info.${item.id}.name`)}</h6>
+                                                    <h6 className="card-title">{t(`pages.products_page.products_info.${item.id}.name`)}</h6>
                                                     <button type="button" className="btn-close" aria-label="Close" onClick={() => removeFromCart(item.id)}></button>
                                                 </div>
                                                 <div className={styles.product_info}>
-                                                    <p className="card-text">{t("cart.category")}: {t(`products.products_info.${item.id}.category`)}</p>
-                                                    <p className="card-text">{t("cart.product")}: {t(`products.products_info.${item.id}.product`)}</p>
-                                                    <p className="card-text">{t("cart.net_weight")}: {t(`products.products_info.${item.id}.net_weight`)}</p>
+                                                    <p className="card-text">{t("components.cart.category")}: {t(`pages.products_page.products_info.${item.id}.category`)}</p>
+                                                    <p className="card-text">{t("components.cart.product")}: {t(`pages.products_page.products_info.${item.id}.product`)}</p>
+                                                    <p className="card-text">{t("components.cart.net_weight")}: {t(`pages.products_page.products_info.${item.id}.net_weight`)}</p>
                                                 </div>
                                                 <div className={styles.wrapper}>
                                                     <span className={styles.plus} onClick={() => handleIncrement(index)}>+</span>
@@ -122,7 +122,7 @@ export default function Cart() {
                                                 </div>
                                                 <p className={`card-text ${styles.price}`}>
                                                     <small className="text-body-secondary">
-                                                        {t("cart.price")}: {(item.price_byn * quantities[index]).toFixed(2)} BYN
+                                                        {t("components.cart.price")}: {(item.price_byn * quantities[index]).toFixed(2)} BYN
                                                     </small>
                                                 </p>
                                             </div>
@@ -131,13 +131,11 @@ export default function Cart() {
                                 </div>
                             ))}
                             <div className={styles.buttons}>
-                                <button type="button" className={`btn btn-primary btn_inside ${styles.btn_width}`} onClick={clearCart}>
-                                    <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
-                                    {t("cart.clear")}
+                                <button type="button" className={`btn btn-primary btn_inside ${styles.btn_width}`} onClick={clearCart}>  
+                                    {t("buttons.clear")}
                                 </button>
                                 <button type="button" className={`btn btn-primary ${styles.btn_width}`} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
-                                    {t("cart.checkout")}
+                                    {t("buttons.checkout")}
                                 </button>
                             </div>
                         </div>

@@ -44,23 +44,19 @@ export default function ItemPage() {
     const [isLoading, setIsLoading] = useState(true);
 
     const [t] = useTranslation("global")
-    const translatedName = t(`products.products_info.${itemData?.id}.name`);
-    const translatedDescription = t(`products.products_info.${itemData?.id}.description`);
-    const translatedComposition = t(`products.products_info.${itemData?.id}.composition`);
-    const translatedSupplements = t(`products.products_info.${itemData?.id}.supplements`);
-    const translatedFoodVaue = t(`products.products_info.${itemData?.id}.food_value`);
-    const translatedVitamins = t(`products.products_info.${itemData?.id}.vitamins`);
-    const translatedEnergyValue = t(`products.products_info.${itemData?.id}.energy_value`);
-    const translatedCountry = t(`products.products_info.${itemData?.id}.country_id`);
-    const translatedRecommendation = t(`products.products_info.${itemData?.id}.recommendation`);
-    const translatedShelfLife = t(`products.products_info.${itemData?.id}.shelf_life`);
-    const translatedExpirationDate = t(`products.products_info.${itemData?.id}.expiration_date`);
-    const translatedNetWeight = t(`products.products_info.${itemData?.id}.net_weight`);
-    const goBack = t("item_page.back")
-    // const translatedName = t(`products.products_info.${itemData?.id}.name`);
-    // const translatedDescription = t(`products.products_info.${itemData?.id}.description`);
-    // const translatedCountry = t(`products.products_info.${itemData?.id}.country_id`);
-    // const translatedShelfLife = t(`products.products_info.${itemData?.id}.shelf_life`);
+    const translatedName = t(`pages.products_page.products_info.${itemData?.id}.name`);
+    const translatedDescription = t(`pages.products_page.products_info.${itemData?.id}.description`);
+    const translatedComposition = t(`pages.products_page.products_info.${itemData?.id}.composition`);
+    const translatedSupplements = t(`pages.products_page.products_info.${itemData?.id}.supplements`);
+    const translatedFoodVaue = t(`pages.products_page.products_info.${itemData?.id}.food_value`);
+    const translatedVitamins = t(`pages.products_page.products_info.${itemData?.id}.vitamins`);
+    const translatedEnergyValue = t(`pages.products_page.products_info.${itemData?.id}.energy_value`);
+    const translatedCountry = t(`pages.products_page.products_info.${itemData?.id}.country_id`);
+    const translatedRecommendation = t(`pages.products_page.products_info.${itemData?.id}.recommendation`);
+    const translatedShelfLife = t(`pages.products_page.products_info.${itemData?.id}.shelf_life`);
+    const translatedExpirationDate = t(`pages.products_page.products_info.${itemData?.id}.expiration_date`);
+    const translatedNetWeight = t(`pages.products_page.products_info.${itemData?.id}.net_weight`);
+    const goBack = t("buttons.back")
  
     useEffect(() => {
         const fetchData = async () => {
@@ -180,28 +176,28 @@ export default function ItemPage() {
                                 <h5 className="card-title"><span className={styles.name}>{translatedName}</span></h5>
                             </div>
                             <div>
-                                <p className="card-text"><b className={styles.data}>{t("item_page.description")}: </b>{translatedDescription}</p>
+                                <p className="card-text"><b className={styles.data}>{t("pages.item_page.description")}: </b>{translatedDescription}</p>
                             </div>
                             <div>
-                                <p className="card-text"><b className={styles.data}>{t("item_page.composition")}: </b>{translatedComposition}</p>
-                                <p className="card-text"><b className={styles.data}>{t("item_page.vitamins")}: </b>{translatedVitamins}</p>
-                                <p className="card-text"><b className={styles.data}>{t("item_page.supplements")}: </b>{translatedSupplements}</p>
+                                <p className="card-text"><b className={styles.data}>{t("pages.item_page.composition")}: </b>{translatedComposition}</p>
+                                <p className="card-text"><b className={styles.data}>{t("pages.item_page.vitamins")}: </b>{translatedVitamins}</p>
+                                <p className="card-text"><b className={styles.data}>{t("pages.item_page.supplements")}: </b>{translatedSupplements}</p>
                             </div>
                             <div>
-                                <p className="card-text"><b className={styles.data}>{t("item_page.energy_value")}: </b>{translatedEnergyValue}</p>
-                                <p className="card-text"><b className={styles.data}>{t("item_page.food_value")}: </b>{translatedFoodVaue}</p>
+                                <p className="card-text"><b className={styles.data}>{t("pages.item_page.energy_value")}: </b>{translatedEnergyValue}</p>
+                                <p className="card-text"><b className={styles.data}>{t("pages.item_page.food_value")}: </b>{translatedFoodVaue}</p>
                             </div>
                             <div>
-                                <p className='card-text'><b className={styles.data}>{t("item_page.shelf_life")}: </b>{translatedShelfLife}</p>
-                                <p className='card-text'><b className={styles.data}>{t("item_page.recommendation")}: </b>{translatedRecommendation}</p>
-                                <p className='card-text'><b className={styles.data}>{t("item_page.expiration_date")}: </b>{translatedExpirationDate}</p>
+                                <p className='card-text'><b className={styles.data}>{t("pages.item_page.shelf_life")}: </b>{translatedShelfLife}</p>
+                                <p className='card-text'><b className={styles.data}>{t("pages.item_page.recommendation")}: </b>{translatedRecommendation}</p>
+                                <p className='card-text'><b className={styles.data}>{t("pages.item_page.expiration_date")}: </b>{translatedExpirationDate}</p>
                             </div>
                             <div>
-                                <p className='card-text'><b className={styles.data}>{t("item_page.country")}: </b>{translatedCountry}</p>
-                                <p className='card-text'><b className={styles.data}>{t("item_page.net_weight")}: </b>{translatedNetWeight}</p>
+                                <p className='card-text'><b className={styles.data}>{t("pages.item_page.country")}: </b>{translatedCountry}</p>
+                                <p className='card-text'><b className={styles.data}>{t("pages.item_page.net_weight")}: </b>{translatedNetWeight}</p>
                             </div>
                             <div className="price-container">
-                                <p className='card-text'><b className={styles.data}>{t("item_page.price")}: </b><span className={styles.price}>{itemData.price_byn} BYN</span></p>
+                                <p className='card-text'><b className={styles.data}>{t("pages.item_page.price")}: </b><span className={styles.price}>{itemData.price_byn} BYN</span></p>
                             </div>
                         </div>
                     </div>

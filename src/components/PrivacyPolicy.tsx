@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import "./styles/bootstrap/button.scss"
+import "./styles/Bootstrap/button.scss"
 import styles from "./styles/Privacy/PrivacyPolicy.module.scss"
 
 
@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
 
     return (
         <div className={styles.main}>
-            <h1>{t("policy_privacy.header")}</h1>
+            <h1>{t("pages.policy_privacy_page.header")}</h1>
             <p>
                 <br/>1. Общие положения
                 <br/> Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона №99-З «О защите персональных данных» Республики Беларусь (далее - Закон о защите персональных данных) и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые ООО "Восточный берег" (далее - Оператор).
@@ -130,8 +130,7 @@ export default function PrivacyPolicy() {
             </p>
 
             <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => navigate(-1)}>
-                <i className='bx bx-left-arrow-alt bx-xs bx-fade-left'></i>
-                {t("policy_privacy.back")}
+                {t("buttons.back")}
             </button>
         </div>
     )
