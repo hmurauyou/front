@@ -144,7 +144,7 @@ export default function Cart() {
             </div>
             <SharedModal 
                 id="staticBackdrop"
-                title={t("cart.title")}
+                title={t("components.cart.title")}
                 cartItems={cartItems}
                 quantities={quantities}
                 t={t}

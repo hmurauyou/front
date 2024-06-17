@@ -46,7 +46,7 @@
                 "caviar": "Caviar"
             },
             "products_info": {
-                "a90dd4fe-0deb-421a-b9bf-09447488f298": {
+                "ba562a79-175c-4dff-9027-703cc09024cb": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Pink salmon fresh-frozen, supplements free",
@@ -62,7 +62,7 @@
                     "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
                     "expiration_date": "12 months from the date of manufacture."
                 },
-                "f7ff96c5-8b1a-49b8-8808-62c69ed95de6": {
+                "0751cf9a-3eb0-4e3a-88d8-2b7bc6c8432c": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Pink salmon fresh-frozen, supplements free",
@@ -78,7 +78,7 @@
                     "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
                     "expiration_date": "12 months from the date of manufacture."
                 },
-                "3805af80-fe1c-44b4-877d-e049de64762a": {
+                "7dbde631-5f75-4ae5-984b-388fa6c55932": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Pink salmon salted",
@@ -94,7 +94,7 @@
                     "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
                     "expiration_date": "12 months from the date of manufacture."
                 },
-                "7ce5d82d-6303-4208-bb7d-e2aa5692b94a": {
+                "ec115fad-e51c-417b-9874-d3bb86f00a6e": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Pink salmon salted",
@@ -112,7 +112,7 @@
                 },
     
     
-                "78361fc8-9e24-44c7-ba6a-21414f15422b": {
+                "f599bfba-f1c9-4d61-9bfc-4de9253a1515": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Chum salmon fresh-frozen, supplements free",
@@ -128,7 +128,7 @@
                     "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
                     "expiration_date": "12 months from the date of manufacture."
                 },
-                "b33ed5d7-a438-4e24-a79d-1b69abc0963d": {
+                "680f7b12-d8c3-4848-abe3-b9fb1e833abe": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Chum salmon fresh-frozen, supplements free",
@@ -144,7 +144,7 @@
                     "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
                     "expiration_date": "12 months from the date of manufacture."
                 },
-                "aee9c496-e6d0-4a2b-a0db-d4e86ceaa4b8": {
+                "d1bef155-f869-42b6-b991-ab4acd33d67d": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Chum salmon salted",
@@ -160,7 +160,7 @@
                     "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
                     "expiration_date": "12 months from the date of manufacture."
                 },
-                "91c89d39-0edc-4a3f-a708-4b6501a98faa": {
+                "4f29f6c6-78bf-4444-9152-c98b2fd99eac": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Chum salmon salted",
@@ -178,7 +178,7 @@
                 },
                 
     
-                "22d070c5-fc24-4843-9a28-6a2770530714": {
+                "b6d694b5-f602-4d5f-a93f-a5e5c3b64148": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Sockeye salmon fresh-frozen, supplements free",
@@ -194,7 +194,7 @@
                     "shelf_life": "After opening the package it is possible to store the product for a short period of time (not more than 36 hours) at temperatures from 0 to 6°C in a domestic refrigerator. Store at a temperature not exceeding minus 18°C. Packed under vacuum.",
                     "expiration_date": "12 months from the date of manufacture."
                 },
-                "89a9e310-da21-4ec2-b2e5-92af40f59380": {
+                "4a7921b7-5423-499d-8e88-3e891b30bee8": {
                     "category": "Seafood",
                     "product": "Caviar",
                     "name": "Kamchatka Sockeye salmon salted",
@@ -245,7 +245,8 @@
                 "error": "Error!",
                 "error_message": {
                     "text_one": "This email already exists in the client base",
-                    "text_two": "Something went wrong, check your internet connection"
+                    "text_two": "Something went wrong, check your internet connection",
+                    "text_three": "Please, enter ReCaptcha"
                 }
             }
         },
@@ -316,6 +317,7 @@
     },
 
     "buttons": {
+        "detailed": "More details",
         "back": "Go back",
         "send": "Send",
         "add": "Add to cart",

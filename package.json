@@ -19,6 +19,7 @@
     "i18next": "^23.10.1",
     "react": "18.3.1",
     "react-dom": "^18.2.0",
+    "react-google-recaptcha": "^3.1.0",
     "react-i18next": "^14.1.0",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.22.3",
@@ -55,6 +56,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/bootstrap": "^5.2.10",
     "@types/node-sass": "^4.11.7",
+    "@types/react-google-recaptcha": "^2.1.9",
     "@types/sass": "^1.45.0",
     "node-sass": "^7.0.3"
   }

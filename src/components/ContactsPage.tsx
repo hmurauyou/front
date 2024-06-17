@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+
 import swal from 'sweetalert';
+import ReCAPTCHA from 'react-google-recaptcha';
 import image from '../images/background/bears.jpg'
 import styles from './styles/Contacts/Contacts.module.scss'
 import "./styles/Bootstrap/button.scss"
-
 
 interface FormValues {
     name: string;
@@ -32,6 +33,7 @@ export default function ContactsPage() {
     const [isMessageValid, setMessageValid] = useState<boolean>(true);
     const [focusedField, setFocusedField] =  useState<string | null>(null);
     const [notEmpty, setNotEmpty] = useState<{ [key: string]: boolean }>({});
+    const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false); 
     const [maxCharsExceeded, setMaxCharsExceeded] = useState<{
         [key: string]: boolean;
     }>({
@@ -92,6 +94,17 @@ export default function ContactsPage() {
     const onSubmit = async (e: any) => {
         e.preventDefault();
 
+        if (!isRecaptchaVerified) {
+            swal({
+                title: t("pages.contacts_page.errors.error"),
+                text: t("pages.contacts_page.errors.error_message.text_three"),
+                icon: "error",
+                buttons: [""],
+                timer: 3000
+            });
+            return;
+        }
+
         if (!isMessageValid) {
             console.error('Invalid message length');
             return;
@@ -129,13 +142,13 @@ export default function ContactsPage() {
 
                 setButtonText(t("messages.thank_you"));
                 setTimeout(() => {
-                    setButtonText(t("contacts.send"));
+                    setButtonText(t("buttons.send"));
                     setIsLoading(false);
                 }, 3000);
-            } else if (response.status === 400) {
+            } else if (response.status === 400 || 409) {
                 swal({
-                    title: t("contacts.error"),
-                    text: t("contacts.error_text.text_one"),
+                    title: t("pages.contacts_page.error"),
+                    text: t("pages.contacts_page.error_message.text_one"),
                     icon: "error",
                     buttons: [""],
                     timer: 3000
@@ -281,6 +294,17 @@ export default function ContactsPage() {
                                     <input type="submit" className={styles.input_submit} value={isLoading ? t("messages.loading") : buttonText} disabled={isLoading} />
                                 </div>
                             </form>
+                                <ReCAPTCHA
+                                    sitekey='6LcVRPopAAAAAA1iFWPCua1HJh9YZSEwX-8w3p3w'
+                                    onChange={(val) => setIsRecaptchaVerified(!!val)}
+                                    style={{
+                                        marginTop: '20px',
+                                        transform: 'scale(0.79)',
+                                        WebkitTransform: 'scale(0.79)',
+                                        transformOrigin: '0 0',
+                                        WebkitTransformOrigin: '0 0',
+                                    }}
+                                />
                             <div className={`${styles.condition} ${styles.text}`}>
                                 <p>{t("pages.contacts_page.privacy")} <Link className={styles.link} to="/privacy_policy">{t("pages.contacts_page.policy")}</Link>.</p>
                             </div>

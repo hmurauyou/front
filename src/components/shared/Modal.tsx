@@ -1,8 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
+
+import { useCart } from '../providers/CartProvider';
+
+import swal from 'sweetalert';
+import ReCAPTCHA from 'react-google-recaptcha';
 import styles from './styles/Modal/Modal.module.scss'
 import './styles/Modal/Modal.scss'
-import { useCart } from '../providers/CartProvider';
-import swal from 'sweetalert';
+
 
 interface CartItem {
     id: string;
@@ -41,6 +45,7 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
     const [isLoading, setIsLoading] = useState(false);
     const [focusedField, setFocusedField] =  useState<string | null>(null);
     const [notEmpty, setNotEmpty] = useState<{ [key: string]: boolean }>({});
+    const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false); 
     const [maxCharsExceeded, setMaxCharsExceeded] = useState<{
         [key: string]: boolean;
     }>({
@@ -95,6 +100,17 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
 
     const onSubmit = async (e: any) => {
         e.preventDefault();
+
+        if (!isRecaptchaVerified) {
+            swal({
+                title: t("pages.contacts_page.errors.error"),
+                text: t("pages.contacts_page.errors.error_message.text_three"),
+                icon: "error",
+                buttons: [""],
+                timer: 3000
+            });
+            return;
+        }
 
         setIsLoading(true)
 
@@ -331,6 +347,17 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                                     <input type="submit" className={styles.input_submit} value={isLoading ? t("messages.loading") : buttonText} disabled={isLoading} />
                                 </div>
                             </form>
+                            <ReCAPTCHA
+                                sitekey='6LcVRPopAAAAAA1iFWPCua1HJh9YZSEwX-8w3p3w'
+                                onChange={(val) => setIsRecaptchaVerified(!!val)}
+                                style={{
+                                    marginTop: '20px',
+                                    transform: 'scale(0.79)',
+                                    WebkitTransform: 'scale(0.79)',
+                                    transformOrigin: '0 0',
+                                    WebkitTransformOrigin: '0 0',
+                                }}
+                            />
                             <div className={`${styles.condition} ${styles.text}`}>
                                 <p>{t("pages.contacts_page.privacy")} <a className={styles.link} href="/privacy_policy" target="_blank">{t("pages.contacts_page.policy")}</a>.</p>
                             </div>
