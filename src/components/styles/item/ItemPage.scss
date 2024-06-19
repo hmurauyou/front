@@ -1,14 +1,3 @@
-// .card-body > *:nth-child(-n+4),
-// .card-body > *:nth-child(n+7):nth-child(-n+8) {
-//     margin-bottom: 0;
-//     padding-bottom: 0;
-//     line-height: 1; 
-// }
-
-// .card-body > *:nth-child(-n+1) {
-//     margin-bottom: 20px;
-// }
-
 .card-body > div {
     margin-bottom: 0.8rem; 
     line-height: 1;
@@ -27,3 +16,18 @@
     user-drag: none;
     user-select: none;
 }
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: var(--light-grey-color);
+    border-radius: 10px;
+    height: 15%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: var(--light-grey-color);
+    border-radius: 10px;
+    height: 15%;
+}
+
+
+

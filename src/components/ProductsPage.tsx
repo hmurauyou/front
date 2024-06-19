@@ -170,7 +170,7 @@ export default function ProductsPage() {
 
     // const handleDownload = async () => {
     //     try {
-    //         const key = 'price_list/price_list.xlsx';
+    //         const key = 'price-list/price-list.xlsx';
     //         const url = await s3.getSignedUrlPromise('getObject', {
     //             Bucket: process.env.REACT_APP_BUCKET_NAME,
     //             Key: key,
@@ -275,7 +275,6 @@ export default function ProductsPage() {
                             <Problem />
                         ) : (
                             <div className={styles.flexContainer}>
-                                
                                 {location.pathname === '/products' && (
                                     filterData(productData, productName).length > 0 ? (
                                         filterData(productData, productName).map((item: any) => (

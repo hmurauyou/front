@@ -2,18 +2,12 @@ import './styles/Card/Card.scss'
 import styles from './styles/Card/Card.module.scss'
 // import AWS from 'aws-sdk';
 import { Link } from 'react-router-dom'
-import { memo, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { LuFilePlus2 } from "react-icons/lu";
 import { useCart } from '../providers/CartProvider';
 import { useTranslation } from 'react-i18next';
+import { Loader } from '../loader/Loader';
 
-
-// const s3 = new AWS.S3({
-//     accessKeyId: 'AKIA3H2FITPVTBIDJ54X',
-//     secretAccessKey: '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',
-//     region: 'eu-central-1', 
-// });
-  
 
 interface ProductData {
     id: string;
@@ -66,52 +60,31 @@ export const Card = memo(({productData, lastFetchTime}: CardProps) => {
 
     //     // No need to recalculate on subsequent renders
     // }, [lastFetchTime]);
-    // const [windowWidth, setWindowWidth] = useState(window.innerWidth); 
     
-    // const translatedName = t(`pages.products_page.products_info.${productData.id}.name`);
-    // const translatedCountryRUS = t(`pages.products_page.products_info.${productData.id}.country_id`);
 
     // useEffect(() => {
     //     const fetchImageUrls = async () => {
-    //         if (windowWidth >= 991) { 
-    //             let cachedUrls = localStorage.getItem(`imageUrls_${id}`);
-    //             if (cachedUrls) {
-    //                 setImageUrls(JSON.parse(cachedUrls));
-    //                 setIsLoading(false);
-    //             } else {
-    //                 try {
-    //                     const objectsList = await s3.listObjectsV2({
-    //                         Bucket: 'tradeocean',
-    //                         Prefix: `photos/${id}/preview`,
-    //                     }).promise();
-
-    //                     const urls = objectsList.Contents?.map(obj => {
-    //                         return s3.getSignedUrl('getObject', {
-    //                             Bucket: 'tradeocean',
-    //                             Key: obj.Key || '',
-    //                             Expires: 604800,
-    //                         });
-    //                     }) || [];
-
-    //                     setImageUrls(urls);
-    //                     localStorage.setItem(`imageUrls_${id}`, JSON.stringify(urls));
-    //                     setIsLoading(false);
-    //                 } catch (error) {
-    //                     console.error('Error fetching image URLs:', error);
-    //                     setIsLoading(false);
-    //                 }
+    //         try {
+    //             const response = await fetch(`http://172.20.10.6:30001/photo/${id}`);
+    //             if (!response.ok) {
+    //                 throw new Error('Network response was not ok.');
     //             }
-    //         } else {
-    //             setIsLoading(false);
+    //             const data = await response.json();
+    //             setImageUrls(data?.url); // Предполагается, что сервер возвращает массив URLs
+    //             setIsLoading(false); // После получения URLs устанавливаем isLoading в false
+    //         } catch (error) {
+    //             console.error('Error fetching image URLs:', error);
     //         }
     //     };
-
-        // fetchImageUrls();
-
+        
+    //     fetchImageUrls();
+    
     //     return () => {
-    //         setImageUrls([]);
+    //         setImageUrls("");
     //     };
-    // }, [id, windowWidth]);
+    // }, [id]);
+    
+    
 
     return (
             <div className="card">

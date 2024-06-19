@@ -11,6 +11,7 @@ import { CartProvider } from './components/providers/CartProvider';
 import './components/styles/index.css';
 import global_en from './translations/en/global.json'
 import global_rus from './translations/rus/global.json'
+import React from 'react';
 
 
 i18next.init({
@@ -32,7 +33,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
     <I18nextProvider i18n={i18next}>
         <CartProvider>
@@ -40,5 +41,5 @@ root.render(
         </CartProvider>
     </I18nextProvider>
     </BrowserRouter>
-  // </React.StrictMode>
+  </React.StrictMode>
 );
