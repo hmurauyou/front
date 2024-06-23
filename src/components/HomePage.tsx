@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 
-import Footer from './Footer';
 import { Reveal } from './shared/Reveal';
 
 import image from '../images/background/home.jpg';
@@ -22,7 +21,7 @@ function HomePage() {
   return (
     <section className={styles.home_page}>
       <div className={styles.content}>
-        <img src={image} className={styles.bg_image} />
+        <img src={image} className={styles.bg_image} alt='.' />
         <Reveal>
           <div className={styles.text_container}>
             <h1>{t("pages.home_page.company")}</h1>
@@ -62,7 +61,6 @@ function HomePage() {
           </button>
         </div>
       </div>
-      <Footer />
     </section>
   );
 }

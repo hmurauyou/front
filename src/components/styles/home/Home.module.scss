@@ -25,6 +25,7 @@
     object-fit: cover;
     z-index: -1;
     filter: brightness(0.5);
+    transform: translate3d(0, 0, 0);
 }
 
 .text_container {
@@ -58,7 +59,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
+    padding-bottom: 80px;
     align-items: center;
 }
   
