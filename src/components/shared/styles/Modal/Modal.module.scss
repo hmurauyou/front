@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between; 
     align-items: flex-start; 
+    gap: 1rem;
 
     @media (max-width: 1200px) {
         flex-direction: column;
@@ -36,10 +37,6 @@
         height: auto;
         width: 100%;
     }
-}
-
-.separator {
-    margin: 0 20px;
 }
 
 .content_table {
@@ -104,6 +101,12 @@
     color: var(--dark-color);
 }
 
+.section_two .order_heading {
+    @media (max-width: 768px) {
+        margin-top: 50px;
+    }
+}
+
 
 @media (max-width: 768px) {
     .modal_body {
@@ -117,12 +120,12 @@
 
 
 /* Form */
-
 .form_wrapper {
     max-width: 32rem;
     transform: none;
 
     @media (max-width: 768px) {
+        margin-top: -30px;
         width: 100%;
     }
 }

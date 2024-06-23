@@ -94,12 +94,12 @@ export default function Cart() {
                     ) : (
                         <div className={styles.card_container}>
                             {cartItems.map((item, index) => (
-                                <div className={styles.cart_card} key={index}>
+                                <div className={`${styles.cart_card} col-6 col-md-4`} key={index}>
                                     <div className="row g-0">
-                                        <div className="col-md-4 d-flex align-items-center">
+                                        <div className="col-4 d-flex align-items-center">
                                             <img src={item.preview_url} className="img-fluid rounded-start" alt="img" />
                                         </div>
-                                        <div className="col-md-8">
+                                        <div className="col-8 no-wrap">
                                             <div className={`card-body ${styles.card_body}`}>
                                                 <div className={styles.close_section}>
                                                     <h6 className="card-title">{t(`pages.products_page.products_info.${item.id}.name`)}</h6>

@@ -173,7 +173,7 @@ export default function ContactsPage() {
                     <div className={styles.left}>
                         <div className={styles.form_wrapper}>
                             <div className={styles.contact_heading}>
-                                <h1>{t("pages.contacts_page.header")}<span>.</span></h1>
+                                <h2>{t("pages.contacts_page.header")}<span>.</span></h2>
                                 <p className={styles.text}>{t("pages.contacts_page.sub_header")} <span> </span>
                                     <a className={styles.link} href="mailto:">kamchatka.business@yandex.ru</a>
                                 </p>

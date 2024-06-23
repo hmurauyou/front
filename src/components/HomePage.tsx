@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Footer from './Footer';
 import { Reveal } from './shared/Reveal';
 
-import video from '../images/video/Kamchatka.mp4';
+import image from '../images/background/home.jpg';
 import caviar from '../images/caviar/photo.png';
 import caviar_1 from '../images/caviar/photo_1.png';
 import caviar_2 from '../images/caviar/photo_2.png';
@@ -22,7 +22,7 @@ function HomePage() {
   return (
     <section className={styles.home_page}>
       <div className={styles.content}>
-        <video src={video} className={styles.bg_video} muted autoPlay loop />
+        <img src={image} className={styles.bg_image} />
         <Reveal>
           <div className={styles.text_container}>
             <h1>{t("pages.home_page.company")}</h1>

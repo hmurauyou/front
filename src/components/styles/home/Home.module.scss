@@ -16,7 +16,7 @@
     justify-content: center;
 }
 
-.bg_video {
+.bg_image {
     position: absolute;
     top: 0;
     left: 0;
@@ -24,7 +24,7 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    filter: brightness(0.9);
+    filter: brightness(0.5);
 }
 
 .text_container {

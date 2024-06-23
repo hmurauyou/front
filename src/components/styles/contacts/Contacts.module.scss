@@ -21,7 +21,7 @@
     width: 100%;
     max-width: 80rem;
     margin: 0 auto;
-    padding: 65px 1.5rem 0;
+    padding: 105px 1.5rem 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
@@ -29,16 +29,16 @@
     z-index: 3;
 }
 
-.contact_heading h1 {
+.contact_heading h2 {
     font-weight: 600;
     color: var(--text-color-contacts);
-    font-size: 3.5rem;
+    font-size: 3rem;
     line-height: 0.9;
     white-space: nowrap;
     margin-bottom: 1.2rem;
 }
 
-.contact_heading h1 span {
+.contact_heading h2 span {
     color: var(--main-color-contacts);
 }
 
@@ -272,7 +272,7 @@ textarea.contact_input ~ label {
 }
 
 @media (max-width: 1024px) {
-    .contact_heading h1 {
+    .contact_heading h2 {
         font-size: 2.5rem;
         margin-bottom: 1rem;
         white-space: normal;
@@ -376,7 +376,7 @@ textarea.contact_input ~ label {
         row-gap: 0.5rem;
     }
 
-    .contact_heading h1 {
+    .contact_heading h2 {
         font-size: 1.9rem;
         line-height: 1;
     }

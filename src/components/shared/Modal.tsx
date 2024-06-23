@@ -247,7 +247,6 @@ const SharedModal: React.FC<ModalProps> = ({ id, title, cartItems, quantities, t
                             <p>{t("components.cart.warning")}</p>
                         </div>
                     </div> 
-                    <div className={styles.separator}></div>
                     <div className={styles.section_two}>
                         <div className={styles.order_heading}>
                             <h3>{t("components.cart.form")}<span>.</span></h3>
