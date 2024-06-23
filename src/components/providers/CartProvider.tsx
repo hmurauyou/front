@@ -8,6 +8,7 @@ interface Product {
     quantity: number;
     price_byn: number;
     net_weight: string;
+    preview_url: string;
 }
 
 interface CartContextType {

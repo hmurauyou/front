@@ -16,8 +16,8 @@ interface CartItem {
     quantity: number;
     price_byn: number;
     net_weight: string;
+    preview_url: string;
 }
-
 
 
 export default function Cart() {
@@ -96,8 +96,8 @@ export default function Cart() {
                             {cartItems.map((item, index) => (
                                 <div className={styles.cart_card} key={index}>
                                     <div className="row g-0">
-                                        <div className="col-md-4">
-                                            <img  className="img-fluid rounded-start" alt="img" />
+                                        <div className="col-md-4 d-flex align-items-center">
+                                            <img src={item.preview_url} className="img-fluid rounded-start" alt="img" />
                                         </div>
                                         <div className="col-md-8">
                                             <div className={`card-body ${styles.card_body}`}>

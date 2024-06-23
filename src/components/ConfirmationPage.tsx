@@ -25,7 +25,8 @@ const ConfirmationPage = () => {
         const fetchData = async () => {
             try {
                 const response = await fetch(`http://172.20.10.6:30001/contacts/confirmation?email_id=${emailId}&secret_code=${secretCode}`);
-                if (!response.ok) {
+                console.log(response)
+                if (response.status === 400) {
                     navigate("/not_found")
                     throw new Error('Contact has been already verified...');
                 }
@@ -44,7 +45,7 @@ const ConfirmationPage = () => {
             <div className={styles.container}>
                 <div className={styles.left}>
                     <div className={styles.confirmation_heading}>
-                        <h1>{t("verify.message")}<span>.</span></h1>
+                        <h1>{t("pages.confirmation_page.message")}<span>.</span></h1>
                     </div>
                 </div>
                 <div className={styles.right}>

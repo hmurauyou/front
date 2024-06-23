@@ -118,7 +118,8 @@ export default function ProductsPage() {
                 setData(JSON.parse(storedData));
                 setLoading(false);
             } else {
-                const response = await fetch(`http://127.0.0.1:1234/items/${endpoint}`);
+                const response = await fetch(`http://172.20.10.6:30001/items/${endpoint}`);
+                console.log(response)
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -226,6 +227,15 @@ export default function ProductsPage() {
                 throw new Error(`Download failed with status ${response.status}`);
             }
         } catch (error) {
+            setTimeout(() => {
+                swal({
+                    title: t("messages.error"),
+                    text: t("messages.error_msg"),
+                    icon: "error",
+                    buttons: [""],
+                    timer: 4000
+                });
+            }, 1000)
             console.error('Download error:', error);
         }
     };

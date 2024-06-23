@@ -37,7 +37,7 @@ function HomePage() {
           <p className={styles.image_text}>
             {t("pages.home_page.caviar.caviar_1.description")}
           </p>
-          <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => handleButtonClick("/products/seafood/ba562a79-175c-4dff-9027-703cc09024cb")}>
+          <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => handleButtonClick("/products/seafood/48aab4ee-941e-4018-bab6-7f7401f4798c")}>
               {t("buttons.detailed")}
           </button>
         </div>
@@ -47,7 +47,7 @@ function HomePage() {
           <p className={styles.image_text}>
             {t("pages.home_page.caviar.caviar_2.description")}
           </p>
-          <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => handleButtonClick("/products/seafood/f599bfba-f1c9-4d61-9bfc-4de9253a1515")}>
+          <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => handleButtonClick("/products/seafood/336c8983-bfa7-46c5-8e90-29e42d16233b")}>
               {t("buttons.detailed")}
           </button>
         </div>
@@ -57,7 +57,7 @@ function HomePage() {
           <p className={styles.image_text}>
             {t("pages.home_page.caviar.caviar_3.description")}
           </p>
-          <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => handleButtonClick("/products/seafood/b6d694b5-f602-4d5f-a93f-a5e5c3b64148")}>
+          <button className={`btn btn-primary btn_inside ${styles.btn_width}`} type="button" onClick={() => handleButtonClick("/products/seafood/9c4a0810-b2b2-4fc1-97fd-b9c8f03fa08a")}>
               {t("buttons.detailed")}
           </button>
         </div>

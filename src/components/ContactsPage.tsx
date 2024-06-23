@@ -147,8 +147,8 @@ export default function ContactsPage() {
                 }, 3000);
             } else if (response.status === 400 || 409) {
                 swal({
-                    title: t("pages.contacts_page.error"),
-                    text: t("pages.contacts_page.error_message.text_one"),
+                    title: t("pages.contacts_page.errors.error"),
+                    text: t("pages.contacts_page.errors.error_message.text_one"),
                     icon: "error",
                     buttons: [""],
                     timer: 3000
