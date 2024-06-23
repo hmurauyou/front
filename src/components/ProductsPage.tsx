@@ -7,6 +7,7 @@ import { Loader } from "./loader/Loader";
 import { Empty } from "./Empty";
 import { Problem } from "./Problem";
 
+import swal from 'sweetalert';
 import { IoSearch } from "react-icons/io5";
 import { IoIosArrowUp } from "react-icons/io"
 import { IoIosArrowBack } from "react-icons/io";
@@ -41,6 +42,26 @@ export default function ProductsPage() {
             setIsSubmenuOpen(false);
         }
     }, [isSidebarOpen, setIsSidebarOpen, setIsSubmenuOpen]);
+
+    useEffect(() => {
+        const savedProductData = sessionStorage.getItem('productData');
+        if (savedProductData) {
+            setProductData(JSON.parse(savedProductData));
+        }
+
+        const savedSeafoodData = sessionStorage.getItem('seafoodData');
+        if (savedSeafoodData) {
+            setSeafoodData(JSON.parse(savedSeafoodData));
+        }
+    }, []);
+
+    useEffect(() => {
+        sessionStorage.setItem('productData', JSON.stringify(productData));
+    }, [productData]);
+
+    useEffect(() => {
+        sessionStorage.setItem('seafoodData', JSON.stringify(seafoodData));
+    }, [seafoodData]);
 
     const toggleSubmenu = useCallback(() => {
         if (!isSidebarOpen) {
@@ -92,19 +113,29 @@ export default function ProductsPage() {
 
     const dataFetch = async function(endpoint: any, setData:any) {
         try {
-            const response = await fetch(`http://172.20.10.6:30001/items/${endpoint}`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+            const storedData = sessionStorage.getItem(endpoint);
+            if (storedData) {
+                setData(JSON.parse(storedData));
+                setLoading(false);
+            } else {
+                const response = await fetch(`http://127.0.0.1:1234/items/${endpoint}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+    
+                const data = await response.json();
+                setData(data);
+                setLoading(false);
+    
+                sessionStorage.setItem(endpoint, JSON.stringify(data));
             }
-            const data = await response.json();
-            setData(data);
-            setLoading(false);
         } catch (error) {
             console.error(`Error fetching ${endpoint} data:`, error)
-            setError(true)
+            setError(true);
             setLoading(false);
         }
     };
+    
 
     useEffect(() => {
         const currentTime = Date.now();
@@ -168,25 +199,37 @@ export default function ProductsPage() {
         };
     }, []);
 
-    // const handleDownload = async () => {
-    //     try {
-    //         const key = 'price-list/price-list.xlsx';
-    //         const url = await s3.getSignedUrlPromise('getObject', {
-    //             Bucket: process.env.REACT_APP_BUCKET_NAME,
-    //             Key: key,
-    //             Expires: 604800, 
-    //         });
-
-    //         const link = document.createElement('a');
-    //         link.href = url;
-    //         link.setAttribute('download', 'price_list.xlsx');
-    //         document.body.appendChild(link);
-    //         link.click();
-    //         document.body.removeChild(link); 
-    //     } catch (error) {
-    //         console.error('Download error:', error);
-    //     }
-    // };
+    const handleDownload = async () => {
+        try {
+            const response = await fetch('http://172.20.10.6:30001/price-list/download');
+            if (response.ok) {
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'price-list.xlsx');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+    
+                setTimeout(() => {
+                    swal({
+                        title: t("messages.success"),
+                        text: t("messages.success_msg"),
+                        icon: "success",
+                        buttons: [""],
+                        timer: 4000
+                    });
+                }, 1000)
+            } else {
+                throw new Error(`Download failed with status ${response.status}`);
+            }
+        } catch (error) {
+            console.error('Download error:', error);
+        }
+    };
+    
 
     const sidebarContent = useMemo(() => (
         <aside className={isSidebarOpen ? styles.sidebar : `${styles.sidebar} ${styles.active}`}>
@@ -238,7 +281,7 @@ export default function ProductsPage() {
                     <p className={styles.title}>{t("pages.products_page.prices")}</p>
                     <ul className={styles.list}>
                         <li>
-                            <Link className={styles.link} /*onClick={handleDownload}*/ to="#">
+                            <Link className={styles.link} onClick={handleDownload} to="#">
                                 <HiDocumentDownload  className={styles.icon} />
                                 <span className={styles.text}>{t("pages.products_page.pricelist")}</span>
                             </Link>
